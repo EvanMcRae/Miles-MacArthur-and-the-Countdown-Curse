@@ -1,0 +1,46 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SwitchMusicTrigger : MonoBehaviour
+{
+    public MusicClip newTrack;
+    private MusicClip oldTrack;
+    [SerializeField] private bool setsOld = false;
+    [SerializeField] private bool sameArea = true;
+    [SerializeField] private float duration = 1;
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && other.GetComponent<CapsuleCollider2D>() != null)
+        {
+            oldTrack = AudioManager.instance.currentSong;
+            if (newTrack != null)
+            {
+                AudioManager.instance.ChangeBGM(newTrack, sameArea ? AudioManager.instance.currentArea : newTrack.area, duration);
+            }
+            else
+            {
+                AudioManager.instance.FadeOutCurrent(duration);
+            }
+        }
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (setsOld && other.CompareTag("Player") && other.GetComponent<CapsuleCollider2D>() != null)
+        {
+            if (newTrack != null)
+            {
+                if (oldTrack != null)
+                {
+                    AudioManager.instance.ChangeBGM(oldTrack, AudioManager.instance.currentArea);
+                }
+            }
+            else
+            {
+                AudioManager.instance.FadeInCurrent(duration);
+            }
+        }
+    }
+}
