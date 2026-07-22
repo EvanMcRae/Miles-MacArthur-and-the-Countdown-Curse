@@ -29,7 +29,6 @@ public class AudioManager : MonoBehaviour
     public SoundCategory soundDatabase;
     public MusicCategory musicDatabase;
 
-    private int currentTime = 0;
     private int beatLength, lastTime, absoluteTime, currentBeat;
     public static Action<int> OnBeat;
 
@@ -136,7 +135,6 @@ public class AudioManager : MonoBehaviour
             {
                 activePlayer = 1 - activePlayer;
                 lastTime = 0;
-                currentTime = 0;
                 if (currentSong != null)
                     BGM1[activePlayer].clip = currentSong.GetClip();
                 BGM1[activePlayer].time = preEntryPointSeconds;
@@ -149,7 +147,6 @@ public class AudioManager : MonoBehaviour
             {
                 activePlayer = 1 - activePlayer;
                 lastTime = 0;
-                currentTime = 0;
                 if (currentSong != null)
                     BGM2[activePlayer].clip = currentSong.GetClip();
                 BGM2[activePlayer].time = preEntryPointSeconds;
@@ -394,13 +391,13 @@ public class AudioManager : MonoBehaviour
         Utils.KillTween(ref outFader[1]);
         if (firstSet)
         {
-            outFader[0] = BGM1[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[0] = null);
-            outFader[1] = BGM1[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[1] = null);
+            outFader[0] = BGM1[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[0] = null; currentSong = null; });
+            outFader[1] = BGM1[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[1] = null; currentSong = null; });
         }
         else
         {
-            outFader[0] = BGM2[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[0] = null);
-            outFader[1] = BGM2[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[1] = null);
+            outFader[0] = BGM2[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[0] = null; currentSong = null; });
+            outFader[1] = BGM2[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[1] = null; currentSong = null; });
         }
     }
 

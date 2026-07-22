@@ -259,7 +259,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2255717793929456979}
   - component: {fileID: 3303908588170573106}
-  - component: {fileID: 1857075446767284052}
   m_Layer: 0
   m_Name: AudioManagerCheck
   m_TagString: Untagged
@@ -295,21 +294,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManagerCheck
   audioManager: {fileID: 1692982821856884710, guid: ce2c77f9fedb71a468e71addf093b0c9, type: 3}
---- !u!114 &1857075446767284052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3705450164698862664}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2625dd5de6172439ab6cc98292415b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchMusicOnLoad
-  newTrack: {fileID: 11400000, guid: 6c38581274d2b3c428b0e082fce1765f, type: 2}
-  newArea: 2
-  duration: 1
 --- !u!1 &3971865316329430543
 GameObject:
   m_ObjectHideFlags: 0

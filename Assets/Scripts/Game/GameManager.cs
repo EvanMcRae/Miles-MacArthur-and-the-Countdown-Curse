@@ -15,19 +15,22 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private Overlay _pauseMenu;
     [SerializeField] private PopupPanel _settingsPanel;
-    // [SerializeField] private AK.Wwise.Event _quit, _pause, _resume, _loseGame;
+    [SerializeField] private MusicClip _gameMusic;
     private bool quitting = false;
 
     void Start()
     {
         paused = false;
         instance = this;
-        ScreenTransition.instance.postTransitionIn += () =>
-        {
-            // do anything we want here
-        };
+        ScreenTransition.instance.postTransitionIn += PlayGameMusic;
         PopupPanel.panelsOpen = 0;
         PopupPanel.unpausablePanelsOpen = 0;
+    }
+
+    void PlayGameMusic()
+    {
+        AudioManager.instance.ChangeBGM(_gameMusic);
+        ScreenTransition.instance.postTransitionIn -= PlayGameMusic;
     }
 
     void Update()
@@ -60,9 +63,7 @@ public class GameManager : MonoBehaviour
     {
         if (quitting) return;
         quitting = true;
-        AudioManager.instance.UnPauseCurrent();
-        // TODO: probably fade out music here too tbh
-        // _quit.Post(WwiseGlobal.instance);
+        AudioManager.instance.Stop();
         ScreenTransition.instance.TransitionOut(() =>
         {
             Time.timeScale = 1;
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
         if (quitting) return;
         quitting = true;
-        // _quit.Post(WwiseGlobal.instance);
+        AudioManager.instance.Stop();
         ScreenTransition.instance.TransitionOut(() =>
         {
             Time.timeScale = 1;

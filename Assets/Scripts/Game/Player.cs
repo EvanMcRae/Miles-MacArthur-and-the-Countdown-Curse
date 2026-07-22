@@ -17,11 +17,13 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        AudioManager.OnBeat += (int beatNum) =>
-        {
-            Debug.Log("beat #" + beatNum);
-            GetComponentInChildren<SpriteRenderer>().color = beatNum % 2 == 0 ? Color.white : Color.yellow;
-        };
+        AudioManager.OnBeat += OnBeat;
+    }
+
+    void OnBeat(int beatNum)
+    {
+        Debug.Log("beat #" + beatNum);
+        GetComponentInChildren<SpriteRenderer>().color = beatNum % 2 == 0 ? Color.yellow : Color.white;
     }
 
     void Update()
@@ -82,5 +84,10 @@ public class Player : MonoBehaviour
     {
         if (PopupPanel.unpausablePanelsOpen > 0) return;
         GameManager.instance.PressPause();
+    }
+
+    void OnDestroy()
+    {
+        AudioManager.OnBeat -= OnBeat;
     }
 }
