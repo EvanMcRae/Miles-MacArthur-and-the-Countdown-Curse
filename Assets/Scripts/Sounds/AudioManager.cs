@@ -135,26 +135,26 @@ public class AudioManager : MonoBehaviour
             if (BGM1[activePlayer].clip != null && BGM1[activePlayer].time >= loopPointSeconds)
             {
                 activePlayer = 1 - activePlayer;
+                lastTime = 0;
+                currentTime = 0;
                 if (currentSong != null)
                     BGM1[activePlayer].clip = currentSong.GetClip();
                 BGM1[activePlayer].time = preEntryPointSeconds;
                 BGM1[activePlayer].Play();
             }
-            if (BGM1[activePlayer] != null && BGM1[activePlayer].isPlaying)
-                currentTime = BGM1[activePlayer].timeSamples;
         }
         else
         {
             if (BGM2[activePlayer].clip != null && BGM2[activePlayer].time >= loopPointSeconds)
             {
                 activePlayer = 1 - activePlayer;
+                lastTime = 0;
+                currentTime = 0;
                 if (currentSong != null)
                     BGM2[activePlayer].clip = currentSong.GetClip();
                 BGM2[activePlayer].time = preEntryPointSeconds;
                 BGM2[activePlayer].Play();
             }
-            if (BGM2[activePlayer] != null && BGM2[activePlayer].isPlaying)
-                currentTime = BGM2[activePlayer].timeSamples;
         }
 
         musicVolume = Mathf.Log10(PlayerPrefs.GetFloat("musicVolume") / 100f + 0.00001f) * 20;
