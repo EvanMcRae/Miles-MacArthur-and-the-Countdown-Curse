@@ -1,2 +1,2 @@
 # GMTK2026
-Theme: "Countdown"
+Theme: "Count Down"
