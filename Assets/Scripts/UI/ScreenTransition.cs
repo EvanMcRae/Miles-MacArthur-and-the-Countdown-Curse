@@ -1,0 +1,67 @@
+using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
+using System;
+using UnityEngine.EventSystems;
+
+public class ScreenTransition : MonoBehaviour
+{
+    private Image _image;
+    public static ScreenTransition instance;
+    [SerializeField] private float _duration = 1f;
+    [SerializeField] private float _delay = 0.5f;
+    public Action postTransitionIn;
+    public static bool active;
+
+    void Awake()
+    {
+        MenuButton.canMakeSound = false;
+        active = true;
+        _image = GetComponent<Image>();
+        _image.enabled = true;
+        instance = this;
+        Invoke(nameof(StartTransition), _delay);
+    }
+
+    public void TransitionOut(Action callback = null)
+    {
+        // CursorManager.SetCursorState(CursorManager.CursorState.LOADING);
+        active = true;
+        EventSystem.current.sendNavigationEvents = false;
+        _image.enabled = true;
+
+        // TODO: fancier animation
+        _image.DOFade(1, _duration).SetUpdate(true).OnComplete(() => {
+            callback?.Invoke();
+            active = false;
+        });
+    }
+
+    public void TransitionIn(Action callback = null)
+    {
+        // CursorManager.SetCursorState(CursorManager.CursorState.LOADING);
+        active = true;
+        if (callback != null)
+        {
+            postTransitionIn = callback;
+        }
+        _image.enabled = true;
+
+        // TODO: fancier animation
+        _image.DOFade(0, _duration).SetUpdate(true).OnComplete(() => {
+            postTransitionIn?.Invoke();
+            _image.enabled = false;
+            active = false;
+            EventSystem.current.sendNavigationEvents = true;
+            // CursorManager.SetCursorState(CursorManager.CursorState.NORMAL);
+        });
+    }
+
+    void StartTransition()
+    {
+        MenuButton.canMakeSound = true;
+        EventSystem.current.sendNavigationEvents = false;
+        TransitionIn();
+    }
+}
+
