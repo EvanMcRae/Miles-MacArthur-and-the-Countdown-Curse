@@ -15,6 +15,8 @@ public class Player : MonoBehaviour
     float lastMoveXTimer = MOVE_COOLDOWN;
     float lastMoveYTimer = MOVE_COOLDOWN;
 
+    public Camera cam;
+
     void Start()
     {
         
