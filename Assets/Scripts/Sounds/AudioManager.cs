@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -28,7 +29,8 @@ public class AudioManager : MonoBehaviour
     public SoundCategory soundDatabase;
     public MusicCategory musicDatabase;
 
-    private int currentTime = 0;
+    private int beatLength, lastTime, absoluteTime, currentBeat;
+    public static Action<int> OnBeat;
 
     private float lowPass = 22000.00f;
 
@@ -37,7 +39,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public enum GameArea
     {
-        CURRENT, MENU, LEVEL, TEMPLE_CALM, TEMPLE_TENSE, ERASER_BOSS, MINES
+        CURRENT, MENU, LEVEL
     }
 
     /// <summary>
@@ -132,26 +134,24 @@ public class AudioManager : MonoBehaviour
             if (BGM1[activePlayer].clip != null && BGM1[activePlayer].time >= loopPointSeconds)
             {
                 activePlayer = 1 - activePlayer;
+                lastTime = 0;
                 if (currentSong != null)
                     BGM1[activePlayer].clip = currentSong.GetClip();
                 BGM1[activePlayer].time = preEntryPointSeconds;
                 BGM1[activePlayer].Play();
             }
-            if (BGM1[activePlayer] != null && BGM1[activePlayer].isPlaying)
-                currentTime = BGM1[activePlayer].timeSamples;
         }
         else
         {
             if (BGM2[activePlayer].clip != null && BGM2[activePlayer].time >= loopPointSeconds)
             {
                 activePlayer = 1 - activePlayer;
+                lastTime = 0;
                 if (currentSong != null)
                     BGM2[activePlayer].clip = currentSong.GetClip();
                 BGM2[activePlayer].time = preEntryPointSeconds;
                 BGM2[activePlayer].Play();
             }
-            if (BGM2[activePlayer] != null && BGM2[activePlayer].isPlaying)
-                currentTime = BGM2[activePlayer].timeSamples;
         }
 
         musicVolume = Mathf.Log10(PlayerPrefs.GetFloat("musicVolume") / 100f + 0.00001f) * 20;
@@ -161,6 +161,27 @@ public class AudioManager : MonoBehaviour
 
         sfxMixer.SetFloat("Volume", sfxVolume + masterVolume);
         musicMixer.SetFloat("Volume", musicVolume + masterVolume);
+
+        // Beat tracking
+        AudioSource currentPlayer = firstSet ? BGM1[activePlayer] : BGM2[activePlayer];
+        if (currentSong != null && currentPlayer.clip != null)
+        {
+            int currentTime = currentPlayer.timeSamples;
+            int delta = currentTime - lastTime;
+            if (currentTime < lastTime)
+            {
+                delta += currentSong.GetClip().samples;
+                currentBeat = 0;
+            }
+            absoluteTime += delta;
+            lastTime = currentTime;
+            if (absoluteTime / beatLength != 0)
+            {
+                currentBeat++;
+                OnBeat?.Invoke(currentBeat);
+                absoluteTime -= beatLength;
+            }
+        }
     }
 
     public void ChangeBGM(string musicPath, float duration = 1f)
@@ -182,15 +203,6 @@ public class AudioManager : MonoBehaviour
                 break;
             case "LEVEL":
                 theArea = GameArea.LEVEL;
-                break;
-            case "TEMPLE_CALM":
-                theArea = GameArea.TEMPLE_CALM;
-                break;
-            case "TEMPLE_TENSE":
-                theArea = GameArea.TEMPLE_TENSE;
-                break;
-            case "ERASER_BOSS":
-                theArea = GameArea.ERASER_BOSS;
                 break;
             default:
                 Debug.LogWarning("Invalid area provided! Using current");
@@ -233,6 +245,15 @@ public class AudioManager : MonoBehaviour
         if (music == currentSong)
             return;
 
+        if (currentSong == null)
+        {
+            duration = 0f;
+            absoluteTime = 0;
+            lastTime = 0;
+            currentBeat = 0;
+        }
+        beatLength = (int)(60.0f / music.BPM * music.sampleRate * music.beatFrequency);
+
         // Kill all playing
         for (int i = 0; i < outFader.Length; i++)
         {
@@ -272,6 +293,9 @@ public class AudioManager : MonoBehaviour
             else
             {
                 BGM2[activePlayer].timeSamples = 0;
+                absoluteTime = 0;
+                lastTime = 0;
+                currentBeat = 0;
             }
 
             if (firstSongPlayed && duration > 0)
@@ -318,6 +342,9 @@ public class AudioManager : MonoBehaviour
             else
             {
                 BGM1[activePlayer].timeSamples = 0;
+                absoluteTime = 0;
+                lastTime = 0;
+                currentBeat = 0;
             }
             
             if (firstSongPlayed && duration > 0)
@@ -364,13 +391,13 @@ public class AudioManager : MonoBehaviour
         Utils.KillTween(ref outFader[1]);
         if (firstSet)
         {
-            outFader[0] = BGM1[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[0] = null);
-            outFader[1] = BGM1[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[1] = null);
+            outFader[0] = BGM1[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[0] = null; currentSong = null; });
+            outFader[1] = BGM1[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[1] = null; currentSong = null; });
         }
         else
         {
-            outFader[0] = BGM2[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[0] = null);
-            outFader[1] = BGM2[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => outFader[1] = null);
+            outFader[0] = BGM2[activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[0] = null; currentSong = null; });
+            outFader[1] = BGM2[1-activePlayer].DOFade(0, duration).SetUpdate(true).OnComplete(() => { outFader[1] = null; currentSong = null; });
         }
     }
 

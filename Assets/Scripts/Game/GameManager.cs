@@ -15,19 +15,22 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     [SerializeField] private Overlay _pauseMenu;
     [SerializeField] private PopupPanel _settingsPanel;
-    // [SerializeField] private AK.Wwise.Event _quit, _pause, _resume, _loseGame;
+    [SerializeField] private MusicClip _gameMusic;
     private bool quitting = false;
 
     void Start()
     {
         paused = false;
         instance = this;
-        ScreenTransition.instance.postTransitionIn += () =>
-        {
-            // do anything we want here
-        };
+        ScreenTransition.instance.postTransitionIn += PlayGameMusic;
         PopupPanel.panelsOpen = 0;
         PopupPanel.unpausablePanelsOpen = 0;
+    }
+
+    void PlayGameMusic()
+    {
+        AudioManager.instance.ChangeBGM(_gameMusic);
+        ScreenTransition.instance.postTransitionIn -= PlayGameMusic;
     }
 
     void Update()
@@ -60,7 +63,7 @@ public class GameManager : MonoBehaviour
     {
         if (quitting) return;
         quitting = true;
-        // _quit.Post(WwiseGlobal.instance);
+        AudioManager.instance.Stop();
         ScreenTransition.instance.TransitionOut(() =>
         {
             Time.timeScale = 1;
@@ -73,7 +76,7 @@ public class GameManager : MonoBehaviour
     {
         if (quitting) return;
         quitting = true;
-        // _quit.Post(WwiseGlobal.instance);
+        AudioManager.instance.Stop();
         ScreenTransition.instance.TransitionOut(() =>
         {
             Time.timeScale = 1;
@@ -85,20 +88,18 @@ public class GameManager : MonoBehaviour
     void Pause()
     {
         paused = true;
-        // _pause.Post(WwiseGlobal.instance);
-        // TODO: pause all audio besides music
         Time.timeScale = 0;
         _pauseMenu.enabled = true;
-        AudioManager.instance.PauseEffect(true);
+        AudioManager.instance.PauseCurrent();
+        // TODO: pause all sounds
     }
 
     void Unpause()
     {
         paused = false;
-        // _resume.Post(WwiseGlobal.instance);
-        // TODO: resume all audio besides music
         Time.timeScale = 1;
         _pauseMenu.enabled = false;
-        AudioManager.instance.PauseEffect(false);
+        AudioManager.instance.UnPauseCurrent();
+        // TODO: resume all sounds
     }
 }

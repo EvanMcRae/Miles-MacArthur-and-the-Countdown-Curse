@@ -9,7 +9,7 @@ using UnityEditor;
 public class MainMenuManager : MonoBehaviour
 {
     [SerializeField] private PopupPanel _settingsPanel, _creditsPanel;
-    // [SerializeField] private AK.Wwise.Event _startMusic, _fadeMusic;
+    [SerializeField] private MusicClip _menuMusic;
     [SerializeField] private Button _playButton, _creditsButton, _quitButton;
 
     void Start()
@@ -25,20 +25,19 @@ public class MainMenuManager : MonoBehaviour
 
     void PlayMenuMusic()
     {
-        // _startMusic.Post(WwiseGlobal.instance);
+        AudioManager.instance.ChangeBGM(_menuMusic);
         ScreenTransition.instance.postTransitionIn -= PlayMenuMusic;
     }
 
     public void PressPlay()
     {
         ScreenTransition.instance.TransitionOut(Play);
-        // _fadeMusic.Post(WwiseGlobal.instance);
+        AudioManager.instance.FadeOutCurrent();
     }
 
     void Play()
     {
         SceneManager.LoadScene("GameScene");
-        // _fadeMusic.Post(WwiseGlobal.instance);
     }
 
     public void PressSettings()
@@ -54,7 +53,7 @@ public class MainMenuManager : MonoBehaviour
     public void PressQuit()
     {
         ScreenTransition.instance.TransitionOut(() => Invoke(nameof(Quit), 1f));
-        // _fadeMusic.Post(WwiseGlobal.instance);
+        AudioManager.instance.FadeOutCurrent();
     }
 
     void Quit()
