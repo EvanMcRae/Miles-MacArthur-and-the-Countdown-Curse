@@ -18,6 +18,6 @@ MonoBehaviour:
   timeSignatureBottom: 4
   barsLength: 36
   preEntryBars: 0
-  sampleRate: 44100
+  sampleRate: 48000
   beatFrequency: 1
   area: 2
