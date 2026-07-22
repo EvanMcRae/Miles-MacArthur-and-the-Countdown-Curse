@@ -10,6 +10,11 @@ public class Player : MonoBehaviour
 
     Vector2Int lastMoveDirInput = default;
 
+    const float MOVE_COOLDOWN = .15f;
+
+    float lastMoveXTimer = MOVE_COOLDOWN;
+    float lastMoveYTimer = MOVE_COOLDOWN;
+
     void Start()
     {
         
@@ -35,24 +40,38 @@ public class Player : MonoBehaviour
             return;
         }
 
-        
 
-        //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
-        if (lastMoveDirInput.y != inputMoveDir.y
-            && ColliderTiles.GetTile((Vector3Int)(currPosition + Vector2Int.up * inputMoveDir.y)) == null)
+
+        if (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0)
         {
-            transform.position += new Vector3(0, inputMoveDir.y, 0);
-            currPosition += Vector2Int.up * inputMoveDir.y;
+            //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
+            if (ColliderTiles.GetTile((Vector3Int)(currPosition + Vector2Int.up * inputMoveDir.y)) == null)
+            {
+                transform.position += new Vector3(0, inputMoveDir.y, 0);
+                currPosition += Vector2Int.up * inputMoveDir.y;
+            }
+            lastMoveYTimer = MOVE_COOLDOWN;
+        }
+        else
+        {
+            lastMoveYTimer -= Time.deltaTime;
         }
 
-        //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
-        if (lastMoveDirInput.x != inputMoveDir.x
-            && ColliderTiles.GetTile((Vector3Int)(currPosition + Vector2Int.right * inputMoveDir.x)) == null)
+        if (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0)
         {
-            transform.position += new Vector3(inputMoveDir.x, 0, 0);
+            //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
+            if (ColliderTiles.GetTile((Vector3Int)(currPosition + Vector2Int.right * inputMoveDir.x)) == null)
+            {
+                transform.position += new Vector3(inputMoveDir.x, 0, 0);
+            }
+            lastMoveXTimer = MOVE_COOLDOWN;
+        }
+        else
+        {
+            lastMoveXTimer -= Time.deltaTime;
         }
 
-        lastMoveDirInput = inputMoveDir;
+            lastMoveDirInput = inputMoveDir;
     }
 
     void OnPause(InputValue _)
