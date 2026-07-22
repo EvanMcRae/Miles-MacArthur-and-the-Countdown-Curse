@@ -164,7 +164,7 @@ public class AudioManager : MonoBehaviour
 
         // Beat tracking
         AudioSource currentPlayer = firstSet ? BGM1[activePlayer] : BGM2[activePlayer];
-        if (currentSong != null && currentPlayer.clip != null)
+        if (currentSong != null && currentPlayer.clip != null && currentArea == GameArea.LEVEL)
         {
             int currentTime = currentPlayer.timeSamples;
             int delta = currentTime - lastTime;
@@ -175,11 +175,12 @@ public class AudioManager : MonoBehaviour
             }
             absoluteTime += delta;
             lastTime = currentTime;
-            if (absoluteTime / beatLength != 0)
+            if ((absoluteTime / beatLength != 0) || currentBeat == 0)
             {
+                if (currentBeat > 0)
+                    absoluteTime -= beatLength;
                 currentBeat++;
                 OnBeat?.Invoke(currentBeat);
-                absoluteTime -= beatLength;
             }
         }
     }

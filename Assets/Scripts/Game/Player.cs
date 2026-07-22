@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
 
     public Camera cam;
 
+    public LayerMask collidersLayer;
+
     void Start()
     {
         AudioManager.OnBeat += OnBeat;
@@ -53,7 +55,7 @@ public class Player : MonoBehaviour
         if (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0)
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
-            if (ColliderTiles.GetTile((Vector3Int)(currPosition + Vector2Int.up * inputMoveDir.y)) == null)
+            if (checkTile(currPosition + Vector2Int.up * inputMoveDir.y))
             {
                 transform.position += new Vector3(0, inputMoveDir.y, 0);
                 currPosition += Vector2Int.up * inputMoveDir.y;
@@ -68,7 +70,7 @@ public class Player : MonoBehaviour
         if (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0)
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
-            if (ColliderTiles.GetTile((Vector3Int)(currPosition + Vector2Int.right * inputMoveDir.x)) == null)
+            if (checkTile((currPosition + Vector2Int.right * inputMoveDir.x)))
             {
                 transform.position += new Vector3(inputMoveDir.x, 0, 0);
             }
@@ -81,6 +83,21 @@ public class Player : MonoBehaviour
 
             lastMoveDirInput = inputMoveDir;
     }
+
+    public bool checkTile(Vector2Int tile)
+    {
+        if (ColliderTiles.GetTile((Vector3Int)(tile)) != null)
+            return false;
+
+        if (Physics2D.Linecast(ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .25f, ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .75f, collidersLayer))
+        {
+            Debug.DrawLine(ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .25f, ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .75f, Color.red, 1);
+            return false;
+        }
+        else
+            return true;
+    }
+
 
     void OnPause(InputValue _)
     {
