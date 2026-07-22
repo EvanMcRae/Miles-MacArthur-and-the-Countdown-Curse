@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 487, y: 76}
+  m_AnchoredPosition: {x: 417, y: 40}
   m_SizeDelta: {x: 700, y: 115}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &9133030088281359131
@@ -100,7 +100,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -302.82324, y: 37.3462}
+  m_AnchoredPosition: {x: -360, y: 9}
   m_SizeDelta: {x: 605.6466, y: 192.3076}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7779157278289799278
@@ -186,13 +186,13 @@ PrefabInstance:
       value: VSync
       objectReference: {fileID: 0}
     - target: {fileID: 1073553046595176698, guid: f421fdbd19e234d9a8009119b3ab4bc0, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 1073553046595176698, guid: f421fdbd19e234d9a8009119b3ab4bc0, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 2278856285358314480, guid: f421fdbd19e234d9a8009119b3ab4bc0, type: 3}
       propertyPath: m_Name
       value: VSyncToggle
@@ -347,14 +347,6 @@ PrefabInstance:
       propertyPath: m_text
       value: Sound Volume
       objectReference: {fileID: 0}
-    - target: {fileID: 3041644237684668760, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 3041644237684668760, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 3098655349627648274, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -443,14 +435,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6803426771567907187, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6803426771567907187, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6983109066721692407, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
       propertyPath: m_Name
       value: SoundVolumeSlider
@@ -622,13 +606,13 @@ PrefabInstance:
       value: Fullscreen
       objectReference: {fileID: 0}
     - target: {fileID: 1073553046595176698, guid: f421fdbd19e234d9a8009119b3ab4bc0, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      propertyPath: m_fontSize
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 1073553046595176698, guid: f421fdbd19e234d9a8009119b3ab4bc0, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 2278856285358314480, guid: f421fdbd19e234d9a8009119b3ab4bc0, type: 3}
       propertyPath: m_Name
       value: FullscreenToggle
@@ -1198,13 +1182,9 @@ PrefabInstance:
       value: Music Volume
       objectReference: {fileID: 0}
     - target: {fileID: 3041644237684668760, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 3041644237684668760, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+      propertyPath: m_fontSizeBase
+      value: 48
+      objectReference: {fileID: 0}
     - target: {fileID: 3098655349627648274, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1293,14 +1273,6 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6803426771567907187, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-    - target: {fileID: 6803426771567907187, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
     - target: {fileID: 6983109066721692407, guid: de031ccf846a3ab4b8278e8e2b52ed10, type: 3}
       propertyPath: m_Name
       value: MusicVolumeSlider
