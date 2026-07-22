@@ -86,15 +86,19 @@ public class GameManager : MonoBehaviour
     {
         paused = true;
         // _pause.Post(WwiseGlobal.instance);
+        // TODO: pause all audio besides music
         Time.timeScale = 0;
         _pauseMenu.enabled = true;
+        AudioManager.instance.PauseEffect(true);
     }
 
     void Unpause()
     {
         paused = false;
         // _resume.Post(WwiseGlobal.instance);
+        // TODO: resume all audio besides music
         Time.timeScale = 1;
         _pauseMenu.enabled = false;
+        AudioManager.instance.PauseEffect(false);
     }
 }
