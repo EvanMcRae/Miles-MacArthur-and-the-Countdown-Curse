@@ -8,6 +8,8 @@ public class MusicClip : SoundPlayable
     public AudioClip clip;
     public float BPM;
     public int timeSignature, timeSignatureBottom = 4, barsLength, preEntryBars = 0;
+    public int sampleRate = 44100;
+    public int beatFrequency = 1;
     public AudioManager.GameArea area;
     public override AudioClip GetClip()
     {

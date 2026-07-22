@@ -17,7 +17,11 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        
+        AudioManager.OnBeat += (int beatNum) =>
+        {
+            Debug.Log("beat #" + beatNum);
+            GetComponentInChildren<SpriteRenderer>().color = beatNum % 2 == 0 ? Color.white : Color.yellow;
+        };
     }
 
     void Update()

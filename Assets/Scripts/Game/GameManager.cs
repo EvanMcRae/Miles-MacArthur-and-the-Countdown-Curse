@@ -60,6 +60,8 @@ public class GameManager : MonoBehaviour
     {
         if (quitting) return;
         quitting = true;
+        AudioManager.instance.UnPauseCurrent();
+        // TODO: probably fade out music here too tbh
         // _quit.Post(WwiseGlobal.instance);
         ScreenTransition.instance.TransitionOut(() =>
         {
@@ -85,20 +87,18 @@ public class GameManager : MonoBehaviour
     void Pause()
     {
         paused = true;
-        // _pause.Post(WwiseGlobal.instance);
-        // TODO: pause all audio besides music
         Time.timeScale = 0;
         _pauseMenu.enabled = true;
-        AudioManager.instance.PauseEffect(true);
+        AudioManager.instance.PauseCurrent();
+        // TODO: pause all sounds
     }
 
     void Unpause()
     {
         paused = false;
-        // _resume.Post(WwiseGlobal.instance);
-        // TODO: resume all audio besides music
         Time.timeScale = 1;
         _pauseMenu.enabled = false;
-        AudioManager.instance.PauseEffect(false);
+        AudioManager.instance.UnPauseCurrent();
+        // TODO: resume all sounds
     }
 }

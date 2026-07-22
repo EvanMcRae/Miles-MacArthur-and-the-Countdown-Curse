@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
@@ -29,6 +30,8 @@ public class AudioManager : MonoBehaviour
     public MusicCategory musicDatabase;
 
     private int currentTime = 0;
+    private int beatLength, lastTime, absoluteTime, currentBeat;
+    public static Action<int> OnBeat;
 
     private float lowPass = 22000.00f;
 
@@ -37,7 +40,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public enum GameArea
     {
-        CURRENT, MENU, LEVEL, TEMPLE_CALM, TEMPLE_TENSE, ERASER_BOSS, MINES
+        CURRENT, MENU, LEVEL
     }
 
     /// <summary>
@@ -161,6 +164,27 @@ public class AudioManager : MonoBehaviour
 
         sfxMixer.SetFloat("Volume", sfxVolume + masterVolume);
         musicMixer.SetFloat("Volume", musicVolume + masterVolume);
+
+        // Beat tracking
+        AudioSource currentPlayer = firstSet ? BGM1[activePlayer] : BGM2[activePlayer];
+        if (currentSong != null && currentPlayer.clip != null)
+        {
+            int currentTime = currentPlayer.timeSamples;
+            int delta = currentTime - lastTime;
+            if (currentTime < lastTime)
+            {
+                delta += currentSong.GetClip().samples;
+                currentBeat = 0;
+            }
+            absoluteTime += delta;
+            lastTime = currentTime;
+            if (absoluteTime / beatLength != 0)
+            {
+                currentBeat++;
+                OnBeat?.Invoke(currentBeat);
+                absoluteTime -= beatLength;
+            }
+        }
     }
 
     public void ChangeBGM(string musicPath, float duration = 1f)
@@ -182,15 +206,6 @@ public class AudioManager : MonoBehaviour
                 break;
             case "LEVEL":
                 theArea = GameArea.LEVEL;
-                break;
-            case "TEMPLE_CALM":
-                theArea = GameArea.TEMPLE_CALM;
-                break;
-            case "TEMPLE_TENSE":
-                theArea = GameArea.TEMPLE_TENSE;
-                break;
-            case "ERASER_BOSS":
-                theArea = GameArea.ERASER_BOSS;
                 break;
             default:
                 Debug.LogWarning("Invalid area provided! Using current");
@@ -233,6 +248,15 @@ public class AudioManager : MonoBehaviour
         if (music == currentSong)
             return;
 
+        if (currentSong == null)
+        {
+            duration = 0f;
+            absoluteTime = 0;
+            lastTime = 0;
+            currentBeat = 0;
+        }
+        beatLength = (int)(60.0f / music.BPM * music.sampleRate * music.beatFrequency);
+
         // Kill all playing
         for (int i = 0; i < outFader.Length; i++)
         {
@@ -272,6 +296,9 @@ public class AudioManager : MonoBehaviour
             else
             {
                 BGM2[activePlayer].timeSamples = 0;
+                absoluteTime = 0;
+                lastTime = 0;
+                currentBeat = 0;
             }
 
             if (firstSongPlayed && duration > 0)
@@ -318,6 +345,9 @@ public class AudioManager : MonoBehaviour
             else
             {
                 BGM1[activePlayer].timeSamples = 0;
+                absoluteTime = 0;
+                lastTime = 0;
+                currentBeat = 0;
             }
             
             if (firstSongPlayed && duration > 0)
