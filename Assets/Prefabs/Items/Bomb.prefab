@@ -105,8 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8c4655eb3f7f824c9468cb64e2d2f8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  BeatsToExplode: 8
-  BeatsToCleanExplosion: 4
+  BeatsToExplode: 3
+  BeatsToCleanExplosion: 2
   ExplosionHirtbox: {fileID: 7024091615045844349}
   shakeStrength: 0.2
 --- !u!1 &7024091615045844349

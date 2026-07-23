@@ -7,7 +7,7 @@ public class BombBag : Item
 
     GameObject ActiveBomb;
 
-    public override void Usefunction(Vector2 Point, Vector2 MoveDir) 
+    public override void Usefunction(Vector2 Point, int xDirection, int yDireciton) 
     {
         if(ActiveBomb == null)
         {

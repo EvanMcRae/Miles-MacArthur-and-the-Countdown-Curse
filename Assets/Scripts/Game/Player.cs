@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         {
             if (heldItem != null)
             {
-                heldItem.Usefunction(GetPointInFrontOfPlayer(), lastMoveDirInput);
+                heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection);
             }
         }
     }

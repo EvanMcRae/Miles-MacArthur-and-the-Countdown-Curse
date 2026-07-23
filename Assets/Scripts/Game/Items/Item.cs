@@ -30,5 +30,5 @@ public class Item : MonoBehaviour
     /// <summary>
     /// Activate the unique functionality of the item
     /// </summary>
-    public virtual void Usefunction(Vector2 Point, Vector2 MoveDir) { }
+    public virtual void Usefunction(Vector2 point, int xDirection, int yDirection) { }
 }
