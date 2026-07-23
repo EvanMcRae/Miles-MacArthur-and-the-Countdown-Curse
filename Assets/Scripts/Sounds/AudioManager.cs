@@ -259,7 +259,7 @@ public class AudioManager : MonoBehaviour
             lastTime = 0;
             currentBeat = 0;
         }
-        beatLength = (int)(60.0f / music.BPM * music.sampleRate * music.beatFrequency);
+        beatLength = (int)(60.0f / music.BPM * music.sampleRate * music.beatFrequency * music.timeSignature / music.timeSignatureBottom);
 
         // Kill all playing
         for (int i = 0; i < outFader.Length; i++)

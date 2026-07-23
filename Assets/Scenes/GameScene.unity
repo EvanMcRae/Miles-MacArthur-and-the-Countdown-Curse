@@ -5094,6 +5094,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6052760542675140086, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: _gameMusic
+      value: 
+      objectReference: {fileID: 11400000, guid: 16c0b2e03c4afa34a8fe3ebb0b782e72, type: 2}
     - target: {fileID: 6676808906091510279, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
