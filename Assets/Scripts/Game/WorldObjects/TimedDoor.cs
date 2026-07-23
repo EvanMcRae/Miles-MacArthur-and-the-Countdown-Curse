@@ -7,7 +7,11 @@ public class TimedDoor : MonoBehaviour
 
     public Collider2D cldr;
 
-    public int warningTime = 30;
+    ////Probably should be a different measure to not require using all 5 fill sprites?
+    //public int TimePerStage = 4;
+    DoorScheduleEntry lastEvent;
+
+    public Animator anim;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -21,18 +25,36 @@ public class TimedDoor : MonoBehaviour
         {
             if (schedule[i].beatNum == beatNum)
             {
+                lastEvent = schedule[i];
                 if (schedule[i].toState == DoorState.Open)
                     Open();
                 else
                     Close();
             }
-            //For animating the fill in, incremental visual changes should happen to show it is filling in soon
-            if (schedule[i].beatNum == beatNum + warningTime)
+            if(lastEvent == null)
+                anim.SetInteger("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum));
+            else
             {
-
+                //Divide space between events as evenly into 5 stages as possible.
+                if(findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum != 0)
+                    anim.SetInteger("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum) * 5 / (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum));
             }
             
         }
+    }
+
+    DoorScheduleEntry findNextScheduleEvent(int currBeatNum)
+    {
+        if (schedule.Count <= 0)
+            return null;
+        DoorScheduleEntry soonestEvent = schedule[0];
+        foreach (DoorScheduleEntry entry in schedule)
+        {
+            if ((entry.beatNum - currBeatNum >= 0 && entry.beatNum < soonestEvent.beatNum)
+                || (soonestEvent.beatNum - currBeatNum < 0))
+                soonestEvent = entry;
+        }
+        return soonestEvent;
     }
 
     public void Open()
