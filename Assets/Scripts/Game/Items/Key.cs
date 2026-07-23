@@ -1,5 +1,6 @@
-using UnityEngine;
 using System.Collections;
+using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Key : Item
 {
@@ -44,9 +45,12 @@ public class Key : Item
                     {
                         //Case where the player presses the "use" key in front of a floor keyhole instead of just putting it down
                         //(Allows for swaps in case theres a key already there).
-                        player.PutDownItem();
+                        if (!player.inputSettings.actions["PickUpItem"].WasPressedThisFrame())
+                        {
+                            player.PutDownItem();
+                        }
 
-                        //Fill hole (previous key is picked up by player).
+                        //Fill hole
                         hole.heldKey = gameObject.GetComponent<Key>();
                         keyholeItsInside = hole;
 
@@ -56,7 +60,6 @@ public class Key : Item
                             hole.activated = true;
                             if (hole.handleMatchImmediately) hole.HandleMatchingKey();
                         }
-                        
                     }
                 }
 

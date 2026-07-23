@@ -23,6 +23,7 @@ public class Keyhole : MonoBehaviour
         {
             canRemoveKey = false;
             heldKey.canBePickedUp = false;
+            print("Deactivated!");
         }
         else
         {

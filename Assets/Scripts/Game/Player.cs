@@ -164,22 +164,26 @@ public class Player : MonoBehaviour
             if (itemInFront != null && !itemInFront.canBePickedUp) return;
             else
             {
-                //If the item is a key, try to use it when its put down (in case it's put down on top of a floor lock).
-                if (heldItem.GetComponent<Key>() != null)
+                //If the item is a key, try to use it when its put down (in case it's put down on top of a floor lock)
+                //Do not do this if you used Interact or else it stackoverflows.
+                if (heldItem.GetComponent<Key>() != null && !inputSettings.actions["Interact"].WasPressedThisFrame())
                 {
                     heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection, gameObject.GetComponent<Player>());
                 }
 
                 //Put Down Item behavior.
-                heldItem.isBeingHeld = false;
-                heldItem.transform.SetParent(null);
-                heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
-                heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+                if (heldItem != null)
+                {
 
-                if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);
-                else heldItem = null;
+                    heldItem.isBeingHeld = false;
+                    heldItem.transform.SetParent(null);
+                    heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+
+                    if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);
+                    else heldItem = null;
+                }
             }
-            
         }
     }
 
