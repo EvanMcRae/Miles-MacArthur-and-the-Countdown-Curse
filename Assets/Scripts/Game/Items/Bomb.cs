@@ -19,6 +19,9 @@ public class Bomb : MonoBehaviour
     [SerializeField]
     GameObject ExplosionHirtbox;
 
+    [SerializeField]
+    float shakeStrength;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,6 +30,14 @@ public class Bomb : MonoBehaviour
         BeatsLeftUnilClean = BeatsToCleanExplosion;
 
         exploded = false;
+    }
+
+    private void Update()
+    {
+        if (exploded)
+        {
+            ShakeExplosion();
+        }
     }
 
     public void Onbeat(int beatNum) 
@@ -54,6 +65,11 @@ public class Bomb : MonoBehaviour
     {
         exploded = true;
         ExplosionHirtbox.SetActive(true);
+    }
+
+    private void ShakeExplosion()
+    {
+        ExplosionHirtbox.transform.position = transform.position + new Vector3((UnityEngine.Random.value - 0.5f) * shakeStrength, (UnityEngine.Random.value - 0.5f) * shakeStrength, 0);
     }
 
     private void OnDestroy()

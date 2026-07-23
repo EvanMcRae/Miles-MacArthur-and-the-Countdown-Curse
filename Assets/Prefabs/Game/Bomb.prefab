@@ -108,6 +108,7 @@ MonoBehaviour:
   BeatsToExplode: 8
   BeatsToCleanExplosion: 4
   ExplosionHirtbox: {fileID: 7024091615045844349}
+  shakeStrength: 0.2
 --- !u!1 &7024091615045844349
 GameObject:
   m_ObjectHideFlags: 0
