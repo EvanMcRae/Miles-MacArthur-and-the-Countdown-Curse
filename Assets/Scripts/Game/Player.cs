@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
     void OnBeat(int beatNum)
     {
-        Debug.Log("beat #" + beatNum);
+        //Debug.Log("beat #" + beatNum);
         GetComponentInChildren<SpriteRenderer>().color = beatNum % 2 == 0 ? Color.yellow : Color.white;
     }
 
@@ -63,13 +63,15 @@ public class Player : MonoBehaviour
         }
 
 
-
+        //Vertical movement.
         if (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0)
         {
-            //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
+            //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (checkOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
             {
                 transform.position += new Vector3(0, inputMoveDir.y, 0);
+                //xDirection = 0;
+                //yDirection = inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
             }
             lastMoveYTimer = MOVE_COOLDOWN;
@@ -79,12 +81,15 @@ public class Player : MonoBehaviour
             lastMoveYTimer -= Time.deltaTime;
         }
 
+        //Horizontal movement.
         if (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0)
         {
-            //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
+            //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (checkOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
             {
                 transform.position += new Vector3(inputMoveDir.x, 0, 0);
+                //yDirection = 0;
+                //xDirection =  inputMoveDir.x;
             }
             lastMoveXTimer = MOVE_COOLDOWN;
         }
@@ -94,6 +99,7 @@ public class Player : MonoBehaviour
         }
 
             lastMoveDirInput = inputMoveDir;
+        print("(" + xDirection + ", " + yDirection + ")");
     }
 
     //Checks if you can collide into a tile or not.
