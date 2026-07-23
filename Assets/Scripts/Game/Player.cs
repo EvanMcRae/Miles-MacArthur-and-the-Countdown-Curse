@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     int xDirection = 1;
     int yDirection = 0;
 
-    public GameObject heldItem;
+    public Item heldItem;
 
     public Animator anim;
 
@@ -73,8 +73,8 @@ public class Player : MonoBehaviour
             if (checkOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
             {
                 transform.position += new Vector3(0, inputMoveDir.y, 0);
-                //xDirection = 0;
-                //yDirection = inputMoveDir.y;
+                xDirection = 0;
+                yDirection = inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
                 anim.Play("PlayerMove", 0, 0);
             }
@@ -91,8 +91,8 @@ public class Player : MonoBehaviour
             if (checkOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
             {
                 transform.position += new Vector3(inputMoveDir.x, 0, 0);
-                //yDirection = 0;
-                //xDirection =  inputMoveDir.x;
+                yDirection = 0;
+                xDirection =  inputMoveDir.x;
                 anim.Play("PlayerMove", 0, 0);
             }
             lastMoveXTimer = MOVE_COOLDOWN;
@@ -134,8 +134,8 @@ public class Player : MonoBehaviour
         {
             if(col.gameObject.GetComponent<Item>() != null)
             {
-                col.gameObject.GetComponent<Item>().PickUp(gameObject);
-                heldItem = col.gameObject;
+                heldItem = col.GetComponent<Item>();
+                heldItem.PickUp(gameObject);
                 break;
             }
         }
