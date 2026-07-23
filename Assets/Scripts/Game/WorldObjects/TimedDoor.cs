@@ -31,13 +31,17 @@ public class TimedDoor : MonoBehaviour
                 else
                     Close();
             }
-            if(lastEvent == null)
-                anim.SetInteger("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum));
+            if (lastEvent == null)
+            {
+                anim.SetFloat("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum) / 5.0f);
+            }
             else
             {
                 //Divide space between events as evenly into 5 stages as possible.
-                if(findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum != 0)
-                    anim.SetInteger("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum) * 5 / (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum));
+                if (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum != 0)
+                {
+                    anim.SetFloat("Stage", (float)(findNextScheduleEvent(beatNum).beatNum - beatNum) / (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum));
+                }
             }
             
         }
