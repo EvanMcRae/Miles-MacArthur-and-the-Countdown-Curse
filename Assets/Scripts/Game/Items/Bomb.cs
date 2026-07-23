@@ -2,13 +2,13 @@ using UnityEngine;
 
 public class Bomb : MonoBehaviour
 {
-    //how many beats it takes total until the bomb explodes
+    [Tooltip("How many beats it takes total until the bomb explodes")]
     [SerializeField]
     private int BeatsToExplode;
     //how many beats left unil this bomb explodes
     private int BeatsLeftUnilExplosion;
 
-    //how many beats it takes for the bomb to disapear after it explodes
+    [Tooltip("How many beats it takes for the bomb to disapear after it explodes")]
     [SerializeField]
     private int BeatsToCleanExplosion;
     //how many beats left unil this bomb disapears
@@ -19,6 +19,7 @@ public class Bomb : MonoBehaviour
     [SerializeField]
     GameObject ExplosionHirtbox;
 
+    [Tooltip("The strength at which the bomb's explosion shakes")]
     [SerializeField]
     float shakeStrength;
 
