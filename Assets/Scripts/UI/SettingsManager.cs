@@ -1,14 +1,16 @@
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour
 {
     [SerializeField] private Slider musicVolumeSlider, soundVolumeSlider, masterVolumeSlider;
-    [SerializeField] private Toggle fullscreenToggle, vsyncToggle;
+    [SerializeField] private Toggle fullscreenToggle, vsyncToggle, shadersToggle;
     [SerializeField] private GameObject fullscreenLabel;
     [SerializeField] private Button closeButton;
+    [SerializeField] private Renderer2DData renderer2D;
 
     public void Start()
     {
@@ -50,12 +52,17 @@ public class SettingsManager : MonoBehaviour
 
             // Update navigation for other things
             Utils.SetNavigation(vsyncToggle, closeButton, Utils.Direction.DOWN);
-            Utils.SetNavigation(soundVolumeSlider, soundVolumeSlider, Utils.Direction.LEFT);
-            Utils.SetNavigation(soundVolumeSlider, soundVolumeSlider, Utils.Direction.RIGHT);
+            Utils.SetNavigation(musicVolumeSlider, musicVolumeSlider, Utils.Direction.LEFT);
+            Utils.SetNavigation(musicVolumeSlider, musicVolumeSlider, Utils.Direction.RIGHT);
+
+            closeButton.GetComponent<NavigationAlternator>().rightNav.selectOnUp = vsyncToggle;
         }
 
         vsyncToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("vsync") == 1);
         SetVSync();
+
+        shadersToggle.SetIsOnWithoutNotify(PlayerPrefs.GetInt("shaders") == 1);
+        SetShaders();
     }
 
     public void Update()
@@ -103,5 +110,16 @@ public class SettingsManager : MonoBehaviour
     {
         QualitySettings.vSyncCount = vsyncToggle.isOn ? 1 : 0;
         PlayerPrefs.SetInt("vsync", vsyncToggle.isOn ? 1 : 0);
+    }
+
+    public void SetShaders()
+    {
+        PlayerPrefs.SetInt("shaders", shadersToggle.isOn ? 1 : 0);
+        Camera.main.TryGetComponent(out UniversalAdditionalCameraData cameraData);
+        if (cameraData)
+        {
+            cameraData.renderPostProcessing = shadersToggle.isOn;
+        }
+        renderer2D.rendererFeatures[0].SetActive(shadersToggle.isOn);
     }
 }
