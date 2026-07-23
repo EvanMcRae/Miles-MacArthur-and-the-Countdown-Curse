@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
         {
             if (heldItem != null)
             {
-                heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection);
+                heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection, gameObject.GetComponent<Player>());
             }
         }
     }
@@ -140,6 +140,12 @@ public class Player : MonoBehaviour
 
         if (heldItem != null)
         {
+            if(heldItem.GetComponent<Key>() != null)
+            {
+                if (heldItem.GetComponent<Key>().canBePickedUp) heldItem.GetComponent<Key>().RemoveFromKeyhole();
+                else return;
+            }
+
             heldItem.isBeingHeld = true;
             heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
             heldItem.transform.SetParent(transform, false);
@@ -155,13 +161,24 @@ public class Player : MonoBehaviour
         if (CheckOpenTile(frontTile))
         {
             Item itemInFront = GetItemInFrontOfPlayer();
-            heldItem.isBeingHeld = false;
-            heldItem.transform.SetParent(null);
-            heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
-            heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
-            
-            if (itemInFront != null) PickUpItem(itemInFront);
-            else heldItem = null;
+            if (itemInFront != null && !itemInFront.canBePickedUp) return;
+            else
+            {
+                //If the item is a key, try to use it when its put down (in case it's put down on top of a floor lock).
+                if (heldItem.GetComponent<Key>() != null)
+                {
+                    heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection, gameObject.GetComponent<Player>());
+                }
+
+                //Put Down Item behavior.
+                heldItem.isBeingHeld = false;
+                heldItem.transform.SetParent(null);
+                heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+                heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+
+                if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);
+                else heldItem = null;
+            }
             
         }
     }

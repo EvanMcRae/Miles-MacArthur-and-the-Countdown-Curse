@@ -4,7 +4,8 @@ using UnityEngine.Tilemaps;
 public class Item : MonoBehaviour
 {
     public bool isBeingHeld = false;
-    public string id; //Example: KEY, RED_CRYSTAL, BOMB
+    public bool canBePickedUp = true;
+    public string name; //Example: KEY, RED_CRYSTAL, BOMB
 
     //public void PickUp(GameObject player)
     //{
@@ -30,5 +31,5 @@ public class Item : MonoBehaviour
     /// <summary>
     /// Activate the unique functionality of the item
     /// </summary>
-    public virtual void Usefunction(Vector2 point, int xDirection, int yDirection) { }
+    public virtual void Usefunction(Vector2 point, int xDirection, int yDirection, Player player = null) { }
 }
