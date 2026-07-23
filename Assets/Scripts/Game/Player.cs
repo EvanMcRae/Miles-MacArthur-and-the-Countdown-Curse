@@ -26,18 +26,20 @@ public class Player : MonoBehaviour
     public Item heldItem;
 
     public Animator anim;
+    private SpriteRenderer spriteRenderer;
 
 
     void Start()
     {
         AudioManager.OnBeat += OnBeat;
         heldItem = null;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void OnBeat(int beatNum)
     {
         //Debug.Log("beat #" + beatNum);
-        GetComponentInChildren<SpriteRenderer>().color = beatNum % 2 == 0 ? Color.yellow : Color.white;
+        spriteRenderer.color = beatNum % 2 == 0 ? Color.yellow : Color.white; // TODO: this is temporary!!
     }
 
     void Update()
@@ -63,10 +65,8 @@ public class Player : MonoBehaviour
     {
         Vector2 inputMove = inputSettings.actions["Move"].ReadValue<Vector2>();
 
-        
-
-        Vector2Int currPosition = new Vector2Int(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
-        Vector2Int inputMoveDir = new Vector2Int(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
+        Vector2Int currPosition = new(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
+        Vector2Int inputMoveDir = new(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
 
         if (inputMoveDir == default)
         {
@@ -84,6 +84,7 @@ public class Player : MonoBehaviour
                 yDirection = inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
                 anim.Play("PlayerMove", 0, 0);
+                spriteRenderer.transform.rotation = Quaternion.Euler(Vector3.forward * (inputMoveDir.y > 0 ? 0 : 180));
             }
             lastMoveYTimer = MOVE_COOLDOWN;
         }
@@ -95,12 +96,13 @@ public class Player : MonoBehaviour
         if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
-            if (CheckOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
+            if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
             {
                 transform.position += new Vector3(inputMoveDir.x, 0, 0);
                 yDirection = 0;
-                xDirection =  inputMoveDir.x;
+                xDirection = inputMoveDir.x;
                 anim.Play("PlayerMove", 0, 0);
+                spriteRenderer.transform.rotation = Quaternion.Euler(Vector3.forward * inputMoveDir.x * -90);
             }
             lastMoveXTimer = MOVE_COOLDOWN;
         }
