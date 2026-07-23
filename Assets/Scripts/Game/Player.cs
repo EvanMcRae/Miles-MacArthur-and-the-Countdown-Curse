@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
         }
 
             lastMoveDirInput = inputMoveDir;
-        print("(" + xDirection + ", " + yDirection + ")");
+        ////print("(" + xDirection + ", " + yDirection + ")");
     }
 
     //Checks if you can collide into a tile or not.
@@ -161,8 +161,8 @@ public class Player : MonoBehaviour
         Vector2Int frontTile = GetPointInFrontOfPlayer();
 
         //Check tile in front of player for item.
-        Vector2 test = Vector2.one * .5f + frontTile;
-        Debug.DrawLine((Vector3)test, new Vector3(test.x - .3f, test.y -.3f, 0), Color.white, 5);
+        ////Vector2 test = Vector2.one * .5f + frontTile;
+        ////Debug.DrawLine((Vector3)test, new Vector3(test.x - .3f, test.y -.3f, 0), Color.white, 5);
         Collider2D[] cols = Physics2D.OverlapBoxAll(Vector2.one * .5f + frontTile, new Vector2(.3f, .3f), 0);
 
 
