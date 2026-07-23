@@ -32,6 +32,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.paused) return;
+        
         HandleMovement();
     }
 

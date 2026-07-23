@@ -35,6 +35,8 @@ public class Bomb : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.paused) return;
+
         if (exploded)
         {
             ShakeExplosion();
