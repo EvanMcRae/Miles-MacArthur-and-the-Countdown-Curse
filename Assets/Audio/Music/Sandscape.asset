@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicClip
   clip: {fileID: 8300000, guid: 466a8c9d164db174fa5fbadf30644972, type: 3}
   BPM: 120
-  timeSignature: 4
-  timeSignatureBottom: 4
-  barsLength: 36
+  timeSignature: 6
+  timeSignatureBottom: 8
+  barsLength: 48
   preEntryBars: 0
   sampleRate: 48000
   beatFrequency: 1
