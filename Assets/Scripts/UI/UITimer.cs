@@ -1,7 +1,5 @@
 using TMPro;
-using Unity.VectorGraphics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class UITimer : MonoBehaviour
 {
