@@ -26,18 +26,20 @@ public class Player : MonoBehaviour
     public Item heldItem;
 
     public Animator anim;
+    private SpriteRenderer spriteRenderer;
 
 
     void Start()
     {
         AudioManager.OnBeat += OnBeat;
         heldItem = null;
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     void OnBeat(int beatNum)
     {
         //Debug.Log("beat #" + beatNum);
-        GetComponentInChildren<SpriteRenderer>().color = beatNum % 2 == 0 ? Color.yellow : Color.white;
+        spriteRenderer.color = beatNum % 2 == 0 ? Color.yellow : Color.white; // TODO: this is temporary!!
     }
 
     void Update()
@@ -63,10 +65,8 @@ public class Player : MonoBehaviour
     {
         Vector2 inputMove = inputSettings.actions["Move"].ReadValue<Vector2>();
 
-        
-
-        Vector2Int currPosition = new Vector2Int(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
-        Vector2Int inputMoveDir = new Vector2Int(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
+        Vector2Int currPosition = new(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
+        Vector2Int inputMoveDir = new(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
 
         if (inputMoveDir == default)
         {
@@ -79,12 +79,13 @@ public class Player : MonoBehaviour
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (CheckOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
             {
-                transform.position += new Vector3(0, inputMoveDir.y, 0);
-                xDirection = 0;
-                yDirection = inputMoveDir.y;
+                transform.position += Vector3.up * inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
-                anim.Play("PlayerMove", 0, 0);
             }
+            xDirection = 0;
+            yDirection = inputMoveDir.y;
+            spriteRenderer.transform.rotation = Quaternion.Euler(Vector3.forward * (inputMoveDir.y > 0 ? 0 : 180));
+            anim.Play("PlayerMove", 0, 0);
             lastMoveYTimer = MOVE_COOLDOWN;
         }
         else
@@ -95,13 +96,14 @@ public class Player : MonoBehaviour
         if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
-            if (CheckOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
+            if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
             {
-                transform.position += new Vector3(inputMoveDir.x, 0, 0);
-                yDirection = 0;
-                xDirection =  inputMoveDir.x;
-                anim.Play("PlayerMove", 0, 0);
+                transform.position += Vector3.right * inputMoveDir.x;
             }
+            yDirection = 0;
+            xDirection = inputMoveDir.x;
+            spriteRenderer.transform.rotation = Quaternion.Euler(Vector3.forward * inputMoveDir.x * -90);
+            anim.Play("PlayerMove", 0, 0);
             lastMoveXTimer = MOVE_COOLDOWN;
         }
         else
@@ -139,9 +141,10 @@ public class Player : MonoBehaviour
 
         if (heldItem != null)
         {
+            heldItem.isBeingHeld = true;
             heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
             heldItem.transform.SetParent(transform, false);
-            heldItem.transform.position = new Vector2(transform.position.x, transform.position.y + .25f);
+            heldItem.transform.position = Vector2.right * transform.position.x + Vector2.up * (transform.position.y + .25f);
         }
     }
 
@@ -153,6 +156,7 @@ public class Player : MonoBehaviour
         if (CheckOpenTile(frontTile))
         {
             Item itemInFront = GetItemInFrontOfPlayer();
+            heldItem.isBeingHeld = false;
             heldItem.transform.SetParent(null);
             heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
             heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
@@ -165,7 +169,7 @@ public class Player : MonoBehaviour
 
     public Vector2Int GetPointInFrontOfPlayer()
     {
-        return new Vector2Int(Mathf.FloorToInt(transform.position.x + xDirection), Mathf.FloorToInt(transform.position.y + yDirection));
+        return Vector2Int.right * Mathf.FloorToInt(transform.position.x + xDirection) + Vector2Int.up * Mathf.FloorToInt(transform.position.y + yDirection);
     }
 
     public Item GetItemInFrontOfPlayer()
@@ -176,7 +180,7 @@ public class Player : MonoBehaviour
         //Check tile in front of player for item.
         ////Vector2 test = Vector2.one * .5f + frontTile;
         ////Debug.DrawLine((Vector3)test, new Vector3(test.x - .3f, test.y -.3f, 0), Color.white, 5);
-        Collider2D[] cols = Physics2D.OverlapBoxAll(Vector2.one * .5f + frontTile, new Vector2(.3f, .3f), 0);
+        Collider2D[] cols = Physics2D.OverlapBoxAll(Vector2.one * .5f + frontTile, Vector2.one * .3f, 0);
 
 
         //Search for items gotten from prev method.

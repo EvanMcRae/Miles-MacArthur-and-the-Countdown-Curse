@@ -39,7 +39,7 @@ public class AudioManager : MonoBehaviour
     /// </summary>
     public enum GameArea
     {
-        CURRENT, MENU, LEVEL
+        CURRENT, MENU, SANDSCAPE, CRYSTALSCAPE, GARDENSCAPE
     }
 
     /// <summary>
@@ -164,7 +164,7 @@ public class AudioManager : MonoBehaviour
 
         // Beat tracking
         AudioSource currentPlayer = firstSet ? BGM1[activePlayer] : BGM2[activePlayer];
-        if (currentSong != null && currentPlayer.clip != null && currentArea == GameArea.LEVEL)
+        if (currentSong != null && currentPlayer.clip != null && currentArea != GameArea.MENU)
         {
             int currentTime = currentPlayer.timeSamples;
             int delta = currentTime - lastTime;
@@ -202,8 +202,14 @@ public class AudioManager : MonoBehaviour
             case "MENU":
                 theArea = GameArea.MENU;
                 break;
-            case "LEVEL":
-                theArea = GameArea.LEVEL;
+            case "SANDSCAPE":
+                theArea = GameArea.SANDSCAPE;
+                break;
+            case "CRYSTALSCAPE":
+                theArea = GameArea.CRYSTALSCAPE;
+                break;
+            case "GARDENSCAPE":
+                theArea = GameArea.GARDENSCAPE;
                 break;
             default:
                 Debug.LogWarning("Invalid area provided! Using current");
