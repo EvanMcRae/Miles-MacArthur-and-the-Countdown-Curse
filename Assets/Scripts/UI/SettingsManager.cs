@@ -30,6 +30,9 @@ public class SettingsManager : MonoBehaviour
         if (!PlayerPrefs.HasKey("vsync"))
             PlayerPrefs.SetInt("vsync", 1);
 
+        if (!PlayerPrefs.HasKey("shaders"))
+            PlayerPrefs.SetInt("shaders", 1);
+
         // Reload saved settings
         musicVolumeSlider.value = PlayerPrefs.GetFloat("musicVolume");
         SetMusicVolume();
