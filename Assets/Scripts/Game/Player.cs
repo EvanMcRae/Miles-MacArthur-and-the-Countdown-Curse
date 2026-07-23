@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 
 public class Player : MonoBehaviour
 {
@@ -19,9 +20,15 @@ public class Player : MonoBehaviour
 
     public LayerMask collidersLayer;
 
+    int xDirection = 1;
+    int yDirection = 0;
+
+    public GameObject heldItem;
+
     void Start()
     {
         AudioManager.OnBeat += OnBeat;
+        heldItem = null;
     }
 
     void OnBeat(int beatNum)
@@ -33,6 +40,11 @@ public class Player : MonoBehaviour
     void Update()
     {
         HandleMovement();
+        if (inputSettings.actions["Interact"].WasPressedThisFrame())
+        {
+            if (heldItem == null) PickUpItem();
+            else PutDownItem();
+        }
     }
 
     public void HandleMovement()
@@ -55,7 +67,7 @@ public class Player : MonoBehaviour
         if (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0)
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
-            if (checkTile(currPosition + Vector2Int.up * inputMoveDir.y))
+            if (checkOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
             {
                 transform.position += new Vector3(0, inputMoveDir.y, 0);
                 currPosition += Vector2Int.up * inputMoveDir.y;
@@ -70,7 +82,7 @@ public class Player : MonoBehaviour
         if (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0)
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side
-            if (checkTile((currPosition + Vector2Int.right * inputMoveDir.x)))
+            if (checkOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
             {
                 transform.position += new Vector3(inputMoveDir.x, 0, 0);
             }
@@ -84,7 +96,8 @@ public class Player : MonoBehaviour
             lastMoveDirInput = inputMoveDir;
     }
 
-    public bool checkTile(Vector2Int tile)
+    //Checks if you can collide into a tile or not.
+    public bool checkOpenTile(Vector2Int tile)
     {
         if (ColliderTiles.GetTile((Vector3Int)(tile)) != null)
             return false;
@@ -96,6 +109,37 @@ public class Player : MonoBehaviour
         }
         else
             return true;
+    }
+
+    public void PickUpItem()
+    {
+        //Get point to space in front of player.
+        Vector2Int frontTile = GetPointInFrontOfPlayer();
+
+        //Check tile in front of player for item.
+        Collider2D[] cols =  Physics2D.OverlapBoxAll(frontTile, new Vector2(1, 1), 0);
+
+        //Search for items gotten from prev method.
+        foreach (Collider2D col in cols)
+        {
+            if(col.gameObject.GetComponent<Item>() != null)
+            {
+                col.gameObject.GetComponent<Item>().PickUp(gameObject);
+                heldItem = col.gameObject;
+                break;
+            }
+        }
+    }
+
+    public void PutDownItem()
+    {
+        heldItem.GetComponent<Item>().PutDown(gameObject);
+        heldItem = null;
+    }
+
+    public Vector2Int GetPointInFrontOfPlayer()
+    {
+        return new Vector2Int(Mathf.FloorToInt(transform.position.x + xDirection), Mathf.FloorToInt(transform.position.y + yDirection));
     }
 
 
