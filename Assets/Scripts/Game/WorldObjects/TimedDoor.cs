@@ -12,6 +12,7 @@ public class TimedDoor : MonoBehaviour
     DoorScheduleEntry lastEvent;
 
     public Animator anim;
+    private bool pastFirstEvent = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -30,20 +31,23 @@ public class TimedDoor : MonoBehaviour
                     Open();
                 else
                     Close();
+                pastFirstEvent = true;
             }
-            if (lastEvent == null)
+            if (pastFirstEvent)
             {
-                anim.SetFloat("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum) / 5.0f);
-            }
-            else
-            {
-                //Divide space between events as evenly into 5 stages as possible.
-                if (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum != 0)
+                if (lastEvent == null)
                 {
-                    anim.SetFloat("Stage", (float)(findNextScheduleEvent(beatNum).beatNum - beatNum) / (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum));
+                    anim.SetFloat("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum) / 5.0f);
+                }
+                else
+                {
+                    //Divide space between events as evenly into 5 stages as possible.
+                    if (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum != 0)
+                    {
+                        anim.SetFloat("Stage", (float)(findNextScheduleEvent(beatNum).beatNum - beatNum) / (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum));
+                    }
                 }
             }
-            
         }
     }
 
