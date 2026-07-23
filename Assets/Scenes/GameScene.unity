@@ -515,11 +515,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &882497867 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4233384793725935982, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-  m_PrefabInstance: {fileID: 8022349810434687049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &885412602
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4695,20 +4690,17 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!114 &1599300328
+--- !u!114 &1599300328 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 3769049862025850465, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+  m_PrefabInstance: {fileID: 8022349810434687049}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 882497867}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a0d6e25334413ee4f97236aeba77695a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
-  targPos: {x: 0, y: 0}
-  speed: 5
 --- !u!1 &1623521228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3254613561034075412, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
@@ -5218,9 +5210,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4233384793725935982, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1599300328}
     - targetCorrespondingSourceObject: {fileID: 3254613561034075412, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8022349810434687055}
