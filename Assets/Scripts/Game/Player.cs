@@ -139,6 +139,7 @@ public class Player : MonoBehaviour
 
         if (heldItem != null)
         {
+            heldItem.isBeingHeld = true;
             heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
             heldItem.transform.SetParent(transform, false);
             heldItem.transform.position = new Vector2(transform.position.x, transform.position.y + .25f);
@@ -153,6 +154,7 @@ public class Player : MonoBehaviour
         if (CheckOpenTile(frontTile))
         {
             Item itemInFront = GetItemInFrontOfPlayer();
+            heldItem.isBeingHeld = false;
             heldItem.transform.SetParent(null);
             heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
             heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.

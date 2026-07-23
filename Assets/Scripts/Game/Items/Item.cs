@@ -3,7 +3,7 @@ using UnityEngine.Tilemaps;
 
 public class Item : MonoBehaviour
 {
-    bool isBeingHeld = false;
+    public bool isBeingHeld = false;
     public string id; //Example: KEY, RED_CRYSTAL, BOMB
 
     //public void PickUp(GameObject player)
