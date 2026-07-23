@@ -26,5 +26,9 @@ public class Item : MonoBehaviour
     //        transform.SetParent(null);
     //        transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
     //    }
-    //}
+    
+    /// <summary>
+    /// Activate the unique functionality of the item
+    /// </summary>
+    public virtual void Usefunction(Vector2 Point, Vector2 MoveDir) { }
 }

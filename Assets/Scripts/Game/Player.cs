@@ -43,12 +43,19 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (GameManager.paused) return;
-        
+
         HandleMovement();
-        if (inputSettings.actions["Interact"].WasPressedThisFrame())
+        if (inputSettings.actions["PickUpItem"].WasPressedThisFrame())
         {
             if (heldItem == null) PickUpItem();
             else PutDownItem();
+        }
+        else if (inputSettings.actions["Interact"].WasPressedThisFrame())
+        {
+            if (heldItem != null)
+            {
+                heldItem.Usefunction(GetPointInFrontOfPlayer(), lastMoveDirInput);
+            }
         }
     }
 
@@ -70,7 +77,7 @@ public class Player : MonoBehaviour
         if (inputMoveDir.y != 0 && (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
-            if (checkOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
+            if (CheckOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
             {
                 transform.position += new Vector3(0, inputMoveDir.y, 0);
                 xDirection = 0;
@@ -88,7 +95,7 @@ public class Player : MonoBehaviour
         if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
-            if (checkOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
+            if (CheckOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
             {
                 transform.position += new Vector3(inputMoveDir.x, 0, 0);
                 yDirection = 0;
@@ -106,8 +113,12 @@ public class Player : MonoBehaviour
         ////print("(" + xDirection + ", " + yDirection + ")");
     }
 
-    //Checks if you can collide into a tile or not.
-    public bool checkOpenTile(Vector2Int tile)
+    /// <summary>
+    /// Checks if you can collide into a tile or not.
+    /// </summary>
+    /// <param name="tile"></param>
+    /// <returns></returns>
+    public bool CheckOpenTile(Vector2Int tile)
     {
         if (ColliderTiles.GetTile((Vector3Int)(tile)) != null)
             return false;
@@ -138,7 +149,7 @@ public class Player : MonoBehaviour
         //Get point to space in front of player.
         Vector2Int frontTile = GetPointInFrontOfPlayer();
 
-        if (checkOpenTile(frontTile))
+        if (CheckOpenTile(frontTile))
         {
             Item itemInFront = GetItemInFrontOfPlayer();
             heldItem.transform.SetParent(null);
