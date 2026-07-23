@@ -84,6 +84,7 @@ MonoBehaviour:
   collidersLayer:
     serializedVersion: 2
     m_Bits: 0
+  anim: {fileID: 7383868036924951508}
 --- !u!81 &4724894615172835900
 AudioListener:
   m_ObjectHideFlags: 0
@@ -148,6 +149,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4868897986015996958}
   - component: {fileID: 3613746401413285940}
+  - component: {fileID: 7383868036924951508}
   m_Layer: 0
   m_Name: Visuals
   m_TagString: Untagged
@@ -229,3 +231,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!95 &7383868036924951508
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557010391431507939}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8b9b36eca9a4c4046a77c84f00572e5b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

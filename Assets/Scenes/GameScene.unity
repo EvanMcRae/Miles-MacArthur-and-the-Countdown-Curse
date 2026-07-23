@@ -4674,11 +4674,25 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!20 &1599300323 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+--- !u!1 &1550269831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4233384793725935982, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
   m_PrefabInstance: {fileID: 8022349810434687049}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1599300328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550269831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0d6e25334413ee4f97236aeba77695a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CameraController
+  targPos: {x: 0, y: 0}
+  speed: 5
 --- !u!1 &1623521228 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3254613561034075412, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
@@ -4840,7 +4854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: orthographic size
-      value: 5.625
+      value: 7.1875
       objectReference: {fileID: 0}
     - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_MoveAction
@@ -4882,6 +4896,22 @@ PrefabInstance:
       propertyPath: m_TrackedDeviceOrientationAction
       value: 
       objectReference: {fileID: 1251411707}
+    - target: {fileID: 3784058268484461214, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784058268484461214, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784058268484461214, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3784058268484461214, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3925412046757895789, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4913,7 +4943,7 @@ PrefabInstance:
     - target: {fileID: 4021074719236730910, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: cam
       value: 
-      objectReference: {fileID: 1599300323}
+      objectReference: {fileID: 1599300328}
     - target: {fileID: 4021074719236730910, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: ColliderTiles
       value: 
@@ -5062,6 +5092,9 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4233384793725935982, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1599300328}
     - targetCorrespondingSourceObject: {fileID: 3254613561034075412, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 8022349810434687055}
