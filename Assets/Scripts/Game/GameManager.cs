@@ -102,4 +102,9 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.UnPauseCurrent();
         // TODO: resume all sounds
     }
+
+    void OnDestroy()
+    {
+        AudioManager.OnBeat = null;
+    }
 }
