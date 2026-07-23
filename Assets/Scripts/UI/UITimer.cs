@@ -1,5 +1,7 @@
 using TMPro;
+using Unity.VectorGraphics;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UITimer : MonoBehaviour
 {
@@ -17,5 +19,6 @@ public class UITimer : MonoBehaviour
     public void SetTimer(int beatNum)
     {
         text.text = "" + (totalBeats - beatNum)/counterReduction;
+        if ((totalBeats - beatNum) / counterReduction <= 0) GameManager.instance.PressRetry();
     }
 }
