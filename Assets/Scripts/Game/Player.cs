@@ -135,7 +135,8 @@ public class Player : MonoBehaviour
             if(col.gameObject.GetComponent<Item>() != null)
             {
                 heldItem = col.GetComponent<Item>();
-                heldItem.PickUp(gameObject);
+                heldItem.transform.SetParent(transform, false);
+                heldItem.transform.position = new Vector2(transform.position.x, transform.position.y + .25f);
                 break;
             }
         }
@@ -143,7 +144,14 @@ public class Player : MonoBehaviour
 
     public void PutDownItem()
     {
-        heldItem.GetComponent<Item>().PutDown(gameObject);
+        //Get point to space in front of player.
+        Vector2Int frontTile = GetPointInFrontOfPlayer();
+
+        if (checkOpenTile(frontTile))
+        {
+            heldItem.transform.SetParent(null);
+            heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+        }
         heldItem = null;
     }
 
