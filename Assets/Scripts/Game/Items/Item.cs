@@ -6,36 +6,25 @@ public class Item : MonoBehaviour
     bool isBeingHeld = false;
     public string id; //Example: KEY, RED_CRYSTAL, BOMB
 
-    //public Item()
+    //public void PickUp(GameObject player)
     //{
-    //    isBeingHeld = false;
+    //    if (!isBeingHeld)
+    //    {
+    //        isBeingHeld = true;
+    //        transform.SetParent(player.transform, false);
+    //        transform.position = new Vector2(player.transform.position.x, player.transform.position.y + .25f);
+    //    }
     //}
 
-    private void Update()
-    {
-        
-    }
+    //public void PutDown(GameObject player)
+    //{
+    //    Vector2Int frontTile = player.GetComponent<Player>().GetPointInFrontOfPlayer();
 
-    public void PickUp(GameObject player)
-    {
-        if (!isBeingHeld)
-        {
-            isBeingHeld = true;
-            transform.SetParent(player.transform, false);
-        }
-    }
-
-    //TODO
-    public void PutDown(Vector2Int currPos, Vector2Int directionFacing)
-    {
-        //Check if tile adjacent to direction is empty
-
-        //Place object in front of player
-        if (isBeingHeld)
-        {
-
-            isBeingHeld = false;
-            transform.SetParent(null);
-        }
-    }
+    //    if (player.GetComponent<Player>().checkOpenTile(frontTile) && isBeingHeld)
+    //    {
+    //        isBeingHeld = false;
+    //        transform.SetParent(null);
+    //        transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+    //    }
+    //}
 }
