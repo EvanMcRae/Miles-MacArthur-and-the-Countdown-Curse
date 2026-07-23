@@ -50,6 +50,11 @@ public class TimedDoor : MonoBehaviour
     {
         
     }
+
+    private void OnDestroy()
+    {
+        AudioManager.OnBeat -= Onbeat;
+    }
 }
 [System.Serializable]
 public class DoorScheduleEntry

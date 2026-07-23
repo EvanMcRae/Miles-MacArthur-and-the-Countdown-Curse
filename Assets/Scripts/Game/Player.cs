@@ -198,7 +198,7 @@ public class Player : MonoBehaviour
         GameManager.instance.PressPause();
     }
 
-    void OnDestroy()
+    private void OnDestroy()
     {
         AudioManager.OnBeat -= OnBeat;
     }
