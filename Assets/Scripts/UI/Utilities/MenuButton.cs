@@ -151,9 +151,21 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         RefreshSelectedSprite();
     }
 
+    public void SetSelectedColor(Color color)
+    {
+        selectedColor = color;
+        RefreshSelectedSprite();
+    }
+
     public void SetPressedSprite(Sprite sprite)
     {
         pressedSprite = sprite;
+        RefreshSelectedSprite();
+    }
+
+    public void SetPressedColor(Color color)
+    {
+        pressedColor = color;
         RefreshSelectedSprite();
     }
 

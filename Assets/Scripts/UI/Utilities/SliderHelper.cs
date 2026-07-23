@@ -9,7 +9,7 @@ public class SliderHelper : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
 {
     public bool navOn = true;
     [SerializeField] private Image image;
-    [SerializeField] private Sprite inactiveSelected, inactivePressed, activeSelected, activePressed;
+    [SerializeField] private Color inactiveSelected, inactivePressed, activeSelected, activePressed;
     private Navigation nav, newNav = new();
     [SerializeField] private TextMeshProUGUI valueText;
 
@@ -28,16 +28,16 @@ public class SliderHelper : MonoBehaviour, IPointerDownHandler, IPointerUpHandle
     {
         navOn = false;
         GetComponent<Selectable>().navigation = newNav;
-        GetComponent<MenuButton>().SetSelectedSprite(activeSelected);
-        GetComponent<MenuButton>().SetPressedSprite(activePressed);
+        GetComponent<MenuButton>().SetSelectedColor(activeSelected);
+        GetComponent<MenuButton>().SetPressedColor(activePressed);
     }
 
     public void EnableNav()
     {
         navOn = true;
         GetComponent<Selectable>().navigation = nav;
-        GetComponent<MenuButton>().SetSelectedSprite(inactiveSelected);
-        GetComponent<MenuButton>().SetPressedSprite(inactivePressed);
+        GetComponent<MenuButton>().SetSelectedColor(inactiveSelected);
+        GetComponent<MenuButton>().SetPressedColor(inactivePressed);
     }
 
     public void OnPointerDown(PointerEventData eventData)

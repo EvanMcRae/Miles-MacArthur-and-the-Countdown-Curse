@@ -686,10 +686,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NavToggler
   navOn: 1
   image: {fileID: 8883333261279334228}
-  inactiveSelected: {fileID: 21300000, guid: 9ed094c9cf3e76e4686e92b5dddbf7f8, type: 3}
-  inactivePressed: {fileID: 21300000, guid: edc4cec8af4118c4b88bb1a87eeeaec4, type: 3}
-  activeSelected: {fileID: 21300000, guid: bc0fa50814ae20d408121de5309dfad7, type: 3}
-  activePressed: {fileID: 21300000, guid: eb73121655cdc1949947ca336eb5133f, type: 3}
+  inactiveSelected: {r: 0.6117647, g: 0.6117647, b: 0.6117647, a: 1}
+  inactivePressed: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
+  activeSelected: {r: 0, g: 0.48777887, b: 0.7075472, a: 1}
+  activePressed: {r: 0.30980393, g: 0.30980393, b: 0.30980393, a: 1}
   valueText: {fileID: 6803426771567907187}
 --- !u!1 &7527811327338662197
 GameObject:

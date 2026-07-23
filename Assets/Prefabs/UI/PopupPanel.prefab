@@ -530,11 +530,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 56edb5e9f36ba0e4dae3357e68e85319, type: 3}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: normalColor.b
-      value: 0.3529412
+      value: 0.14509805
       objectReference: {fileID: 0}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: normalColor.g
-      value: 0.3529412
+      value: 0.14509805
       objectReference: {fileID: 0}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: pressedSprite
@@ -562,11 +562,11 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: e8d60b1bc8f31584594d539b23244f59, type: 3}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: selectedColor.b
-      value: 0.1462264
+      value: 0.3529412
       objectReference: {fileID: 0}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: selectedColor.g
-      value: 0.1462264
+      value: 0.3529412
       objectReference: {fileID: 0}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: selectedColor.r
@@ -586,11 +586,11 @@ PrefabInstance:
       objectReference: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
     - target: {fileID: 6657495025449526112, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Color.b
-      value: 0.3537736
+      value: 0.14509805
       objectReference: {fileID: 0}
     - target: {fileID: 6657495025449526112, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Color.g
-      value: 0.3537736
+      value: 0.14509805
       objectReference: {fileID: 0}
     - target: {fileID: 6657495025449526112, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Color.r
