@@ -20,9 +20,9 @@ public class CameraRegion : MonoBehaviour
         if(player != null)
         {
             if (useGameObjPos)
-                player.cam.transform.position = new Vector3(transform.position.x, transform.position.y, player.cam.transform.position.z);
+                player.cam.targPos = new Vector3(transform.position.x, transform.position.y, player.cam.transform.position.z);
             else
-                player.cam.transform.position = new Vector3(LockPos.x, LockPos.y, player.cam.transform.position.z);
+                player.cam.targPos = new Vector3(LockPos.x, LockPos.y, player.cam.transform.position.z);
         }
     }
 

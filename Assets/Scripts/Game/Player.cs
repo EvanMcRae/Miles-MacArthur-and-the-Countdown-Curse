@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     float lastMoveXTimer = MOVE_COOLDOWN;
     float lastMoveYTimer = MOVE_COOLDOWN;
 
-    public Camera cam;
+    public CameraController cam;
 
     public LayerMask collidersLayer;
 
@@ -24,6 +24,9 @@ public class Player : MonoBehaviour
     int yDirection = 0;
 
     public GameObject heldItem;
+
+    public Animator anim;
+
 
     void Start()
     {
@@ -39,6 +42,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.paused) return;
+        
         HandleMovement();
         if (inputSettings.actions["Interact"].WasPressedThisFrame())
         {
@@ -62,9 +67,7 @@ public class Player : MonoBehaviour
             return;
         }
 
-
-        //Vertical movement.
-        if (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0)
+        if (inputMoveDir.y != 0 && (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (checkOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
@@ -73,6 +76,7 @@ public class Player : MonoBehaviour
                 //xDirection = 0;
                 //yDirection = inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
+                anim.Play("PlayerMove", 0, 0);
             }
             lastMoveYTimer = MOVE_COOLDOWN;
         }
@@ -81,8 +85,7 @@ public class Player : MonoBehaviour
             lastMoveYTimer -= Time.deltaTime;
         }
 
-        //Horizontal movement.
-        if (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0)
+        if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (checkOpenTile((currPosition + Vector2Int.right * inputMoveDir.x)))
@@ -90,6 +93,7 @@ public class Player : MonoBehaviour
                 transform.position += new Vector3(inputMoveDir.x, 0, 0);
                 //yDirection = 0;
                 //xDirection =  inputMoveDir.x;
+                anim.Play("PlayerMove", 0, 0);
             }
             lastMoveXTimer = MOVE_COOLDOWN;
         }
