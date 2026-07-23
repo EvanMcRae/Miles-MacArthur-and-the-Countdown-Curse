@@ -78,9 +78,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7000e14feecc024ba69fad202d4fc8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  inputSettings: {fileID: 0}
+  inputSettings: {fileID: 5372303341462246209}
   ColliderTiles: {fileID: 0}
   cam: {fileID: 0}
+  collidersLayer:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!81 &4724894615172835900
 AudioListener:
   m_ObjectHideFlags: 0
