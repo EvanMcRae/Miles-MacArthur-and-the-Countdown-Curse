@@ -28,18 +28,13 @@ public class Player : MonoBehaviour
     public Animator anim;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private Sprite[] upSprite, downSprite, leftSprite, rightSprite;
+    int curSprite = 0;
 
     void Start()
     {
-        AudioManager.OnBeat += OnBeat;
         heldItem = null;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
-    }
-
-    void OnBeat(int beatNum)
-    {
-        //Debug.Log("beat #" + beatNum);
-        spriteRenderer.color = beatNum % 2 == 0 ? Color.yellow : Color.white; // TODO: this is temporary!!
     }
 
     void Update()
@@ -68,6 +63,8 @@ public class Player : MonoBehaviour
         Vector2Int currPosition = new(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
         Vector2Int inputMoveDir = new(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
 
+        int prevSprite = curSprite;
+
         if (inputMoveDir == default)
         {
             lastMoveDirInput = inputMoveDir;
@@ -84,8 +81,9 @@ public class Player : MonoBehaviour
             }
             xDirection = 0;
             yDirection = inputMoveDir.y;
-            spriteRenderer.transform.rotation = Quaternion.Euler(Vector3.forward * (inputMoveDir.y > 0 ? 0 : 180));
+            spriteRenderer.sprite = yDirection < 0 ? downSprite[prevSprite] : upSprite[prevSprite];
             anim.Play("PlayerMove", 0, 0);
+            curSprite = 1 - prevSprite;
             lastMoveYTimer = MOVE_COOLDOWN;
         }
         else
@@ -102,8 +100,9 @@ public class Player : MonoBehaviour
             }
             yDirection = 0;
             xDirection = inputMoveDir.x;
-            spriteRenderer.transform.rotation = Quaternion.Euler(Vector3.forward * inputMoveDir.x * -90);
+            spriteRenderer.sprite = xDirection < 0 ? leftSprite[prevSprite] : rightSprite[prevSprite];
             anim.Play("PlayerMove", 0, 0);
+            curSprite = 1 - prevSprite;
             lastMoveXTimer = MOVE_COOLDOWN;
         }
         else
@@ -111,7 +110,7 @@ public class Player : MonoBehaviour
             lastMoveXTimer -= Time.deltaTime;
         }
 
-            lastMoveDirInput = inputMoveDir;
+        lastMoveDirInput = inputMoveDir;
         ////print("(" + xDirection + ", " + yDirection + ")");
     }
 
@@ -200,10 +199,5 @@ public class Player : MonoBehaviour
     {
         if (PopupPanel.unpausablePanelsOpen > 0) return;
         GameManager.instance.PressPause();
-    }
-
-    private void OnDestroy()
-    {
-        AudioManager.OnBeat -= OnBeat;
     }
 }
