@@ -18,9 +18,4 @@ public class UITimer : MonoBehaviour
     {
         text.text = "" + (totalBeats - beatNum)/counterReduction;
     }
-
-    private void OnDestroy()
-    {
-        AudioManager.OnBeat -= SetTimer;
-    }
 }
