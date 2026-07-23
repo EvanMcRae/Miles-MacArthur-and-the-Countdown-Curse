@@ -121,24 +121,15 @@ public class Player : MonoBehaviour
             return true;
     }
 
-    public void PickUpItem()
+    public void PickUpItem(Item in_item = null)
     {
-        //Get point to space in front of player.
-        Vector2Int frontTile = GetPointInFrontOfPlayer();
+        if (in_item != null) heldItem = in_item;
+        else heldItem = GetItemInFrontOfPlayer();
 
-        //Check tile in front of player for item.
-        Collider2D[] cols =  Physics2D.OverlapBoxAll(frontTile, new Vector2(1, 1), 0);
-
-        //Search for items gotten from prev method.
-        foreach (Collider2D col in cols)
+        if (heldItem != null)
         {
-            if(col.gameObject.GetComponent<Item>() != null)
-            {
-                heldItem = col.GetComponent<Item>();
-                heldItem.transform.SetParent(transform, false);
-                heldItem.transform.position = new Vector2(transform.position.x, transform.position.y + .25f);
-                break;
-            }
+            heldItem.transform.SetParent(transform, false);
+            heldItem.transform.position = new Vector2(transform.position.x, transform.position.y + .25f);
         }
     }
 
@@ -149,15 +140,42 @@ public class Player : MonoBehaviour
 
         if (checkOpenTile(frontTile))
         {
+            Item itemInFront = GetItemInFrontOfPlayer();
             heldItem.transform.SetParent(null);
             heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+            
+            if (itemInFront != null) PickUpItem(itemInFront);
+            else heldItem = null;
+            
         }
-        heldItem = null;
     }
 
     public Vector2Int GetPointInFrontOfPlayer()
     {
         return new Vector2Int(Mathf.FloorToInt(transform.position.x + xDirection), Mathf.FloorToInt(transform.position.y + yDirection));
+    }
+
+    public Item GetItemInFrontOfPlayer()
+    {
+        //Get point to space in front of player.
+        Vector2Int frontTile = GetPointInFrontOfPlayer();
+
+        //Check tile in front of player for item.
+        Vector2 test = Vector2.one * .5f + frontTile;
+        Debug.DrawLine((Vector3)test, new Vector3(test.x - .3f, test.y -.3f, 0), Color.white, 5);
+        Collider2D[] cols = Physics2D.OverlapBoxAll(Vector2.one * .5f + frontTile, new Vector2(.3f, .3f), 0);
+
+
+        //Search for items gotten from prev method.
+        foreach (Collider2D col in cols)
+        {
+            if (col.gameObject.GetComponent<Item>() != null)
+            {
+                return col.gameObject.GetComponent<Item>();
+            }
+        }
+
+        return null;
     }
 
 
