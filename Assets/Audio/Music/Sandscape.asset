@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c0dbb07ce11e4bc40ae3eb1b248f06e1, type: 3}
-  m_Name: Gameplay
+  m_Name: Sandscape
   m_EditorClassIdentifier: Assembly-CSharp::MusicClip
   clip: {fileID: 8300000, guid: d90e541cda362f147a32ceefca6694e3, type: 3}
   BPM: 120

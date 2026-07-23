@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MusicCategory
   children:
   - {fileID: 11400000, guid: b78043693e402504492768707d06ea8e, type: 2}
+  - {fileID: 11400000, guid: 16c0b2e03c4afa34a8fe3ebb0b782e72, type: 2}
   - {fileID: 11400000, guid: 29f42572efed8bd45a576edd37729b69, type: 2}
+  - {fileID: 11400000, guid: 4e8e647bd4de6cc45a6f813b23f2f95b, type: 2}
