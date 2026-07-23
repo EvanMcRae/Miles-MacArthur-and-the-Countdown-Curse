@@ -8,6 +8,14 @@ public class Bomb : MonoBehaviour
     //how many beats left unil this bomb explodes
     private int BeatsLeftUnilExplosion;
 
+    //how many beats it takes for the bomb to disapear after it explodes
+    [SerializeField]
+    private int BeatsToCleanExplosion;
+    //how many beats left unil this bomb disapears
+    private int BeatsLeftUnilClean;
+
+    private bool exploded;
+
     [SerializeField]
     GameObject ExplosionHirtbox;
 
@@ -16,6 +24,9 @@ public class Bomb : MonoBehaviour
     {
         AudioManager.OnBeat += Onbeat;
         BeatsLeftUnilExplosion = BeatsToExplode;
+        BeatsLeftUnilClean = BeatsToCleanExplosion;
+
+        exploded = false;
     }
 
     public void Onbeat(int beatNum) 
@@ -28,10 +39,25 @@ public class Bomb : MonoBehaviour
         {
             Explode();
         }
+
+        if (exploded && BeatsLeftUnilClean > 0)
+        {
+            BeatsLeftUnilClean -= 1;
+        }
+        else if (exploded)
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     private void Explode()
     {
+        exploded = true;
         ExplosionHirtbox.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        AudioManager.OnBeat -= Onbeat;
     }
 }
