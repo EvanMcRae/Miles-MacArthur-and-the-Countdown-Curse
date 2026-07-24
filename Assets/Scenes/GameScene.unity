@@ -10704,18 +10704,6 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 0.95
       objectReference: {fileID: 0}
-    - target: {fileID: 2001369790863277801, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: _text
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 2001369790863277801, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: _delay
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2001369790863277801, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: _duration
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 2411663877166682747, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_Navigation.m_SelectOnDown
       value: 
@@ -10766,7 +10754,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0
+      value: 0.08684863
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -10774,7 +10762,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 1
+      value: 0.8250967
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
@@ -10904,14 +10892,6 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
-    - target: {fileID: 5525429752432095973, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_text
-      value: SANDSCAPE
-      objectReference: {fileID: 0}
-    - target: {fileID: 5600898483806581738, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6052760542675140086, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: _gameMusic
       value: 
@@ -10983,10 +10963,6 @@ PrefabInstance:
     - target: {fileID: 6941266534937516659, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7285683151367486199, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_AdditionalShaderChannelsFlag
-      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7666090224026895734, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMax.y
