@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6725964844372385740}
   - component: {fileID: 6569454391712680652}
   - component: {fileID: 2049222077618362978}
+  - component: {fileID: 2854798333329443802}
   m_Layer: 0
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: FireBall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,12 +105,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63cd4aba04605a4488be1e11464f9eb6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  MoveSpeed: 2
+  MoveSpeed: 4
   xDirection: 1
   yDirection: 1
-  BeatsToClean: 6
+  BeatsToClean: 3
   animFrames:
   - {fileID: 8470420716495695676, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: 6167071470516247665, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -1580347878817688430, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -790699523677361007, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
+--- !u!61 &2854798333329443802
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415261702008912525}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1, y: 1}
+  m_EdgeRadius: 0
