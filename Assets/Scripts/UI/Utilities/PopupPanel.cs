@@ -22,6 +22,8 @@ public class PopupPanel : Overlay
     [SerializeField] private bool _goesUp = true;
     private Vector3 startPos;
     public Action onClose;
+    [SerializeField] private SoundClip closeSound;
+    [SerializeField] private SoundPlayer soundPlayer;
 
     override protected void Awake()
     {
@@ -71,7 +73,12 @@ public class PopupPanel : Overlay
         });
     }
 
-    public void Close(InputAction.CallbackContext _) => Close();
+    public void Close(InputAction.CallbackContext _)
+    {
+        if (!_isOpen || _isClosing) return;
+        soundPlayer.PlaySound(closeSound);
+        Close();
+    }
 
     public void Close()
     {

@@ -361,6 +361,10 @@ PrefabInstance:
       propertyPath: m_fontSizeBase
       value: 96
       objectReference: {fileID: 0}
+    - target: {fileID: 8981914071696980550, guid: 5fd1cb355a27263409521ef05d42d239, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1679,6 +1683,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7381364452164801629, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 7506351049105275499, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_IsActive
       value: 0
