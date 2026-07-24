@@ -2077,6 +2077,7 @@ MonoBehaviour:
   audioManager: {fileID: 1692982821856884710, guid: ce2c77f9fedb71a468e71addf093b0c9, type: 3}
   firstSong: {fileID: 11400000, guid: b78043693e402504492768707d06ea8e, type: 2}
   startDelay: 0.5
+  _pauseAction: {fileID: -2605336963904480490, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!4 &1013168446
 Transform:
   m_ObjectHideFlags: 0
