@@ -18,6 +18,7 @@ public class Tornado : MonoBehaviour
 
     public void Onbeat(int beatNum)
     {
+        gameObject.GetComponent<SpriteRenderer>().flipX = !gameObject.GetComponent<SpriteRenderer>().flipX; //Flips the sprite on beat for a simple 2 frame loop.
         if (BeatsLeftUnilClean > 0)
         {
             BeatsLeftUnilClean -= 1;
