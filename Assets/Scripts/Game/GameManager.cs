@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PopupPanel _settingsPanel;
     [SerializeField] private MusicClip _gameMusic;
     public bool quitting = false;
+    [SerializeField] private SoundPlayer _soundPlayer;
 
     void Start()
     {
@@ -64,12 +65,7 @@ public class GameManager : MonoBehaviour
         if (quitting) return;
         quitting = true;
         AudioManager.instance.Stop();
-        ScreenTransition.instance.TransitionOut(() =>
-        {
-            Time.timeScale = 1;
-            paused = false;
-            SceneManager.LoadScene("MainMenu");
-        });
+        GoToScene("MainMenu");
     }
 
     public void PressRetry()
@@ -77,11 +73,32 @@ public class GameManager : MonoBehaviour
         if (quitting) return;
         quitting = true;
         AudioManager.instance.Stop();
+        GoToScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void Lose()
+    {
+        if (quitting) return;
+        quitting = true;
+        Player.instance.Die();
+        _soundPlayer.PlaySound("Game.Lose");
+        AudioManager.instance.Stop();
+        StartCoroutine(LoseRoutine());
+    }
+
+    private IEnumerator LoseRoutine()
+    {
+        yield return new WaitForSeconds(1f);
+        GoToScene(SceneManager.GetActiveScene().name);
+    }
+
+    private void GoToScene(string scene)
+    {
         ScreenTransition.instance.TransitionOut(() =>
         {
             Time.timeScale = 1;
             paused = false;
-            SceneManager.LoadScene("GameScene");
+            SceneManager.LoadScene(scene);
         });
     }
 
