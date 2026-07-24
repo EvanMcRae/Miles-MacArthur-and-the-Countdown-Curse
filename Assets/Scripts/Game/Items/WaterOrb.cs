@@ -16,10 +16,13 @@ public class WaterOrb : Item
 
     public override void ActivateEffectOnPickup(Player player) 
     {
+        base.ActivateEffectOnPickup(player);
         player.canWalkInWater = true;//TODO might want to make these a function so that we can add a visual effect or something
     }
+    
     public override void ActivateEffectOnPutDown(Player player)
     {
+        base.ActivateEffectOnPutDown(player);
         player.canWalkInWater = false;
     }
 }
