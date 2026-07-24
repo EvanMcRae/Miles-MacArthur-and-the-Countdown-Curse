@@ -14,7 +14,7 @@ public class MainMenuManager : MonoBehaviour
 
     void Start()
     {
-        ScreenTransition.instance.postTransitionIn += PlayMenuMusic;
+        // ScreenTransition.instance.postTransitionIn += PlayMenuMusic;
         if (Utils.IsWebPlayer())
         {
             _quitButton.gameObject.SetActive(false);
