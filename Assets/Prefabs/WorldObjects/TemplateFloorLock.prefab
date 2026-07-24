@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6342422319496122381}
   - component: {fileID: 3372644483973327365}
   - component: {fileID: 8820417353022496417}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LockTiles
   m_TagString: Keyhole
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 357243723855362651}
   - component: {fileID: 84038482219939759}
   - component: {fileID: 9092020871950115801}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TemplateFloorLock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
