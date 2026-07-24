@@ -2709,6 +2709,10 @@ PrefabInstance:
       value: QUIT
       objectReference: {fileID: 0}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: pressSound
+      value: 
+      objectReference: {fileID: 11400000, guid: f18e2e6d2d917994481992834c6ffe2e, type: 2}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
