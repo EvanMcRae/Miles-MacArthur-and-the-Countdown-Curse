@@ -5,7 +5,8 @@ using UnityEngine.InputSystem;
 
 public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler, ISelectHandler, IDeselectHandler, ISubmitHandler, IPointerMoveHandler
 {
-    // [SerializeField] private AK.Wwise.Event selectSound, pressSound;
+    [SerializeField] private SoundClip selectSound, pressSound;
+    [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private Sprite normalSprite, selectedSprite, pressedSprite;
     [SerializeField] private Image image;
     private bool isPressed, isSelected, isHovered;
@@ -26,8 +27,8 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void OnSelect(BaseEventData eventData)
     {
-        // if (canMakeSound)
-            // selectSound?.Post(WwiseGlobal.instance);
+        if (canMakeSound)
+            soundPlayer.PlaySound(selectSound);
         isSelected = true;
 
         if (image == null || !image.gameObject.activeSelf)
@@ -107,8 +108,8 @@ public class MenuButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     void Press()
     {
-        // if (canMakeSound)
-        //     pressSound?.Post(WwiseGlobal.instance);
+        if (canMakeSound)
+            soundPlayer.PlaySound(pressSound);
         isPressed = true;
 
         if (image == null || !image.gameObject.activeSelf)

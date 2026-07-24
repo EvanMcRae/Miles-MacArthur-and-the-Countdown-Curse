@@ -730,6 +730,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: Restart
@@ -957,6 +961,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: MainMenu
@@ -1022,6 +1030,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1348253090478522117, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 1861937993413628683, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1038,10 +1050,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2258837954979033647, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 2446009926367122256, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_Name
       value: BaseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3141086034861788735, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 3249503814782840603, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1070,6 +1090,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3456107852934544013, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
+    - target: {fileID: 3817794350097577477, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 4015288632884781778, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1190,6 +1218,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -111.70001
       objectReference: {fileID: 0}
+    - target: {fileID: 5940006352550436245, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
+    - target: {fileID: 6265792091489785124, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 6930665891244572833, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1476,6 +1512,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: Resume
@@ -1638,6 +1678,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: Settings

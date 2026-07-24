@@ -269,6 +269,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CreditsPamel
       objectReference: {fileID: 0}
+    - target: {fileID: 3328849677891213342, guid: 5fd1cb355a27263409521ef05d42d239, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 4605827133515558825, guid: 5fd1cb355a27263409521ef05d42d239, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1035,6 +1039,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: PlayButton
@@ -1197,6 +1205,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: SettingsButton
@@ -1451,6 +1463,10 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1348253090478522117, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 1861937993413628683, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1467,10 +1483,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2258837954979033647, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 2446009926367122256, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_Name
       value: BaseCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3141086034861788735, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 3249503814782840603, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1499,6 +1523,14 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3456107852934544013, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
+    - target: {fileID: 3817794350097577477, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 4015288632884781778, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1623,6 +1655,14 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 5940006352550436245, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
+    - target: {fileID: 6265792091489785124, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 6930665891244572833, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -2393,6 +2433,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1255900131}
   m_CullTransparentMesh: 1
+--- !u!1001 &1439797964
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.16296
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.34087
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106051775409183644, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_Name
+      value: 2DSoundPlayer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+--- !u!114 &1439797965 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 886362805277679126, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+  m_PrefabInstance: {fileID: 1439797964}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c645889cf1ca84b8b4eca6f2938f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1483032737
 GameObject:
   m_ObjectHideFlags: 0
@@ -2604,6 +2712,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: QuitButton
@@ -3043,6 +3155,10 @@ PrefabInstance:
       propertyPath: usesColors
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1439797965}
     - target: {fileID: 5501611084681960489, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: m_Name
       value: CreditsButton
@@ -3228,3 +3344,4 @@ SceneRoots:
   - {fileID: 1483032740}
   - {fileID: 1013168446}
   - {fileID: 809262156}
+  - {fileID: 1439797964}
