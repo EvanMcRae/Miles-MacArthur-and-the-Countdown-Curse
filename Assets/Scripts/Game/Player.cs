@@ -53,7 +53,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.paused || GameManager.instance.quitting) return;
+        if (GameManager.paused || GameManager.quitting || ScreenTransition.active) return;
 
         HandleMovement();
         if (inputSettings.actions["PickUpItem"].WasPressedThisFrame() && !inWater)

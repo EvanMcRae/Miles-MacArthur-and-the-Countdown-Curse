@@ -16,12 +16,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Overlay _pauseMenu;
     [SerializeField] private PopupPanel _settingsPanel;
     [SerializeField] private MusicClip _gameMusic;
-    public bool quitting = false;
+    public static bool quitting = false;
     [SerializeField] private SoundPlayer _soundPlayer;
 
     void Start()
     {
         paused = false;
+        quitting = false;
         instance = this;
         ScreenTransition.instance.postTransitionIn += PlayGameMusic;
         PopupPanel.panelsOpen = 0;

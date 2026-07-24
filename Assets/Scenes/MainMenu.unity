@@ -2055,7 +2055,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1013168446}
   - component: {fileID: 1013168445}
-  - component: {fileID: 1013168447}
   m_Layer: 0
   m_Name: AudioManagerCheck
   m_TagString: Untagged
@@ -2076,6 +2075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManagerCheck
   audioManager: {fileID: 1692982821856884710, guid: ce2c77f9fedb71a468e71addf093b0c9, type: 3}
+  firstSong: {fileID: 11400000, guid: b78043693e402504492768707d06ea8e, type: 2}
 --- !u!4 &1013168446
 Transform:
   m_ObjectHideFlags: 0
@@ -2091,21 +2091,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1013168447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1013168443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e2625dd5de6172439ab6cc98292415b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SwitchMusicOnLoad
-  newTrack: {fileID: 11400000, guid: b78043693e402504492768707d06ea8e, type: 2}
-  newArea: 1
-  duration: 1
 --- !u!1 &1033957226
 GameObject:
   m_ObjectHideFlags: 0
