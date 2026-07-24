@@ -675,6 +675,10 @@ PrefabInstance:
       propertyPath: m_AdditionalShaderChannelsFlag
       value: 25
       objectReference: {fileID: 0}
+    - target: {fileID: 5525429752432095973, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_text
+      value: SANDSCAPE
+      objectReference: {fileID: 0}
     - target: {fileID: 6052760542675140086, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: _gameMusic
       value: 
