@@ -6,6 +6,7 @@ public class AudioManagerCheck : MonoBehaviour
 {
     public GameObject audioManager;
     [SerializeField] private MusicClip firstSong;
+    [SerializeField] private float startDelay = 0.5f;
 
     // Start is called before the first frame update
     void Awake()
@@ -22,7 +23,7 @@ public class AudioManagerCheck : MonoBehaviour
 
     private IEnumerator StartMusic()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(startDelay);
         AudioManager.instance.ChangeBGM(firstSong);
     } 
 }
