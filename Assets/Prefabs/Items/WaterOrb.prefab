@@ -83,8 +83,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 21300000, guid: a565e7a3f8175f3449705ae72e846416, type: 3}
-  m_Color: {r: 0, g: 1, b: 0.865229, a: 1}
+  m_Sprite: {fileID: -3181128867261425065, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -131,13 +131,13 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.046875, y: 1.09375}
+    oldSize: {x: 1, y: 1}
     newSize: {x: 1.046875, y: 1.09375}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.046875, y: 1.09375}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &4124008402461186583
 MonoBehaviour:
@@ -152,4 +152,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   isBeingHeld: 0
-  id: WaterOrb
+  canBePickedUp: 1
+  name: 
