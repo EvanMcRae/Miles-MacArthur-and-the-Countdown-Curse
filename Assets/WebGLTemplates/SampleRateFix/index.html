@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="TemplateData/style.css">
 #if SHOW_DIAGNOSTICS
     <link rel="stylesheet" href="<<<TemplateData/diagnostics.css>>>">
+    <script src="<<<TemplateData/diagnostics.js>>>"></script>
+#endif
+#if DEVELOPMENT_PLAYER
+  <script src="<<<TemplateData/profiler.js>>>"></script>
+#endif
     <script>
       // Force browser AudioContext to initialize natively at 44.1 kHz
       (function () {
@@ -26,11 +31,6 @@
         }
       })();
     </script>
-    <script src="<<<TemplateData/diagnostics.js>>>"></script>
-#endif
-#if DEVELOPMENT_PLAYER
-  <script src="<<<TemplateData/profiler.js>>>"></script>
-#endif
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
