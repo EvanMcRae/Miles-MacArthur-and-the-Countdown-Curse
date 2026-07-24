@@ -56,9 +56,10 @@ public class PopupPanel : Overlay
         _isClosing = false;
 
         GetComponent<GraphicRaycaster>().enabled = true;
-        
+
+        MenuButton.canMakeSound = false;
+        SetSelection();
         MenuButton.canMakeSound = true;
-        StartCoroutine(UponOpenPopup());
 
         Utils.KillTween(ref _backingImageTween);
         _backingImageTween = _backingImage.DOFade(_backingImageOpacity, _duration).SetUpdate(true);
@@ -68,14 +69,6 @@ public class PopupPanel : Overlay
         {
             MenuButton.canMakeSound = true;
         });
-    }
-
-    IEnumerator UponOpenPopup()
-    {
-        yield return new WaitForEndOfFrame();
-        MenuButton.canMakeSound = false;
-        SetSelection();
-        MenuButton.canMakeSound = true;
     }
 
     public void Close(InputAction.CallbackContext _) => Close();
@@ -92,9 +85,12 @@ public class PopupPanel : Overlay
         inputModule.enabled = false;
         inputModule.enabled = true;
 
+        MenuButton.canMakeSound = false;
+        RestoreSelection();
         MenuButton.canMakeSound = true;
+
         StartCoroutine(UponClosePopup());
-        
+
         Utils.KillTween(ref _backingImageTween);
         _backingImageTween = _backingImage.DOFade(0, _duration).SetUpdate(true);
 
@@ -116,10 +112,6 @@ public class PopupPanel : Overlay
     IEnumerator UponClosePopup()
     {
         yield return new WaitForEndOfFrame();
-        MenuButton.canMakeSound = false;
-        RestoreSelection();
-        MenuButton.canMakeSound = true;
-
         yield return new WaitForEndOfFrame();
         if (_overridesPause)
             unpausablePanelsOpen--;
