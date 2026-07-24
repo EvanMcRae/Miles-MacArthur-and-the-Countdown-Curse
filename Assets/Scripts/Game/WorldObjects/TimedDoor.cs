@@ -14,10 +14,13 @@ public class TimedDoor : MonoBehaviour
     public Animator anim;
     private bool pastFirstEvent = false;
 
+    public bool isPit = false;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AudioManager.OnBeat += Onbeat;
+        anim.SetBool("IsPit", isPit);
     }
 
     public void Onbeat(int beatNum)
@@ -37,7 +40,7 @@ public class TimedDoor : MonoBehaviour
             {
                 if (lastEvent == null)
                 {
-                    anim.SetFloat("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum) / 5.0f);
+                    anim.SetFloat("Stage", (findNextScheduleEvent(beatNum).beatNum - beatNum) / 6.0f);
                 }
                 else
                 {
@@ -68,11 +71,13 @@ public class TimedDoor : MonoBehaviour
     public void Open()
     {
         cldr.enabled = false;
+        anim.SetFloat("Stage", 0);
     }
 
     public void Close()
     {
         cldr.enabled = true;
+        anim.SetFloat("Stage", 1);
     }
 
     // Update is called once per frame

@@ -73268,6 +73268,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: isPit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[1].beatNum
       value: 45
       objectReference: {fileID: 0}
@@ -73352,6 +73356,10 @@ PrefabInstance:
     - target: {fileID: 7114568079132979125, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Size.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: isPit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[1].beatNum
@@ -73739,7 +73747,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 454596341254548475, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 530363030588531876, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Name
@@ -73792,6 +73800,10 @@ PrefabInstance:
     - target: {fileID: 7114568079132979125, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Size.y
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: isPit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[1].beatNum
@@ -73880,6 +73892,10 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: isPit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[1].beatNum
       value: 100
       objectReference: {fileID: 0}
@@ -73964,6 +73980,10 @@ PrefabInstance:
     - target: {fileID: 7114568079132979125, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Size.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: isPit
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[1].beatNum

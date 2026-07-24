@@ -327,6 +327,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandscape design 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6239864015274283365, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7876239591147318307, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8393446534547295283, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8775942924144505467, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -537,7 +549,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.08684863
+      value: 0.025189925
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
@@ -545,7 +557,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.8250967
+      value: 0.94996643
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
@@ -886,5 +898,5 @@ Rigidbody2D:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 8022349810434687049}
   - {fileID: 1974251096}
+  - {fileID: 8022349810434687049}
