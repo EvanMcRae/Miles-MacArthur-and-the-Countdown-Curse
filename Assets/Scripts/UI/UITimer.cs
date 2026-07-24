@@ -18,8 +18,11 @@ public class UITimer : MonoBehaviour
     public void SetTimer(int beatNum)
     {
         text.text = "" + (totalBeats - beatNum)/counterReduction;
+
+        // Lose logic
         if ((totalBeats - beatNum) / counterReduction <= 0) 
         {
+            Player.instance.Die();
             soundPlayer.PlaySound("Game.Lose");
             GameManager.instance.PressRetry();
         }

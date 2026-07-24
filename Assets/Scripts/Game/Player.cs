@@ -28,20 +28,23 @@ public class Player : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] private Sprite[] upSprite, downSprite, leftSprite, rightSprite;
+    [SerializeField] private Sprite deathSprite;
     int curSprite = 0;
     bool moveLockedX = false, moveLockedY = false;
     private SoundPlayer soundPlayer;
+    public static Player instance;
 
     void Start()
     {
         heldItem = null;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         soundPlayer = GetComponentInChildren<SoundPlayer>();
+        instance = this;
     }
 
     void Update()
     {
-        if (GameManager.paused) return;
+        if (GameManager.paused || GameManager.instance.quitting) return;
 
         HandleMovement();
         if (inputSettings.actions["PickUpItem"].WasPressedThisFrame())
@@ -243,5 +246,10 @@ public class Player : MonoBehaviour
     {
         if (PopupPanel.unpausablePanelsOpen > 0) return;
         GameManager.instance.PressPause();
+    }
+
+    public void Die()
+    {
+        spriteRenderer.sprite = deathSprite;
     }
 }

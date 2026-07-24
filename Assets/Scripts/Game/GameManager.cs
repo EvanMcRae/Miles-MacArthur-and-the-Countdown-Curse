@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Overlay _pauseMenu;
     [SerializeField] private PopupPanel _settingsPanel;
     [SerializeField] private MusicClip _gameMusic;
-    private bool quitting = false;
+    public bool quitting = false;
 
     void Start()
     {

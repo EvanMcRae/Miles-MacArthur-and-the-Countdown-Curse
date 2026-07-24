@@ -99,6 +99,7 @@ MonoBehaviour:
   rightSprite:
   - {fileID: 7888922196035610388, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -8090365562718305141, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
+  deathSprite: {fileID: 4620578802948863353, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
 --- !u!81 &4724894615172835900
 AudioListener:
   m_ObjectHideFlags: 0
