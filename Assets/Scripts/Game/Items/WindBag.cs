@@ -16,7 +16,6 @@ public class WindBag : Item
             Tornado tornado = ActiveTornado.GetComponent<Tornado>();
 
             //blow an object up to 2 tiles in faced direction
-            Player player = FindAnyObjectByType<Player>();
             Item item = player.GetItemInFrontOfPlayer();
             if (item != null)
             {
