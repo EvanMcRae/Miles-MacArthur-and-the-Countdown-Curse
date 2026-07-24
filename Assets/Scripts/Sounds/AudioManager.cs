@@ -19,7 +19,7 @@ public class AudioManager : MonoBehaviour
     private readonly Tween[] inFader = new Tween[2];
     public float musicVolume = 1.0f, sfxVolume = 10.0f, masterVolume = 10f, targetSFXVolume= -80.0f, actualSFXVolume = -80.0f;
     public float fadeDuration = 1.0f;
-    private float loopPointSeconds, preEntryPointSeconds;
+    private int loopPointSamples, preEntryPointSamples;
     private bool firstSet = true;
     private bool firstSongPlayed = false;
     public bool paused = false;
@@ -132,26 +132,26 @@ public class AudioManager : MonoBehaviour
         // Manages looping tracks
         if (firstSet)
         {
-            if (BGM1[activePlayer].clip != null && BGM1[activePlayer].time >= loopPointSeconds)
+            if (BGM1[activePlayer].clip != null && BGM1[activePlayer].time >= loopPointSamples)
             {
                 activePlayer = 1 - activePlayer;
                 lastTime = 0;
                 if (currentSong != null)
                     BGM1[activePlayer].clip = currentSong.GetClip();
-                BGM1[activePlayer].time = preEntryPointSeconds;
                 BGM1[activePlayer].Play();
+                BGM1[activePlayer].time = preEntryPointSamples;
             }
         }
         else
         {
-            if (BGM2[activePlayer].clip != null && BGM2[activePlayer].time >= loopPointSeconds)
+            if (BGM2[activePlayer].clip != null && BGM2[activePlayer].timeSamples >= loopPointSamples)
             {
                 activePlayer = 1 - activePlayer;
                 lastTime = 0;
                 if (currentSong != null)
                     BGM2[activePlayer].clip = currentSong.GetClip();
-                BGM2[activePlayer].time = preEntryPointSeconds;
                 BGM2[activePlayer].Play();
+                BGM2[activePlayer].time = preEntryPointSamples;
             }
         }
 
@@ -240,14 +240,15 @@ public class AudioManager : MonoBehaviour
         currentArea = newArea;
 
         // Calculate loop point
-        loopPointSeconds = 60.0f * ((music.barsLength + music.preEntryBars) * 4.0f * music.timeSignature / music.timeSignatureBottom) / music.BPM;
-        preEntryPointSeconds = 60.0f * (music.preEntryBars * 4.0f * music.timeSignature / music.timeSignatureBottom) / music.BPM;
-
+        float loopPointSeconds = 60.0f * ((music.barsLength + music.preEntryBars) * 4.0f * music.timeSignature / music.timeSignatureBottom) / music.BPM;
+        float preEntryPointSeconds = 60.0f * (music.preEntryBars * 4.0f * music.timeSignature / music.timeSignatureBottom) / music.BPM;
         if (loopPointSeconds > music.length())
         {
             Debug.LogWarning($"{music} is too short to loop! True length = {music.length()} seconds, loop point = {loopPointSeconds} seconds. Using true length.");
             loopPointSeconds = music.length();
         }
+        loopPointSamples = (int)loopPointSeconds * music.clip.frequency;
+        preEntryPointSamples = (int)preEntryPointSeconds * music.clip.frequency;
 
         // Prevent fading the same clip on both players
         if (music == currentSong)
@@ -260,7 +261,7 @@ public class AudioManager : MonoBehaviour
             lastTime = 0;
             currentBeat = 0;
         }
-        beatLength = (int)(60.0f / music.BPM * music.sampleRate * music.beatFrequency * music.timeSignature / music.timeSignatureBottom);
+        beatLength = (int)(60.0f / music.BPM * music.clip.frequency * music.beatFrequency * music.timeSignature / music.timeSignatureBottom);
 
         // Kill all playing
         for (int i = 0; i < outFader.Length; i++)
