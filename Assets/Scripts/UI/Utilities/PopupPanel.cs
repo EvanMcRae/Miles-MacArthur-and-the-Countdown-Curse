@@ -56,14 +56,26 @@ public class PopupPanel : Overlay
         _isClosing = false;
 
         GetComponent<GraphicRaycaster>().enabled = true;
-
-        SetSelection();
+        
+        MenuButton.canMakeSound = true;
+        StartCoroutine(UponOpenPopup());
 
         Utils.KillTween(ref _backingImageTween);
         _backingImageTween = _backingImage.DOFade(_backingImageOpacity, _duration).SetUpdate(true);
 
         Utils.KillTween(ref _popupContentsTween);
-        _popupContentsTween = _popupContents.GetComponent<RectTransform>().DOAnchorPosY(0, _duration).SetUpdate(true);
+        _popupContentsTween = _popupContents.GetComponent<RectTransform>().DOAnchorPosY(0, _duration).SetUpdate(true).OnComplete(() =>
+        {
+            MenuButton.canMakeSound = true;
+        });
+    }
+
+    IEnumerator UponOpenPopup()
+    {
+        yield return new WaitForEndOfFrame();
+        MenuButton.canMakeSound = false;
+        SetSelection();
+        MenuButton.canMakeSound = true;
     }
 
     public void Close(InputAction.CallbackContext _) => Close();
@@ -80,10 +92,9 @@ public class PopupPanel : Overlay
         inputModule.enabled = false;
         inputModule.enabled = true;
 
-        StartCoroutine(WaitToClosePopup());
+        MenuButton.canMakeSound = true;
+        StartCoroutine(UponClosePopup());
         
-        RestoreSelection();
-
         Utils.KillTween(ref _backingImageTween);
         _backingImageTween = _backingImage.DOFade(0, _duration).SetUpdate(true);
 
@@ -93,6 +104,7 @@ public class PopupPanel : Overlay
             _isOpen = false;
             _isClosing = false;
             MenuButton.canHover = true; // Also needed to fix active dragging
+            MenuButton.canMakeSound = true;
         });
     }
 
@@ -101,9 +113,13 @@ public class PopupPanel : Overlay
         base.Update();
     }
 
-    IEnumerator WaitToClosePopup()
+    IEnumerator UponClosePopup()
     {
         yield return new WaitForEndOfFrame();
+        MenuButton.canMakeSound = false;
+        RestoreSelection();
+        MenuButton.canMakeSound = true;
+
         yield return new WaitForEndOfFrame();
         if (_overridesPause)
             unpausablePanelsOpen--;
