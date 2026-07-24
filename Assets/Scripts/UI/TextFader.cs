@@ -9,10 +9,11 @@ public class TextFader : MonoBehaviour
     [SerializeField] TMP_Text _text;
     [SerializeField] float textScreenFadeDifference;
 
-    [SerializeField] float _fadeInDuration;
-    private float _fadeOutDuration;
-    private float _fadeOutDelay;
+    [SerializeField] private float _fadeInDuration;
+    [SerializeField] private float _fadeOutDuration;
     private int _numSteps;
+
+    private float _fadeOutDelay;
 
     private void Awake()
     {
@@ -21,7 +22,6 @@ public class TextFader : MonoBehaviour
 
     private void Start()
     {
-        _fadeOutDuration = ScreenTransition.instance.Duration;
         // fade text before screen
         _fadeOutDelay = Mathf.Clamp(
             ScreenTransition.instance.Delay - textScreenFadeDifference - _fadeInDuration, 

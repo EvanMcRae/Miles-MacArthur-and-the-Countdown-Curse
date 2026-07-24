@@ -551,8 +551,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TextFader
   _text: {fileID: 705058415}
-  textScreenFadeDifference: 0.5
-  _fadeInDuration: 0.5
+  textScreenFadeDifference: 0.25
+  _fadeInDuration: 0.25
+  _fadeOutDuration: 0.25
 --- !u!114 &757675035
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10868,7 +10869,7 @@ PrefabInstance:
       objectReference: {fileID: 705058415}
     - target: {fileID: 2001369790863277801, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: _delay
-      value: 3
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 2001369790863277801, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: _duration
@@ -10928,7 +10929,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.0027777776
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
@@ -10936,7 +10937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.99444443
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_MoveAction
