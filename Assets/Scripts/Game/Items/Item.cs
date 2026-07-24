@@ -5,7 +5,7 @@ public class Item : MonoBehaviour
 {
     public bool isBeingHeld = false;
     public bool canBePickedUp = true;
-    public string name; //Example: KEY, RED_CRYSTAL, BOMB
+    public new string name; //Example: KEY, RED_CRYSTAL, BOMB
 
     //public void PickUp(GameObject player)
     //{
