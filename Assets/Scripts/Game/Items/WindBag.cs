@@ -14,8 +14,6 @@ public class WindBag : Item
             //spawn a tornado
             ActiveTornado = Instantiate(TornadoPrefab, new Vector3(Point.x + .5f, Point.y + .5f), Quaternion.identity);
             Tornado tornado = ActiveTornado.GetComponent<Tornado>();
-            tornado.xDirection = xDirection;
-            tornado.yDirection = yDireciton;
 
             //blow an object up to 2 tiles in faced direction
             Player player = FindAnyObjectByType<Player>();
