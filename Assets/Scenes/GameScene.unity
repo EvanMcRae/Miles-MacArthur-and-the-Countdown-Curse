@@ -463,6 +463,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandscape (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 989604097286714701, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2903403999698054314, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3874993161667462838, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5534601349693551910, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5855402630919167802, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584039483685301441, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8775942924144505467, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
