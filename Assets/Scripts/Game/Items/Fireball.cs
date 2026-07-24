@@ -17,6 +17,11 @@ public class Fireball : MonoBehaviour
     //how many beats left unil this bomb disapears
     private int BeatsLeftUnilClean;
 
+    [SerializeField]
+    private Sprite[] animFrames;
+
+    private int cursor = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -40,6 +45,11 @@ public class Fireball : MonoBehaviour
 
     public void Onbeat(int beatNum)
     {
+        //Animate the fireball.
+        gameObject.GetComponent<SpriteRenderer>().sprite = animFrames[cursor];
+        cursor++;
+        if (cursor >= animFrames.Length) cursor = 0;
+
         if (BeatsLeftUnilClean > 0)
         {
             BeatsLeftUnilClean -= 1;
