@@ -3,6 +3,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using System;
 using UnityEngine.EventSystems;
+using TMPro;
 
 public class ScreenTransition : MonoBehaviour
 {
@@ -10,9 +11,14 @@ public class ScreenTransition : MonoBehaviour
     public static ScreenTransition instance;
     [SerializeField] private float _duration = 1f;
     [SerializeField] private float _delay = 0.5f;
+    [SerializeField] private int _numSteps = 4;
+    public float Duration => _duration;
+    public float Delay => _delay;
+    public int NumSteps => _numSteps;
+
+
     public Action postTransitionIn;
     public static bool active;
-    [SerializeField] private int _numSteps = 4;
 
     void Awake()
     {
