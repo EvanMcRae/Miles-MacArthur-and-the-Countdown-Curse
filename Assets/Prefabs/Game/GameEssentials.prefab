@@ -344,6 +344,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::AudioManagerCheck
   audioManager: {fileID: 1692982821856884710, guid: ce2c77f9fedb71a468e71addf093b0c9, type: 3}
+  firstSong: {fileID: 0}
+  startDelay: 0.5
+  _pauseAction: {fileID: -2605336963904480490, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
 --- !u!1 &3971865316329430543
 GameObject:
   m_ObjectHideFlags: 0

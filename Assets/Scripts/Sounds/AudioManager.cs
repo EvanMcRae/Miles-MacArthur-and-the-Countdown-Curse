@@ -75,6 +75,9 @@ public class AudioManager : MonoBehaviour
             s.playOnAwake = false;
             s.volume = 0.0f;
             s.outputAudioMixerGroup = musicMixerGroup;
+            s.pitch = 1f;
+            s.dopplerLevel = 0;
+            s.spatialBlend = 0;
         }
 
         foreach (AudioSource s in BGM2)
@@ -83,6 +86,9 @@ public class AudioManager : MonoBehaviour
             s.playOnAwake = false;
             s.volume = 0.0f;
             s.outputAudioMixerGroup = musicMixerGroup;
+            s.pitch = 1f;
+            s.dopplerLevel = 0;
+            s.spatialBlend = 0;
         }
 
         // Singleton pattern
@@ -379,20 +385,6 @@ public class AudioManager : MonoBehaviour
 
         // Set new clip to current song
         currentSong = music;
-    }
-
-    public void SetPitch(float pitch)
-    {
-        musicMixer.SetFloat("Pitch", pitch);
-    }
-
-    public IEnumerator PitchDown()
-    {
-        for (float i = 0; i <= 1; i += 0.05f)
-        {
-            SetPitch(Mathf.Lerp(1f, 0f, i));
-            yield return new WaitForSeconds(0.04f);
-        }
     }
 
     public void FadeOutCurrent(float duration = 1f)

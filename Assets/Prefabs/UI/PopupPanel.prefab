@@ -95,7 +95,7 @@ MonoBehaviour:
   _restoresSelection: 1
   _backingImage: {fileID: 415630133158497233}
   _popupContents: {fileID: 3430090720010466743}
-  _exit: {fileID: 7727032971491509709, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  _exit: {fileID: -2605336963904480490, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   _duration: 0.5
   _backingImageOpacity: 0.5
   _canCloseWithEsc: 1
