@@ -7,6 +7,7 @@ public class UITimer : MonoBehaviour
     //Divide the count to make it look like less time that passes slower
     int counterReduction = 2;
     public TextMeshProUGUI text;
+    [SerializeField] private SoundPlayer soundPlayer;
 
     private void Start()
     {
@@ -17,6 +18,10 @@ public class UITimer : MonoBehaviour
     public void SetTimer(int beatNum)
     {
         text.text = "" + (totalBeats - beatNum)/counterReduction;
-        if ((totalBeats - beatNum) / counterReduction <= 0) GameManager.instance.PressRetry();
+        if ((totalBeats - beatNum) / counterReduction <= 0) 
+        {
+            soundPlayer.PlaySound("Game.Lose");
+            GameManager.instance.PressRetry();
+        }
     }
 }

@@ -297,6 +297,7 @@ Transform:
   - {fileID: 7793949264823480686}
   - {fileID: 2255717793929456979}
   - {fileID: 2475426845390777833}
+  - {fileID: 2859861118522549099}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3705450164698862664
@@ -1005,6 +1006,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 829142473031325718, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
     - target: {fileID: 1302648156578053654, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1266,6 +1271,79 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b1e44e27e6b2e44c8f871215a5cc885, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PopupPanel
+--- !u!1001 &3453729192851897448
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 6676808906091510279}
+    m_Modifications:
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.2575684
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.24194336
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2106051775409183644, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+      propertyPath: m_Name
+      value: 2DSoundPlayer
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+--- !u!114 &2567863366985228926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 886362805277679126, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+  m_PrefabInstance: {fileID: 3453729192851897448}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c645889cf1ca84b8b4eca6f2938f51, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &2859861118522549099 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 603017179443076867, guid: 31f61b2904bb9a741aa14e2b2976413a, type: 3}
+  m_PrefabInstance: {fileID: 3453729192851897448}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3606810080035321378
 PrefabInstance:
   m_ObjectHideFlags: 0

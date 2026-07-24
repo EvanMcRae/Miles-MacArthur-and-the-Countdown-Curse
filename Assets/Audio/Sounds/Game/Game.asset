@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Game
   m_EditorClassIdentifier: Assembly-CSharp::SoundCategory
   children:
-  - {fileID: 11400000, guid: 5355aa32e90e3e14ba439de73625538a, type: 2}
+  - {fileID: 11400000, guid: 748671b186b20a84fb400fbc39dbaaba, type: 2}
