@@ -7,7 +7,7 @@ public class FireCrystal : Item
 
     GameObject ActiveFireball;
 
-    public override void Usefunction(Vector2 Point, int xDirection, int yDireciton)
+    public override void Usefunction(Vector2 Point, int xDirection, int yDireciton, Player player = null)
     {
         if (ActiveFireball == null)
         {

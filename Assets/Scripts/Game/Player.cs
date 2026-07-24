@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         {
             if (heldItem != null)
             {
-                heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection);
+                heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection, gameObject.GetComponent<Player>());
             }
         }
     }
@@ -158,11 +158,18 @@ public class Player : MonoBehaviour
 
     public void PickUpItem(Item in_item = null)
     {
+        bool removeKeyFlag = false;
+        if (heldItem == null) removeKeyFlag = true;
+
         if (in_item != null) heldItem = in_item;
         else heldItem = GetItemInFrontOfPlayer();
 
         if (heldItem != null)
         {
+            //Case where you have nothing in your hands and want to pick up a key thats sitting in a slot hole.
+            if (heldItem.GetComponent<Key>() != null && removeKeyFlag) heldItem.GetComponent<Key>().RemoveFromKeyhole();
+
+            //Normal Pick Up behavior.
             heldItem.isBeingHeld = true;
             heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
             heldItem.transform.SetParent(transform, false);
@@ -178,14 +185,29 @@ public class Player : MonoBehaviour
         if (CheckOpenTile(frontTile))
         {
             Item itemInFront = GetItemInFrontOfPlayer();
-            heldItem.isBeingHeld = false;
-            heldItem.transform.SetParent(null);
-            heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
-            heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
-            
-            if (itemInFront != null) PickUpItem(itemInFront);
-            else heldItem = null;
-            
+            if (itemInFront != null && !itemInFront.canBePickedUp) return;
+            else
+            {
+                //If the item is a key, try to use it when its put down (in case it's put down on top of a floor lock)
+                //Do not do this if you used Interact or else it stackoverflows.
+                if (heldItem.GetComponent<Key>() != null && !inputSettings.actions["Interact"].WasPressedThisFrame())
+                {
+                    heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection, gameObject.GetComponent<Player>());
+                }
+
+                //Put Down Item behavior.
+                if (heldItem != null)
+                {
+                    heldItem.isBeingHeld = false;
+                    heldItem.transform.SetParent(null);
+                    heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+                    heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+
+                    //Swap item for item on floor.
+                    if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);
+                    else heldItem = null;
+                }
+            }
         }
     }
 
@@ -208,7 +230,7 @@ public class Player : MonoBehaviour
         //Search for items gotten from prev method.
         foreach (Collider2D col in cols)
         {
-            if (col.gameObject.GetComponent<Item>() != null)
+            if (col.gameObject.GetComponent<Item>() != null && col.gameObject.GetComponent<Item>().canBePickedUp)
             {
                 return col.gameObject.GetComponent<Item>();
             }

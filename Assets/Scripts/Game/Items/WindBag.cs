@@ -7,7 +7,7 @@ public class WindBag : Item
 
     GameObject ActiveTornado;
 
-    public override void Usefunction(Vector2 Point, int xDirection, int yDireciton)
+    public override void Usefunction(Vector2 Point, int xDirection, int yDireciton, Player player = null)
     {
         if (ActiveTornado == null)
         {
@@ -16,7 +16,6 @@ public class WindBag : Item
             Tornado tornado = ActiveTornado.GetComponent<Tornado>();
 
             //blow an object up to 2 tiles in faced direction
-            Player player = FindAnyObjectByType<Player>();
             Item item = player.GetItemInFrontOfPlayer();
             if (item != null)
             {
