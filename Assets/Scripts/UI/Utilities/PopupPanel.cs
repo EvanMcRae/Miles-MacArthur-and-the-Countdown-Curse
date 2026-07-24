@@ -22,6 +22,8 @@ public class PopupPanel : Overlay
     [SerializeField] private bool _goesUp = true;
     private Vector3 startPos;
     public Action onClose;
+    [SerializeField] private SoundClip closeSound;
+    [SerializeField] private SoundPlayer soundPlayer;
 
     override protected void Awake()
     {
@@ -57,16 +59,26 @@ public class PopupPanel : Overlay
 
         GetComponent<GraphicRaycaster>().enabled = true;
 
+        MenuButton.canMakeSound = false;
         SetSelection();
+        MenuButton.canMakeSound = true;
 
         Utils.KillTween(ref _backingImageTween);
         _backingImageTween = _backingImage.DOFade(_backingImageOpacity, _duration).SetUpdate(true);
 
         Utils.KillTween(ref _popupContentsTween);
-        _popupContentsTween = _popupContents.GetComponent<RectTransform>().DOAnchorPosY(0, _duration).SetUpdate(true);
+        _popupContentsTween = _popupContents.GetComponent<RectTransform>().DOAnchorPosY(0, _duration).SetUpdate(true).OnComplete(() =>
+        {
+            MenuButton.canMakeSound = true;
+        });
     }
 
-    public void Close(InputAction.CallbackContext _) => Close();
+    public void Close(InputAction.CallbackContext _)
+    {
+        if (!_isOpen || _isClosing) return;
+        soundPlayer.PlaySound(closeSound);
+        Close();
+    }
 
     public void Close()
     {
@@ -80,9 +92,11 @@ public class PopupPanel : Overlay
         inputModule.enabled = false;
         inputModule.enabled = true;
 
-        StartCoroutine(WaitToClosePopup());
-        
+        MenuButton.canMakeSound = false;
         RestoreSelection();
+        MenuButton.canMakeSound = true;
+
+        StartCoroutine(UponClosePopup());
 
         Utils.KillTween(ref _backingImageTween);
         _backingImageTween = _backingImage.DOFade(0, _duration).SetUpdate(true);
@@ -93,6 +107,7 @@ public class PopupPanel : Overlay
             _isOpen = false;
             _isClosing = false;
             MenuButton.canHover = true; // Also needed to fix active dragging
+            MenuButton.canMakeSound = true;
         });
     }
 
@@ -101,7 +116,7 @@ public class PopupPanel : Overlay
         base.Update();
     }
 
-    IEnumerator WaitToClosePopup()
+    IEnumerator UponClosePopup()
     {
         yield return new WaitForEndOfFrame();
         yield return new WaitForEndOfFrame();

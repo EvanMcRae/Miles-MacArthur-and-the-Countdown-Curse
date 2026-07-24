@@ -30,6 +30,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private Sprite[] upSprite, downSprite, leftSprite, rightSprite;
     int curSprite = 0;
+    bool moveLockedX = false, moveLockedY = false;
 
     void Start()
     {
@@ -71,13 +72,21 @@ public class Player : MonoBehaviour
             return;
         }
 
-        if (inputMoveDir.y != 0 && (lastMoveDirInput.y != inputMoveDir.y || lastMoveYTimer < 0))
+        if (lastMoveDirInput.y != inputMoveDir.y || CheckOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
+        {
+            moveLockedY = false;
+        }
+        if (inputMoveDir.y != 0 && (lastMoveDirInput.y != inputMoveDir.y || (!moveLockedY && lastMoveYTimer < 0)))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (CheckOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
             {
                 transform.position += Vector3.up * inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
+            }
+            else
+            {
+                moveLockedY = true;
             }
             xDirection = 0;
             yDirection = inputMoveDir.y;
@@ -91,12 +100,20 @@ public class Player : MonoBehaviour
             lastMoveYTimer -= Time.deltaTime;
         }
 
-        if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || lastMoveXTimer < 0))
+        if (lastMoveDirInput.x != inputMoveDir.x || CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
+        {
+            moveLockedX = false;
+        }
+        if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || (!moveLockedX && lastMoveXTimer < 0)))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
             {
                 transform.position += Vector3.right * inputMoveDir.x;
+            }
+            else
+            {
+                moveLockedX = true;
             }
             yDirection = 0;
             xDirection = inputMoveDir.x;

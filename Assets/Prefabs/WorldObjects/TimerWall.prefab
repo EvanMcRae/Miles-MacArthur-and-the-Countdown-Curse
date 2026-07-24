@@ -52,7 +52,6 @@ MonoBehaviour:
   - beatNum: 10
     toState: 0
   cldr: {fileID: 7114568079132979125}
-  TimePerStage: 2
   anim: {fileID: 2128657447133933843}
 --- !u!61 &7114568079132979125
 BoxCollider2D:
@@ -204,7 +203,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -4284386676575201382, guid: 2016260ca90f51444a1c21db6dcdc56f, type: 3}
+  m_Sprite: {fileID: -1544336078, guid: 2016260ca90f51444a1c21db6dcdc56f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

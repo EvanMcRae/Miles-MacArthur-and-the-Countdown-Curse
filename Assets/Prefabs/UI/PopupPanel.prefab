@@ -101,6 +101,8 @@ MonoBehaviour:
   _canCloseWithEsc: 1
   _overridesPause: 1
   _goesUp: 1
+  closeSound: {fileID: 11400000, guid: f18e2e6d2d917994481992834c6ffe2e, type: 2}
+  soundPlayer: {fileID: 0}
 --- !u!223 &4311738693362645328
 Canvas:
   m_ObjectHideFlags: 0
@@ -520,6 +522,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: pressSound
+      value: 
+      objectReference: {fileID: 11400000, guid: f18e2e6d2d917994481992834c6ffe2e, type: 2}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: usesColors
       value: 1

@@ -99,6 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced6e51aa90e86e42a41ddf632a5155c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MenuButton
+  selectSound: {fileID: 11400000, guid: bb6fc9ddd166b644b9997026cb2da39d, type: 2}
+  pressSound: {fileID: 11400000, guid: 0657ca6f7f218c846a76e437e13f3a87, type: 2}
+  soundPlayer: {fileID: 0}
   normalSprite: {fileID: 21300000, guid: 36d4cb4e66ea21441943cb290221d844, type: 3}
   selectedSprite: {fileID: 21300000, guid: c4d99002145c3df44ba02af9d273b2a0, type: 3}
   pressedSprite: {fileID: 21300000, guid: aafe01cc624ff4dbe9ca7fc6e63a70cb, type: 3}
