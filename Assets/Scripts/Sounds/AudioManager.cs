@@ -163,6 +163,8 @@ public class AudioManager : MonoBehaviour
         sfxMixer.SetFloat("Volume", sfxVolume + masterVolume);
         musicMixer.SetFloat("Volume", musicVolume + masterVolume);
 
+        if (GameManager.paused || GameManager.quitting) return;
+
         // Beat tracking
         AudioSource currentPlayer = firstSet ? BGM1[activePlayer] : BGM2[activePlayer];
         if (currentSong != null && currentPlayer.clip != null && currentArea != GameArea.MENU)

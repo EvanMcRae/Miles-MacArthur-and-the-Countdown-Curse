@@ -16,7 +16,7 @@ public class Key : Item
     public Keyhole keyholeItsInside = null;
 
     //point = point in front of player.
-    public override void Usefunction(Vector2 point, int xDirection, int yDirection, Player player = null) {
+    public override void Usefunction(Vector2Int point, int xDirection, int yDirection, Player player = null) {
 
         //Check tile in front of player for keyhole.
         Collider2D[] cols = Physics2D.OverlapBoxAll(Vector2.one * .5f + point, Vector2.one * .3f, 0);
