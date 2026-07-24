@@ -60,6 +60,7 @@ Material:
     m_Floats:
     - _EnableExternalAlpha: 0
     - _GlowAmount: 2.87
+    - _Intensity: 4
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ZWrite: 0
