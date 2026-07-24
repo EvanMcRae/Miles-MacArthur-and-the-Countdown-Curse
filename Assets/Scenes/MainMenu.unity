@@ -2076,6 +2076,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioManagerCheck
   audioManager: {fileID: 1692982821856884710, guid: ce2c77f9fedb71a468e71addf093b0c9, type: 3}
   firstSong: {fileID: 11400000, guid: b78043693e402504492768707d06ea8e, type: 2}
+  startDelay: 0.5
 --- !u!4 &1013168446
 Transform:
   m_ObjectHideFlags: 0
@@ -2731,8 +2732,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 318}
-  m_SizeDelta: {x: 1677.1, y: 50}
+  m_AnchoredPosition: {x: 0, y: 336}
+  m_SizeDelta: {x: 2137.1, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1566375152
 MonoBehaviour:
@@ -2754,9 +2755,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'COUNT
+  m_text: '<color=yellow>MILES MACARTHUR</color>
 
-    DOWN'
+    ----and the----
+
+    <color=red>COUNTDOWN
+    CURSE</color>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
   m_sharedMaterial: {fileID: 1323558007705263911, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
@@ -2783,8 +2787,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 120
-  m_fontSizeBase: 120
+  m_fontSize: 83
+  m_fontSizeBase: 83
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
