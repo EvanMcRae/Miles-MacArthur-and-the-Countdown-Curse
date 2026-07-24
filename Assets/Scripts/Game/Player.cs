@@ -11,10 +11,9 @@ public class Player : MonoBehaviour
 
     Vector2Int lastMoveDirInput = default;
 
-    const float MOVE_COOLDOWN = .15f;
+    const float MOVE_COOLDOWN = .125f;
 
-    float lastMoveXTimer = MOVE_COOLDOWN;
-    float lastMoveYTimer = MOVE_COOLDOWN;
+    float lastMoveTimer = MOVE_COOLDOWN;
 
     public CameraController cam;
 
@@ -78,7 +77,10 @@ public class Player : MonoBehaviour
         {
             moveLockedY = false;
         }
-        if (inputMoveDir.y != 0 && (lastMoveDirInput.y != inputMoveDir.y || (!moveLockedY && lastMoveYTimer < 0)))
+
+        bool movedThisFrame = false;
+
+        if (inputMoveDir.y != 0 && (lastMoveDirInput.y != inputMoveDir.y || (!moveLockedY && lastMoveTimer < 0)))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (CheckOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
@@ -97,18 +99,14 @@ public class Player : MonoBehaviour
             spriteRenderer.sprite = yDirection < 0 ? downSprite[prevSprite] : upSprite[prevSprite];
             anim.Play("PlayerMove", 0, 0);
             curSprite = 1 - prevSprite;
-            lastMoveYTimer = MOVE_COOLDOWN;
-        }
-        else
-        {
-            lastMoveYTimer -= Time.deltaTime;
+            movedThisFrame = true;
         }
 
         if (lastMoveDirInput.x != inputMoveDir.x || CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
         {
             moveLockedX = false;
         }
-        if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || (!moveLockedX && lastMoveXTimer < 0)))
+        if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || (!moveLockedX && lastMoveTimer < 0)))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
             if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
@@ -126,14 +124,15 @@ public class Player : MonoBehaviour
             spriteRenderer.sprite = xDirection < 0 ? leftSprite[prevSprite] : rightSprite[prevSprite];
             anim.Play("PlayerMove", 0, 0);
             curSprite = 1 - prevSprite;
-            lastMoveXTimer = MOVE_COOLDOWN;
-        }
-        else
-        {
-            lastMoveXTimer -= Time.deltaTime;
+            movedThisFrame = true;
         }
 
-        lastMoveDirInput = inputMoveDir;
+        if (movedThisFrame)
+            lastMoveTimer = MOVE_COOLDOWN;
+        else
+            lastMoveTimer -= Time.deltaTime;
+
+            lastMoveDirInput = inputMoveDir;
         ////print("(" + xDirection + ", " + yDirection + ")");
     }
 

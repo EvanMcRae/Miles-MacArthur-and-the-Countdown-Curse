@@ -30,6 +30,7 @@ public class AudioManager : MonoBehaviour
     public MusicCategory musicDatabase;
 
     private int beatLength, lastTime, absoluteTime, currentBeat;
+
     public static Action<int> OnBeat;
 
     private float lowPass = 22000.00f;
