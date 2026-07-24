@@ -701,7 +701,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UITimer
   totalBeats: 120
   text: {fileID: 2267976352013346453}
-  soundPlayer: {fileID: 0}
+  soundPlayer: {fileID: 4195595986475266043}
 --- !u!223 &5890894663302102709
 Canvas:
   m_ObjectHideFlags: 0
