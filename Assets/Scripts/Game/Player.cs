@@ -31,11 +31,13 @@ public class Player : MonoBehaviour
     [SerializeField] private Sprite[] upSprite, downSprite, leftSprite, rightSprite;
     int curSprite = 0;
     bool moveLockedX = false, moveLockedY = false;
+    private SoundPlayer soundPlayer;
 
     void Start()
     {
         heldItem = null;
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        soundPlayer = GetComponentInChildren<SoundPlayer>();
     }
 
     void Update()
@@ -83,10 +85,12 @@ public class Player : MonoBehaviour
             {
                 transform.position += Vector3.up * inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
+                soundPlayer.PlaySound("Game.Step");
             }
             else
             {
                 moveLockedY = true;
+                soundPlayer.PlaySound("Game.Thud");
             }
             xDirection = 0;
             yDirection = inputMoveDir.y;
@@ -110,10 +114,12 @@ public class Player : MonoBehaviour
             if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
             {
                 transform.position += Vector3.right * inputMoveDir.x;
+                soundPlayer.PlaySound("Game.Step");
             }
             else
             {
                 moveLockedX = true;
+                soundPlayer.PlaySound("Game.Thud");
             }
             yDirection = 0;
             xDirection = inputMoveDir.x;
