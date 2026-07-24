@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 783d8f720fc1cb44d9426eab631c9ddc, type: 3}
-  m_Name: Game
-  m_EditorClassIdentifier: Assembly-CSharp::SoundCategory
-  children:
-  - {fileID: 11400000, guid: 748671b186b20a84fb400fbc39dbaaba, type: 2}
+  m_Script: {fileID: 11500000, guid: 1a913750643e7984d8ea61409649b0da, type: 3}
+  m_Name: Back
+  m_EditorClassIdentifier: Assembly-CSharp::SoundClip
+  clip: {fileID: 8300000, guid: 52c87329df3d8d141b857030c6e6bce7, type: 3}

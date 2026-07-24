@@ -677,6 +677,14 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2859861118522549099, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2859861118522549099, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3041930074126241209, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_Name
       value: GameEssentials
@@ -706,16 +714,8 @@ PrefabInstance:
       value: 5.59375
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_NormalizedViewPortRect.x
-      value: 0.025189925
-      objectReference: {fileID: 0}
-    - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_NormalizedViewPortRect.width
-      value: 0.94996643
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
