@@ -1,8 +1,6 @@
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
-using UnityEngine.WSA;
 
 public class Player : MonoBehaviour
 {
@@ -34,6 +32,17 @@ public class Player : MonoBehaviour
     private SoundPlayer soundPlayer;
     public static Player instance;
 
+    /// <summary>
+    /// Check if standing in water, which presumably means player is also holding the Water Orb
+    /// </summary>
+    bool inWater = false;
+    /// <summary>
+    /// Check if able to walk in water, should be true while holding Water Orb and false otherwise
+    /// </summary>
+    public bool canWalkInWater = false;
+    [SerializeField]
+    LayerMask waterLayer;
+
     void Start()
     {
         heldItem = null;
@@ -44,10 +53,10 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.paused || GameManager.instance.quitting) return;
+        if (GameManager.paused || GameManager.quitting || ScreenTransition.active) return;
 
         HandleMovement();
-        if (inputSettings.actions["PickUpItem"].WasPressedThisFrame())
+        if (inputSettings.actions["PickUpItem"].WasPressedThisFrame() && !inWater)
         {
             if (heldItem == null) PickUpItem();
             else PutDownItem();
@@ -86,8 +95,17 @@ public class Player : MonoBehaviour
         if (inputMoveDir.y != 0 && (lastMoveDirInput.y != inputMoveDir.y || (!moveLockedY && lastMoveTimer < 0)))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
-            if (CheckOpenTile(currPosition + Vector2Int.up * inputMoveDir.y))
+            if (CheckOpenTile(currPosition + Vector2Int.up * inputMoveDir.y) && (canWalkInWater || !IsWaterTile(currPosition + Vector2Int.up * inputMoveDir.y)))
             {
+                if (IsWaterTile(currPosition + Vector2Int.up * inputMoveDir.y))
+                {
+                    inWater = true;
+                }
+                else
+                {
+                    inWater = false;
+                }
+
                 transform.position += Vector3.up * inputMoveDir.y;
                 currPosition += Vector2Int.up * inputMoveDir.y;
                 soundPlayer.PlaySound("Game.Step");
@@ -112,10 +130,19 @@ public class Player : MonoBehaviour
         if (inputMoveDir.x != 0 && (lastMoveDirInput.x != inputMoveDir.x || (!moveLockedX && lastMoveTimer < 0)))
         {
             //Separate vertical movement and horizontal separately, to prevent moving diagonally without testing either side.
-            if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x))
+            if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x) && (canWalkInWater || !IsWaterTile(currPosition + Vector2Int.right * inputMoveDir.x)))
             {
                 transform.position += Vector3.right * inputMoveDir.x;
                 soundPlayer.PlaySound("Game.Step");
+
+                if(IsWaterTile(currPosition + Vector2Int.right * inputMoveDir.x))
+                {
+                    inWater = true;
+                }
+                else
+                {
+                    inWater = false;
+                }
             }
             else
             {
@@ -158,6 +185,17 @@ public class Player : MonoBehaviour
             return true;
     }
 
+    /// <summary>
+    /// Check if the chosen tile has the Water layer set to it
+    /// </summary>
+    /// <param name="tile"></param>
+    /// <returns></returns>
+    public bool IsWaterTile(Vector2Int tile)
+    {
+        RaycastHit2D rayCast = Physics2D.Linecast(ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .25f, ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .75f, waterLayer);
+        return rayCast;
+    }
+
     public void PickUpItem(Item in_item = null)
     {
         bool removeKeyFlag = false;
@@ -176,6 +214,7 @@ public class Player : MonoBehaviour
             heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 2;
             heldItem.transform.SetParent(transform, false);
             heldItem.transform.position = Vector2.right * transform.position.x + Vector2.up * (transform.position.y + .25f);
+            heldItem.ActivateEffectOnPickup(this);
         }
     }
 
@@ -184,7 +223,7 @@ public class Player : MonoBehaviour
         //Get point to space in front of player.
         Vector2Int frontTile = GetPointInFrontOfPlayer();
 
-        if (CheckOpenTile(frontTile))
+        if (CheckOpenTile(frontTile) && !IsWaterTile(frontTile))
         {
             Item itemInFront = GetItemInFrontOfPlayer();
             if (itemInFront != null && !itemInFront.canBePickedUp) return;
@@ -204,6 +243,7 @@ public class Player : MonoBehaviour
                     heldItem.transform.SetParent(null);
                     heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
                     heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+                    heldItem.ActivateEffectOnPutDown(this);
 
                     //Swap item for item on floor.
                     if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);

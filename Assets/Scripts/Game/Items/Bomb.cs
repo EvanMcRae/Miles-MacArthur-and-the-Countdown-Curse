@@ -23,12 +23,16 @@ public class Bomb : MonoBehaviour
     [SerializeField]
     float shakeStrength;
 
+    [SerializeField] private Sprite[] sprites;
+    private SpriteRenderer spriteRenderer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AudioManager.OnBeat += Onbeat;
         BeatsLeftUnilExplosion = BeatsToExplode;
         BeatsLeftUnilClean = BeatsToCleanExplosion;
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         exploded = false;
     }
@@ -48,6 +52,7 @@ public class Bomb : MonoBehaviour
         if(BeatsLeftUnilExplosion > 0)
         {
             BeatsLeftUnilExplosion -= 1;
+            spriteRenderer.sprite = sprites[BeatsLeftUnilExplosion];
         }
         else
         {
@@ -60,7 +65,7 @@ public class Bomb : MonoBehaviour
         }
         else if (exploded)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 

@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0dbb07ce11e4bc40ae3eb1b248f06e1, type: 3}
   m_Name: Menu
   m_EditorClassIdentifier: Assembly-CSharp::MusicClip
-  clip: {fileID: 8300000, guid: d90e541cda362f147a32ceefca6694e3, type: 3}
-  BPM: 120
+  clip: {fileID: 8300000, guid: 1f934effca8144241a7b1758c970e06c, type: 3}
+  BPM: 84
   timeSignature: 4
   timeSignatureBottom: 4
-  barsLength: 60
+  barsLength: 27
   preEntryBars: 0
-  sampleRate: 48000
   beatFrequency: 1
   area: 1
