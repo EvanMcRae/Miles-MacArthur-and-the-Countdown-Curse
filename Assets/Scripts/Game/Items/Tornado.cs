@@ -8,9 +8,6 @@ public class Tornado : MonoBehaviour
     //how many beats left unil this bomb disapears
     private int BeatsLeftUnilClean;
 
-    public int xDirection = 0;
-    public int yDirection = 1;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
