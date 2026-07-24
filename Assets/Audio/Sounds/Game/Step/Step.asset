@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Step
   m_EditorClassIdentifier: Assembly-CSharp::SoundSet
   clips:
-  - {fileID: 8300000, guid: 1b06291ff39d8884eaa246cdb3d22b4a, type: 3}
+  - {fileID: 8300000, guid: 7fd7d188d8074504ea3552dfc6bc4732, type: 3}
