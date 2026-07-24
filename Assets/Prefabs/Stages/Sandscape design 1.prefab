@@ -555,6 +555,7 @@ GameObject:
   - component: {fileID: 2560257507425151039}
   - component: {fileID: 4187496097055737509}
   - component: {fileID: 1056149811952056530}
+  - component: {fileID: 5395496782595438321}
   m_Layer: 5
   m_Name: Set1
   m_TagString: Untagged
@@ -683,6 +684,21 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5395496782595438321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670353560567640687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 456cf536af7bb904ba33f0a9d2f2970b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  replacementText: 'WASD to move
+
+    TAB to pause'
 --- !u!1 &1972530457663094917
 GameObject:
   m_ObjectHideFlags: 0
