@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0dbb07ce11e4bc40ae3eb1b248f06e1, type: 3}
   m_Name: Sandscape
   m_EditorClassIdentifier: Assembly-CSharp::MusicClip
-  clip: {fileID: 8300000, guid: 466a8c9d164db174fa5fbadf30644972, type: 3}
-  BPM: 120
+  clip: {fileID: 8300000, guid: 5a08990bdf2ac6e48990c920c8554445, type: 3}
+  BPM: 160
   timeSignature: 6
   timeSignatureBottom: 8
   barsLength: 48
   preEntryBars: 0
   sampleRate: 48000
-  beatFrequency: 1.5
+  beatFrequency: 2
   area: 2
