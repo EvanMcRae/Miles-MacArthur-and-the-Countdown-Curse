@@ -1008,7 +1008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ScreenTransition
   _duration: 0.5
-  _delay: 0.5
+  _delay: 1.5
   _numSteps: 4
 --- !u!114 &3834120518232650893
 MonoBehaviour:
