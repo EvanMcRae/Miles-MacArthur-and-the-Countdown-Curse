@@ -32,4 +32,7 @@ public class Item : MonoBehaviour
     /// Activate the unique functionality of the item
     /// </summary>
     public virtual void Usefunction(Vector2 point, int xDirection, int yDirection, Player player = null) { }
+
+    public virtual void ActivateEffectOnPickup(Player player) { }
+    public virtual void ActivateEffectOnPutDown(Player player) { }
 }
