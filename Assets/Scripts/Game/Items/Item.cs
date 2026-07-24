@@ -64,4 +64,10 @@ public class Item : MonoBehaviour
     {
         startPos = transform.position.y;
     }
+
+    public virtual void OnDestroy()
+    {
+        AudioManager.OnBeat -= Oscillate;
+        Utils.KillTween(ref oscillationTween);
+    }
 }
