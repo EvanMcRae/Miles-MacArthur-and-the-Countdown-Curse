@@ -190,7 +190,7 @@ public class Player : MonoBehaviour
     /// </summary>
     /// <param name="tile"></param>
     /// <returns></returns>
-    private bool IsWaterTile(Vector2Int tile)
+    public bool IsWaterTile(Vector2Int tile)
     {
         RaycastHit2D rayCast = Physics2D.Linecast(ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .25f, ColliderTiles.CellToWorld((Vector3Int)tile) + Vector3.one * .75f, waterLayer);
         return rayCast;

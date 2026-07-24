@@ -7,7 +7,7 @@ public class WindBag : Item
 
     GameObject ActiveTornado;
 
-    public override void Usefunction(Vector2 Point, int xDirection, int yDireciton, Player player = null)
+    public override void Usefunction(Vector2Int Point, int xDirection, int yDireciton, Player player = null)
     {
         if (ActiveTornado == null)
         {
