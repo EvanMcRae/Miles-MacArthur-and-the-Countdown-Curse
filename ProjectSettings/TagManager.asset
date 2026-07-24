@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BombExplosion
   - RemovableObject
+  - Keyhole
   layers:
   - Default
   - TransparentFX
