@@ -75,7 +75,11 @@ public class AudioManager : MonoBehaviour
             s.playOnAwake = false;
             s.volume = 0.0f;
             s.outputAudioMixerGroup = musicMixerGroup;
+#if UNITY_WEBGL && !UNITY_EDITOR
+            s.pitch = 44100f / 48000f;
+#else
             s.pitch = 1f;
+#endif
             s.dopplerLevel = 0;
             s.spatialBlend = 0;
         }
@@ -86,7 +90,11 @@ public class AudioManager : MonoBehaviour
             s.playOnAwake = false;
             s.volume = 0.0f;
             s.outputAudioMixerGroup = musicMixerGroup;
+#if UNITY_WEBGL && !UNITY_EDITOR
+            s.pitch = 44100f / 48000f;
+#else
             s.pitch = 1f;
+#endif
             s.dopplerLevel = 0;
             s.spatialBlend = 0;
         }
@@ -269,7 +277,7 @@ public class AudioManager : MonoBehaviour
             lastTime = 0;
             currentBeat = 0;
         }
-        beatLength = (int)(60.0f / music.BPM * music.clip.frequency * music.beatFrequency * music.timeSignature / music.timeSignatureBottom);
+        beatLength = (int)(60.0f / music.BPM * music.clip.frequency * music.beatFrequency * music.timeSignature / music.timeSignatureBottom * BGM1[0].pitch);
 
         // Kill all playing
         for (int i = 0; i < outFader.Length; i++)
