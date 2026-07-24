@@ -12,6 +12,7 @@ public class ScreenTransition : MonoBehaviour
     [SerializeField] private float _delay = 0.5f;
     public Action postTransitionIn;
     public static bool active;
+    [SerializeField] private int _numSteps = 4;
 
     void Awake()
     {
@@ -30,8 +31,14 @@ public class ScreenTransition : MonoBehaviour
         EventSystem.current.sendNavigationEvents = false;
         _image.enabled = true;
 
-        // TODO: fancier animation
-        _image.DOFade(1, _duration).SetUpdate(true).OnComplete(() => {
+        float fade = _image.color.a;
+        DOTween.To(() => fade, x => fade = x, 1, _duration).SetUpdate(true).OnUpdate(() =>
+        {
+            Color c = _image.color;
+            c.a = Mathf.CeilToInt(fade * _numSteps) / (float)_numSteps;
+            _image.color = c;
+        }).OnComplete(() =>
+        {
             callback?.Invoke();
             active = false;
         });
@@ -48,7 +55,13 @@ public class ScreenTransition : MonoBehaviour
         _image.enabled = true;
 
         // TODO: fancier animation
-        _image.DOFade(0, _duration).SetUpdate(true).OnComplete(() => {
+        float fade = _image.color.a;
+        DOTween.To(() => fade, x => fade = x, 0, _duration).SetUpdate(true).OnUpdate(() =>
+        {
+            Color c = _image.color;
+            c.a = Mathf.CeilToInt(fade * _numSteps) / (float)_numSteps;
+            _image.color = c;
+        }).OnComplete(() => {
             postTransitionIn?.Invoke();
             _image.enabled = false;
             active = false;
