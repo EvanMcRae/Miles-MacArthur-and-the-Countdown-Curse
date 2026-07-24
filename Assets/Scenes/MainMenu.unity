@@ -829,8 +829,6 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Steve The Bartender
 
-    Luke Schultz
-
     Scott Serafin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
@@ -1298,7 +1296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &819788655
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1803,7 +1801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 393, y: -507}
+  m_AnchoredPosition: {x: 393, y: -448}
   m_SizeDelta: {x: 630.86, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942865440
@@ -1965,7 +1963,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Public Pixel Font
 
-    MichaelsGameLab'
+    MichaelsGameLab
+
+    DOTween'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
   m_sharedMaterial: {fileID: 1323558007705263911, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
@@ -2212,7 +2212,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -446, y: -535}
+  m_AnchoredPosition: {x: -446, y: -607}
   m_SizeDelta: {x: 630.86, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1069740586
@@ -2374,7 +2374,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Chris Doerksen
 
-    Steve the Bartender'
+    Scott Serafin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
   m_sharedMaterial: {fileID: 1323558007705263911, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
@@ -2903,7 +2903,12 @@ MonoBehaviour:
 
     Jake Pickholtz
 
-    Evan McRae'
+    Evan McRae
+
+    Luke
+    Schultz
+
+    Scott Serafin'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
   m_sharedMaterial: {fileID: 1323558007705263911, guid: bec24d4ebb5a2c745a793ad3f6a7d101, type: 2}
@@ -3179,7 +3184,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 393, y: -696}
+  m_AnchoredPosition: {x: 393, y: -642.9}
   m_SizeDelta: {x: 630.86, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1795128651
