@@ -804,6 +804,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6384809498509822355}
     - target: {fileID: 6482919259778724329, guid: 70602470c188516488628e2fb10023e9, type: 3}
+      propertyPath: _soundPlayer
+      value: 
+      objectReference: {fileID: 2567863366985228926}
+    - target: {fileID: 6482919259778724329, guid: 70602470c188516488628e2fb10023e9, type: 3}
       propertyPath: _settingsPanel
       value: 
       objectReference: {fileID: 9220273265043806680}
