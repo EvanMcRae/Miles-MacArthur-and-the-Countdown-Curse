@@ -14,6 +14,7 @@ public class Item : MonoBehaviour
     [SerializeField] private SpriteRenderer visual, shadow;
     [SerializeField] private Sprite[] shadowSprites;
     [SerializeField] private new Collider2D collider;
+    public static bool firstTimePickedUp = false;
 
     protected virtual void Awake()
     {
@@ -67,6 +68,11 @@ public class Item : MonoBehaviour
         visual.transform.localPosition = Vector3.zero;
         shadow.enabled = false;
         collider.enabled = false;
+        if (!firstTimePickedUp)
+        {
+            player.NewItemGet();
+            firstTimePickedUp = true;
+        }
     }
     
     public virtual void ActivateEffectOnPutDown(Player player)

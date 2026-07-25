@@ -56,7 +56,7 @@ public class Bomb : MonoBehaviour
             BeatsLeftUnilExplosion -= 1;
             spriteRenderer.sprite = sprites[BeatsLeftUnilExplosion];
         }
-        else
+        else if (!exploded)
         {
             Explode();
         }

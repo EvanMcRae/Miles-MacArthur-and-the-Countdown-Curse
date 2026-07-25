@@ -113,6 +113,11 @@ public class SoundPlayer : MonoBehaviour
         }
     }
 
+    public void PauseSound()
+    {
+        PauseSound("all");
+    }
+
     public void PauseSound(string path = null)
     {
         if (path == null || path == "all")
@@ -151,6 +156,11 @@ public class SoundPlayer : MonoBehaviour
                 source.Pause();
             }
         }
+    }
+
+    public void UnPauseSound()
+    {
+        UnPauseSound("all");
     }
 
     public void UnPauseSound(string path = null)

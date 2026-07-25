@@ -302,4 +302,21 @@ public class Player : MonoBehaviour
     {
         spriteRenderer.sprite = deathSprite;
     }
+
+    public void NewItemGet()
+    {
+        switch (AudioManager.instance.currentArea)
+        {
+            case AudioManager.GameArea.SANDSCAPE:
+                soundPlayer.PlaySound("Game.SandscapeItemA"); // TODO: item get sound for second half is in a different key, not easy to check for
+                break;
+            case AudioManager.GameArea.CRYSTALSCAPE:
+                soundPlayer.PlaySound("Game.CrystalscapeItem");
+                break;
+            case AudioManager.GameArea.GARDENSCAPE:
+                soundPlayer.PlaySound("Game.GardenscapeItem");
+                break;
+        }
+
+    }
 }
