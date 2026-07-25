@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   isBeingHeld: 0
   canBePickedUp: 1
-  name: FIRE_CRYSTAL
+  name: FIRE CRYSTAL
   oscillationAmplitude: 0.125
   visual: {fileID: 7844344670044637336}
   shadow: {fileID: 4376806679669456938}

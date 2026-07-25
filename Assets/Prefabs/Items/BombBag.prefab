@@ -95,7 +95,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   isBeingHeld: 0
   canBePickedUp: 1
-  name: 
+  name: BOMB BAG
   oscillationAmplitude: 0.125
   visual: {fileID: 3353252382444354838}
   shadow: {fileID: 2515020569084520508}

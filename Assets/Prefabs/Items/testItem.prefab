@@ -151,4 +151,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f1be28b9f7146d49bbd7c713acfa7ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TestItem
-  id: TEST
+  isBeingHeld: 0
+  canBePickedUp: 1
+  name: TEST
+  oscillationAmplitude: 0.125
+  visual: {fileID: 0}
+  shadow: {fileID: 0}
+  shadowSprites: []
+  collider: {fileID: 0}

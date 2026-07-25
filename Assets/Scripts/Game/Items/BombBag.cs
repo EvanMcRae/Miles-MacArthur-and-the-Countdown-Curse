@@ -15,4 +15,9 @@ public class BombBag : Item
         }
         
     }
+
+    public override string GetUseText()
+    {
+        return "<size=+0.2><voffset=-0.25em>&<voffset=0em><size=+0> Bomb";
+    }
 }
