@@ -118,8 +118,11 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator WinRoutine()
     {
-        yield return new WaitForSeconds(5f);
-        GoToScene(_nextScene);
+        yield return new WaitForSecondsRealtime(2.5f);
+        ScreenTransition.instance.TransitionOut();
+        yield return new WaitForSecondsRealtime(3.5f);
+        paused = false;
+        SceneManager.LoadScene(_nextScene);
     }
 
     private void GoToScene(string scene)

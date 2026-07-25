@@ -67,7 +67,7 @@ public class TextFader : MonoBehaviour
     public void ShowCompletedText()
     {
         enabled = true;
-        _fadeOutDelay = 5f;
+        _fadeOutDelay = 4f;
         _text.text += " CLEARED";
         FadeIn();
     }
