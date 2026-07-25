@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 7285585745940938018}
   - component: {fileID: 6232249319137058364}
   - component: {fileID: 4124008402461186583}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WaterOrb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -195,6 +195,7 @@ MonoBehaviour:
   - {fileID: -325413108, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -434121957, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -765010680, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
+  collider: {fileID: 6232249319137058364}
 --- !u!1 &7183607098629378648
 GameObject:
   m_ObjectHideFlags: 0

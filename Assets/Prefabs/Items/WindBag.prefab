@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 2479291810082831519}
   - component: {fileID: 2199473345596505937}
   - component: {fileID: 1527907321967888461}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WindBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,4 +286,5 @@ MonoBehaviour:
   - {fileID: -325413108, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -434121957, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -765010680, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
+  collider: {fileID: 2199473345596505937}
   TornadoPrefab: {fileID: 3279158816717083468, guid: 3afcd2677d89b6b4287323947b196c1b, type: 3}
