@@ -26,6 +26,7 @@ public class TimedDoor : MonoBehaviour
     {
         AudioManager.OnBeat += Onbeat;
         anim.SetBool("IsPit", isPit);
+        Onbeat(1);
     }
 
     public void Update()
