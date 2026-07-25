@@ -10,7 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6002930129922173339}
   - component: {fileID: 8778198824717416589}
+  - component: {fileID: 8813781307260921048}
   - component: {fileID: 8130582176434356435}
+  - component: {fileID: 7061425468170563067}
   m_Layer: 0
   m_Name: TorchOn
   m_TagString: Untagged
@@ -92,6 +94,23 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
+--- !u!114 &8813781307260921048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151131808926395063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfcb21ada058a9b4d802a9f798a9a0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
+  spriterenderer: {fileID: 8778198824717416589}
+  Sprites:
+  - {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  BeatsToChangeSprite: 1
 --- !u!114 &8130582176434356435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -144,6 +163,21 @@ MonoBehaviour:
   - {x: 0.5, y: -0.5, z: 0}
   - {x: 0.5, y: 0.5, z: 0}
   - {x: -0.5, y: 0.5, z: 0}
+--- !u!114 &7061425468170563067
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7151131808926395063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dfcb21ada058a9b4d802a9f798a9a0b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  spriterenderer: {fileID: 0}
+  Sprites: []
+  BeatsToChangeSprite: 0
 --- !u!1 &9169923457508616650
 GameObject:
   m_ObjectHideFlags: 0

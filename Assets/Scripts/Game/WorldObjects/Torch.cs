@@ -30,24 +30,6 @@ public class Torch : MonoBehaviour
         TorchOff.SetActive(!changeStateTo);
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (collision.CompareTag(tagToBeLitBy))
-    //    {
-    //        UpdateDoor?.Invoke(TorchLit);
-    //        ChangeCollisionState(false);
-    //    }
-    //}
-
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag(tagToBeLitBy))
-    //    {
-    //        UpdateDoor?.Invoke(TorchLit);
-    //        ChangeCollisionState(false);
-    //    }
-    //}
-
     public void LightTorch()
     {
         UpdateDoor?.Invoke(TorchLit);
