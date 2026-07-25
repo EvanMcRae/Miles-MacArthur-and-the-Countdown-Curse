@@ -45,7 +45,7 @@ public class Player : MonoBehaviour
     LayerMask waterLayer;
 
     [SerializeField] private MovementGlyphRenderer movementGlyphRenderer;
-    [SerializeField] private GlyphRenderer interactGlyphRenderer, pickupGlyphRenderer;
+    [SerializeField] private GlyphRenderer pickupGlyphRenderer;
 
     void Start()
     {
