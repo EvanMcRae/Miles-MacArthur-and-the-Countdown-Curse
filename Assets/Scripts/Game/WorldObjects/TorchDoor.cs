@@ -9,17 +9,17 @@ public class TorchDoor : MonoBehaviour
     GameObject Closed;
 
     [SerializeField]
-    RemovableObject[] Torches;
+    Torch[] Torches;
 
-    int torchesLeftToOpen;
+    int torchesLeftToTurnOn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ChangeOpenState(false);
 
-        torchesLeftToOpen = Torches.Length;
-        foreach(RemovableObject torch in Torches)
+        torchesLeftToTurnOn = Torches.Length;
+        foreach(Torch torch in Torches)
         {
             torch.UpdateDoor += UpdateCount;
         }
@@ -33,12 +33,12 @@ public class TorchDoor : MonoBehaviour
 
     public void UpdateCount(bool WasOn)
     {
-        if (WasOn)
+        if (!WasOn)
         {
-            torchesLeftToOpen -= 1;
+            torchesLeftToTurnOn -= 1;
         }
 
-        if(torchesLeftToOpen <= 0)
+        if(torchesLeftToTurnOn <= 0)
         {
             ChangeOpenState(true);
         }
@@ -46,7 +46,7 @@ public class TorchDoor : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (RemovableObject torch in Torches)
+        foreach (Torch torch in Torches)
         {
             torch.UpdateDoor -= UpdateCount;
         }
