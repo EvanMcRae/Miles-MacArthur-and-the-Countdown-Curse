@@ -581,6 +581,12 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1466961588421326271, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
+      propertyPath: m_text
+      value: 'Public Pixel Font
+
+        MichaelsGameLab'
+      objectReference: {fileID: 0}
     - target: {fileID: 1527374248741698472, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: soundPlayer
       value: 
@@ -664,6 +670,14 @@ PrefabInstance:
     - target: {fileID: 4381174018227500518, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4595133974747010147, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
+      propertyPath: m_text
+      value: 'Chris Doerksen
+
+        Steve the Bartender
+
+        Evan McRae'
       objectReference: {fileID: 0}
     - target: {fileID: 4620010771981149737, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_AnchorMax.y
@@ -908,6 +922,10 @@ PrefabInstance:
     - target: {fileID: 9033914761069765537, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9067782648353604435, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -678.9
       objectReference: {fileID: 0}
     - target: {fileID: 9087214682539128694, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: soundPlayer
