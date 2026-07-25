@@ -289,46 +289,6 @@ PrefabInstance:
       propertyPath: m_NormalizedViewPortRect.height
       value: 0.99521554
       objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_MoveAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_PointAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_CancelAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_SubmitAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_LeftClickAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_RightClickAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_MiddleClickAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_ScrollWheelAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_TrackedDevicePositionAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_TrackedDeviceOrientationAction
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 3784058268484461214, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
