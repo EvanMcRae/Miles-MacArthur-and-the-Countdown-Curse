@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,11 +17,26 @@ public class TimedDoor : MonoBehaviour
 
     public bool isPit = false;
 
+    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private SoundClip close, fill, open;
+    private Sprite previousStage;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AudioManager.OnBeat += Onbeat;
         anim.SetBool("IsPit", isPit);
+    }
+
+    public void Update()
+    {
+        if (GameManager.paused || GameManager.quitting) return;
+
+        if (anim.GetComponent<SpriteRenderer>().sprite != previousStage && anim.GetFloat("Stage") != 1 && anim.GetFloat("Stage") != 0)
+        {
+            soundPlayer.PlaySound(fill);
+        }
+        previousStage = anim.GetComponent<SpriteRenderer>().sprite;
     }
 
     public void Onbeat(int beatNum)
@@ -48,10 +64,11 @@ public class TimedDoor : MonoBehaviour
                     DoorScheduleEntry nextEvent = findNextScheduleEvent(beatNum);
                     if (nextEvent.beatNum - lastEvent.beatNum != 0)
                     {
-                        if(nextEvent.toState == DoorState.Open)
-                            anim.SetFloat("Stage", (float)(nextEvent.beatNum - beatNum) / (nextEvent.beatNum - lastEvent.beatNum));
+                        float progress = (float)(nextEvent.beatNum - beatNum) / (nextEvent.beatNum - lastEvent.beatNum);
+                        if (nextEvent.toState == DoorState.Open)
+                            anim.SetFloat("Stage", progress);
                         else
-                            anim.SetFloat("Stage", 1 - (float)(nextEvent.beatNum - beatNum) / (nextEvent.beatNum - lastEvent.beatNum));
+                            anim.SetFloat("Stage", 1 - progress);
                     }
                 }
             }
@@ -76,18 +93,16 @@ public class TimedDoor : MonoBehaviour
     {
         cldr.enabled = false;
         anim.SetFloat("Stage", 0);
+        if (pastFirstEvent)
+            soundPlayer.PlaySound(open);
     }
 
     public void Close()
     {
         cldr.enabled = true;
         anim.SetFloat("Stage", 1);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (pastFirstEvent)
+            soundPlayer.PlaySound(close);
     }
 }
 [System.Serializable]
