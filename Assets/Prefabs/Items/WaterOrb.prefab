@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   isBeingHeld: 0
   canBePickedUp: 1
-  name: 
+  name: TIDEBORNE ORB
   oscillationAmplitude: 0.125
   visual: {fileID: 714111991327137753}
   shadow: {fileID: 8305164113972627296}
