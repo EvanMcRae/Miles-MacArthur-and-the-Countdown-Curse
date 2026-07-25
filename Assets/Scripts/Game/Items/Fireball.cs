@@ -43,7 +43,6 @@ public class Fireball : MonoBehaviour
 
     private void FixedUpdate()
     {
-
         rb.linearVelocity = new Vector3(MoveSpeed * xDirection, MoveSpeed * yDirection, 0);
     }
 

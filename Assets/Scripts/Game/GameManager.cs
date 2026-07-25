@@ -141,7 +141,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         _pauseMenu.enabled = true;
         AudioManager.instance.PauseCurrent();
-        // TODO: pause all sounds
+        foreach (SoundPlayer p in FindObjectsByType<SoundPlayer>())
+        {
+            p.PauseSound();
+        }
     }
 
     void Unpause()
@@ -150,7 +153,10 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1;
         _pauseMenu.enabled = false;
         AudioManager.instance.UnPauseCurrent();
-        // TODO: resume all sounds
+        foreach (SoundPlayer p in FindObjectsByType<SoundPlayer>())
+        {
+            p.UnPauseSound();
+        }
     }
 
     void OnDestroy()

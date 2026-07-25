@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -202,7 +203,16 @@ public class Player : MonoBehaviour
         if (heldItem == null) removeKeyFlag = true;
 
         if (in_item != null) heldItem = in_item;
-        else heldItem = GetItemInFrontOfPlayer();
+        else
+        {
+            Vector2Int[] probeTiles = new Vector2Int[] {
+                GetPointInFrontOfPlayer(),
+                GetPointLeftOfPlayer(), 
+                GetPointRightOfPlayer(),
+                GetPointBehindPlayer()
+            };
+            heldItem = GetItem(probeTiles);
+        }
 
         if (heldItem != null)
         {
@@ -225,64 +235,100 @@ public class Player : MonoBehaviour
         //Get point to space in front of player.
         Vector2Int frontTile = GetPointInFrontOfPlayer();
 
-        if (CheckOpenTile(frontTile) && !IsWaterTile(frontTile))
+        if (IsWaterTile(frontTile)) return;
+                   
+        Vector2Int[] pointInFront = { GetPointInFrontOfPlayer() };
+        Item itemInFront = GetItemInFrontOfPlayer();
+
+        // if no item, ensure tile is not a wall
+        if (itemInFront == null && !CheckOpenTile(pointInFront[0])) return;
+        // if item, ensure it can be swapped
+        if (itemInFront != null && !itemInFront.canBePickedUp) return;
+
+        //If the item is a key, try to use it when its put down (in case it's put down on top of a floor lock)
+        //Do not do this if you used Interact or else it stackoverflows.
+        if (heldItem.GetComponent<Key>() != null && !inputSettings.actions["Interact"].WasPressedThisFrame())
         {
-            Item itemInFront = GetItemInFrontOfPlayer();
-            if (itemInFront != null && !itemInFront.canBePickedUp) return;
-            else
-            {
-                //If the item is a key, try to use it when its put down (in case it's put down on top of a floor lock)
-                //Do not do this if you used Interact or else it stackoverflows.
-                if (heldItem.GetComponent<Key>() != null && !inputSettings.actions["Interact"].WasPressedThisFrame())
-                {
-                    heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection, gameObject.GetComponent<Player>());
-                }
+            heldItem.Usefunction(GetPointInFrontOfPlayer(), xDirection, yDirection, gameObject.GetComponent<Player>());
+        }
 
-                //Put Down Item behavior.
-                if (heldItem != null)
-                {
-                    heldItem.isBeingHeld = false;
-                    heldItem.transform.SetParent(null);
-                    heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
-                    heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
-                    heldItem.ActivateEffectOnPutDown(this);
+        //Put Down Item behavior.
+        if (heldItem != null)
+        {
+            heldItem.isBeingHeld = false;
+            heldItem.transform.SetParent(null);
+            heldItem.GetComponentInChildren<SpriteRenderer>().sortingOrder = 0;
+            heldItem.transform.position = Vector2.one * .5f + frontTile; //Vector2.one * .5f -> Allows you to move the sprite to the center of the tile.
+            heldItem.ActivateEffectOnPutDown(this);
 
-                    //Swap item for item on floor.
-                    if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);
-                    else heldItem = null;
+            //Swap item for item on floor.
+            if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);
+            else heldItem = null;
 
-                    soundPlayer.PlaySound("Game.ItemDrop");
-                }
-            }
+            soundPlayer.PlaySound("Game.ItemDrop");
         }
     }
+
+    /// <summary>
+    /// All get point functions are relative to the player's frontward direction
+    /// </summary>
 
     public Vector2Int GetPointInFrontOfPlayer()
     {
-        return Vector2Int.right * Mathf.FloorToInt(transform.position.x + xDirection) + Vector2Int.up * Mathf.FloorToInt(transform.position.y + yDirection);
+        return Vector2Int.right * Mathf.FloorToInt(transform.position.x + xDirection) + 
+            Vector2Int.up * Mathf.FloorToInt(transform.position.y + yDirection);
     }
 
-    public Item GetItemInFrontOfPlayer()
+    public Vector2Int GetPointBehindPlayer()
     {
-        //Get point to space in front of player.
-        Vector2Int frontTile = GetPointInFrontOfPlayer();
+        return Vector2Int.right * Mathf.FloorToInt(transform.position.x - xDirection) +
+            Vector2Int.up * Mathf.FloorToInt(transform.position.y - yDirection);
+    }
 
-        //Check tile in front of player for item.
-        ////Vector2 test = Vector2.one * .5f + frontTile;
-        ////Debug.DrawLine((Vector3)test, new Vector3(test.x - .3f, test.y -.3f, 0), Color.white, 5);
-        Collider2D[] cols = Physics2D.OverlapBoxAll(Vector2.one * .5f + frontTile, Vector2.one * .3f, 0);
+    public Vector2Int GetPointLeftOfPlayer()
+    {
+        Vector2Int forwardDirection = new Vector2Int(xDirection, yDirection);
+        return new Vector2Int(
+            Mathf.FloorToInt(transform.position.x + -forwardDirection.y),
+            Mathf.FloorToInt((transform.position.y + forwardDirection.x)
+            ));
+    }
 
+    public Vector2Int GetPointRightOfPlayer()
+    {
+        Vector2Int forwardDirection = new Vector2Int(xDirection, yDirection);
+        return new Vector2Int(
+            Mathf.FloorToInt(transform.position.x + forwardDirection.y),
+            Mathf.FloorToInt((transform.position.y + -forwardDirection.x)
+            ));
+    }
 
-        //Search for items gotten from prev method.
-        foreach (Collider2D col in cols)
+    public Item GetItem(Vector2Int[] tilesToProbe)
+    {
+        // get first valid item, if checking multiple tiles this should be given the one in front of the player first
+        Item targetItem = null;
+        foreach (Vector2Int tile in tilesToProbe)
         {
-            if (col.gameObject.GetComponent<Item>() != null && col.gameObject.GetComponent<Item>().canBePickedUp)
+            Collider2D[] cols = Physics2D.OverlapBoxAll(Vector2.one * .5f + tile, Vector2.one * .3f, 0);
+            
+            foreach (Collider2D col in cols)
             {
-                return col.gameObject.GetComponent<Item>();
+                targetItem = col.gameObject.GetComponent<Item>();
+
+                if (targetItem != null && targetItem.canBePickedUp)
+                {
+                    return targetItem;
+                }
             }
         }
-
         return null;
+    }
+
+    // I hate this and its ugly but oh well !
+    public Item GetItemInFrontOfPlayer()
+    {
+        Vector2Int[] pointInFront = { GetPointInFrontOfPlayer() };
+        return GetItem(pointInFront);
     }
 
 
@@ -301,5 +347,22 @@ public class Player : MonoBehaviour
     public void Die()
     {
         spriteRenderer.sprite = deathSprite;
+    }
+
+    public void NewItemGet()
+    {
+        switch (AudioManager.instance.currentArea)
+        {
+            case AudioManager.GameArea.SANDSCAPE:
+                soundPlayer.PlaySound("Game.SandscapeItemA"); // TODO: item get sound for second half is in a different key, not easy to check for
+                break;
+            case AudioManager.GameArea.CRYSTALSCAPE:
+                soundPlayer.PlaySound("Game.CrystalscapeItem");
+                break;
+            case AudioManager.GameArea.GARDENSCAPE:
+                soundPlayer.PlaySound("Game.GardenscapeItem");
+                break;
+        }
+
     }
 }
