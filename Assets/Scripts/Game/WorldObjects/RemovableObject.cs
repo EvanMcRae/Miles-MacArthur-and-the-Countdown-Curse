@@ -13,18 +13,14 @@ public class RemovableObject : MonoBehaviour
     [SerializeField]
     string tagToBeRemovedBy;
 
-    bool IsOnState;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         ChangeCollisionState(true);
-        IsOnState = true;
     }
 
     public void ChangeCollisionState(bool changeStateTo)
     {
-        IsOnState = changeStateTo;
         CollisionOn.SetActive(changeStateTo);
         CollisionOff.SetActive(!changeStateTo);
     }
@@ -33,10 +29,7 @@ public class RemovableObject : MonoBehaviour
     {
         if (collision.CompareTag(tagToBeRemovedBy))
         {
-            UpdateDoor?.Invoke(IsOnState);
             ChangeCollisionState(false);
         }
     }
-
-    public Action<bool> UpdateDoor;
 }

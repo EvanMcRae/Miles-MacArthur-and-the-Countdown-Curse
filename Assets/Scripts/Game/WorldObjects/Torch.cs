@@ -1,0 +1,40 @@
+using NUnit.Framework;
+using System;
+using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Rendering;
+
+public class Torch : MonoBehaviour
+{
+    [SerializeField]
+    GameObject TorchOn;
+    [SerializeField]
+    GameObject TorchOff;
+
+    [SerializeField]
+    string tagToBeLitBy;
+
+    bool TorchLit;
+
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        TorchLit = false;
+        ChangeCollisionState(TorchLit);
+    }
+
+    public void ChangeCollisionState(bool changeStateTo)
+    {
+        TorchLit = changeStateTo;
+        TorchOn.SetActive(changeStateTo);
+        TorchOff.SetActive(!changeStateTo);
+    }
+
+    public void LightTorch()
+    {
+        UpdateDoor?.Invoke(TorchLit);
+        ChangeCollisionState(true);
+    }
+
+    public Action<bool> UpdateDoor;
+}

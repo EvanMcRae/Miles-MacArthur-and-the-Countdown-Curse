@@ -8,6 +8,7 @@ TagManager:
   - RemovableObject
   - Keyhole
   - FireBall
+  - Torch
   layers:
   - Default
   - TransparentFX

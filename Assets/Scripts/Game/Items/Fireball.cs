@@ -1,5 +1,6 @@
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
 public class Fireball : MonoBehaviour
@@ -22,6 +23,11 @@ public class Fireball : MonoBehaviour
 
     private int cursor = 0;
 
+    private Rigidbody2D rb;
+
+    [SerializeField]
+    GameObject Particle;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +35,8 @@ public class Fireball : MonoBehaviour
         AudioManager.OnHalfBeat += OnHalfBeat;
 
         BeatsLeftUnilClean = BeatsToClean;
+
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -39,9 +47,7 @@ public class Fireball : MonoBehaviour
 
     private void FixedUpdate()
     {
-        float Actualspeed = MoveSpeed / 60;
-
-        transform.Translate(new Vector3(MoveSpeed / 60 * xDirection, MoveSpeed/60 * yDirection, 0));
+        rb.linearVelocity = new Vector3(MoveSpeed * xDirection, MoveSpeed * yDirection, 0);
     }
 
     public void Onbeat(int beatNum)
@@ -91,6 +97,23 @@ public class Fireball : MonoBehaviour
         else if(xDirection == -1)
         {
             transform.Rotate(new Vector3(0, 0, 90));
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider is TilemapCollider2D)
+        {
+            Instantiate(Particle, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Torch"))
+        {
+            collision.gameObject.GetComponent<Torch>().LightTorch();
         }
     }
 }
