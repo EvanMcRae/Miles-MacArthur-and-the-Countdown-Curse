@@ -18,4 +18,8 @@ public class MusicClip : SoundPlayable
     {
         return clip.length;
     }
+    public override bool IsMusic()
+    {
+        return true;
+    }
 }

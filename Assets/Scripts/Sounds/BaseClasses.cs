@@ -9,4 +9,5 @@ public class SoundNode : ScriptableObject
 public abstract class SoundPlayable : SoundNode
 {
     public abstract AudioClip GetClip();
+    public abstract bool IsMusic();
 }

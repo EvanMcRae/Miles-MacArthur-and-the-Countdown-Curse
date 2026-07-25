@@ -807,6 +807,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 6384809498509822355}
     - target: {fileID: 6482919259778724329, guid: 70602470c188516488628e2fb10023e9, type: 3}
+      propertyPath: _textFader
+      value: 
+      objectReference: {fileID: 1949635375230722772}
+    - target: {fileID: 6482919259778724329, guid: 70602470c188516488628e2fb10023e9, type: 3}
       propertyPath: _soundPlayer
       value: 
       objectReference: {fileID: 2567863366985228926}
@@ -1273,6 +1277,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1717307277894195525, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
   m_PrefabInstance: {fileID: 1845106347608968581}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1949635375230722772 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 186157737236016977, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}
+  m_PrefabInstance: {fileID: 1845106347608968581}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d00b3c68be46e40a71a851ed7e97b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TextFader
 --- !u!224 &2485250575309882156 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4316207977592999593, guid: e7d3fddedf471c54ca57a76d32bfa46c, type: 3}

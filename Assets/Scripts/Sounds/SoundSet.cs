@@ -7,6 +7,7 @@ public class SoundSet : SoundPlayable
 {
     public List<AudioClip> clips;
     private int lastClip;
+    public bool isMusic;
     public override AudioClip GetClip()
     {
         lastClip = Random.Range(0, clips.Count);
@@ -15,5 +16,9 @@ public class SoundSet : SoundPlayable
     public float length()
     {
         return clips[lastClip].length;
+    }
+    public override bool IsMusic()
+    {
+        return isMusic;
     }
 }

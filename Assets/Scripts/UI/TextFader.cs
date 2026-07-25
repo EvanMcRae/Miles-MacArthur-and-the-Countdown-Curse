@@ -35,6 +35,9 @@ public class TextFader : MonoBehaviour
 
     private void FadeIn()
     {
+        Color c = _text.color;
+        c.a = 1;
+        _text.color = c;
         float fade = 0;
 
         DOTween.To(() => fade, x => fade = x, 1, _fadeInDuration).SetUpdate(true).OnUpdate(() =>
@@ -50,14 +53,22 @@ public class TextFader : MonoBehaviour
     {
         float fade = _text.color.a;
 
-        DOTween.To(() => fade, x => fade = x, 0, _fadeInDuration).SetUpdate(true).OnUpdate(() =>
+        DOTween.To(() => fade, x => fade = x, 0, _fadeOutDuration).SetUpdate(true).OnUpdate(() =>
         {
             Color color = _text.color;
             color.a = Mathf.CeilToInt(fade * _numSteps) / (float)_numSteps;
             _text.alpha = color.a;
         }).OnComplete(() =>
         {
-            this.enabled = false;
+            enabled = false;
         });
+    }
+
+    public void ShowCompletedText()
+    {
+        enabled = true;
+        FadeIn();
+        _fadeOutDelay = 5f;
+        _text.text += " CLEARED";
     }
 }

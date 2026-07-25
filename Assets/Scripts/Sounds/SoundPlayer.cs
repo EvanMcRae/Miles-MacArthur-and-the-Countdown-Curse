@@ -42,10 +42,10 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlaySound(SoundPlayable clip, float volume = 1, bool loop = false)
     {
-        PlaySound(clip.GetClip(), volume, loop);
+        PlaySound(clip.GetClip(), volume, loop, clip.IsMusic());
     }
     
-    public void PlaySound(AudioClip clip, float volume = 1, bool loop = false)
+    public void PlaySound(AudioClip clip, float volume = 1, bool loop = false, bool isMusic = false)
     {
         if (clip == null) return;
 
@@ -65,6 +65,7 @@ public class SoundPlayer : MonoBehaviour
                 sources[index].loop = loop;
                 sources[index].volume = volume;
                 sources[index].Play();
+                sources[index].outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixer.outputAudioMixerGroup; 
                 return;
             }
         }

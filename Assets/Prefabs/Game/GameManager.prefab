@@ -47,3 +47,6 @@ MonoBehaviour:
   _pauseMenu: {fileID: 0}
   _settingsPanel: {fileID: 0}
   _gameMusic: {fileID: 11400000, guid: 29f42572efed8bd45a576edd37729b69, type: 2}
+  _soundPlayer: {fileID: 0}
+  _nextScene: MainMenu
+  _textFader: {fileID: 0}

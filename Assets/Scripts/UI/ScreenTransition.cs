@@ -29,7 +29,7 @@ public class ScreenTransition : MonoBehaviour
         instance = this;
         Invoke(nameof(StartTransition), _delay);
     }
-
+    
     public void TransitionOut(Action callback = null)
     {
         // CursorManager.SetCursorState(CursorManager.CursorState.LOADING);

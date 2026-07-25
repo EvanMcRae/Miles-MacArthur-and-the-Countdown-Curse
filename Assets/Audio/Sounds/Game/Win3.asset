@@ -10,6 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a913750643e7984d8ea61409649b0da, type: 3}
-  m_Name: StepSingle
+  m_Name: Win3
   m_EditorClassIdentifier: Assembly-CSharp::SoundClip
-  clip: {fileID: 8300000, guid: a3a3ca0b5ef80fa4a862dd14cd49fafb, type: 3}
+  clip: {fileID: 8300000, guid: 07d9cb97a8350cb41b14f03e55b51b56, type: 3}
+  isMusic: 1

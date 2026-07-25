@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private MusicClip _gameMusic;
     public static bool quitting = false;
     [SerializeField] private SoundPlayer _soundPlayer;
+    [SerializeField] private string _nextScene;
+    [SerializeField] private TextFader _textFader;
 
     void Start()
     {
@@ -45,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     public void PressPause()
     {
-        if (ScreenTransition.active) return;
+        if (ScreenTransition.active || quitting) return;
         if (!paused)
         {
             Pause();
@@ -87,10 +89,37 @@ public class GameManager : MonoBehaviour
         StartCoroutine(LoseRoutine());
     }
 
+    public void Win()
+    {
+        if (quitting) return;
+        quitting = true;
+        AudioManager.instance.Stop();
+        switch (AudioManager.instance.currentArea)
+        {
+            case AudioManager.GameArea.SANDSCAPE:
+                _soundPlayer.PlaySound("Game.Win1");
+                break;
+            case AudioManager.GameArea.CRYSTALSCAPE:
+                _soundPlayer.PlaySound("Game.Win2");
+                break;
+            case AudioManager.GameArea.GARDENSCAPE:
+                _soundPlayer.PlaySound("Game.Win3");
+                break;
+        }
+        _textFader.ShowCompletedText();
+        StartCoroutine(WinRoutine());
+    }
+
     private IEnumerator LoseRoutine()
     {
         yield return new WaitForSeconds(1f);
         GoToScene(SceneManager.GetActiveScene().name);
+    }
+
+    private IEnumerator WinRoutine()
+    {
+        yield return new WaitForSeconds(5f);
+        GoToScene(_nextScene);
     }
 
     private void GoToScene(string scene)
