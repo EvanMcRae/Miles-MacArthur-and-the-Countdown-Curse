@@ -25,6 +25,9 @@ public class Fireball : MonoBehaviour
 
     private Rigidbody2D rb;
 
+    [SerializeField]
+    GameObject Particle;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -94,7 +97,11 @@ public class Fireball : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider is TilemapCollider2D) Destroy(this.gameObject);
+        if (collision.collider is TilemapCollider2D)
+        {
+            Instantiate(Particle, transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

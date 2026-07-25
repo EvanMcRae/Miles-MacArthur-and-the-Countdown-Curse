@@ -116,6 +116,7 @@ MonoBehaviour:
   - {fileID: 6167071470516247665, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -1580347878817688430, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -790699523677361007, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
+  Particle: {fileID: 6612554140594170311, guid: 9cdc31febd02afe448c749a9a93b4097, type: 3}
 --- !u!61 &2854798333329443802
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -225,8 +226,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0, y: 0, z: 0}
+    m_Center: {x: 0, y: -0.00000011920929, z: 0}
+    m_Extent: {x: 0.9985302, y: 0.99853027, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 1

@@ -44,4 +44,8 @@ public class SpriteAnimator : MonoBehaviour
         }
     }
 
+    private void OnDestroy()
+    {
+        AudioManager.OnBeat -= ChangeSprite;
+    }
 }
