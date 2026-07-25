@@ -26,6 +26,7 @@ public class Fireball : MonoBehaviour
     void Start()
     {
         AudioManager.OnBeat += Onbeat;
+        AudioManager.OnHalfBeat += OnHalfBeat;
 
         BeatsLeftUnilClean = BeatsToClean;
     }
@@ -45,11 +46,6 @@ public class Fireball : MonoBehaviour
 
     public void Onbeat(int beatNum)
     {
-        //Animate the fireball.
-        gameObject.GetComponent<SpriteRenderer>().sprite = animFrames[cursor];
-        cursor++;
-        if (cursor >= animFrames.Length) cursor = 0;
-
         if (BeatsLeftUnilClean > 0)
         {
             BeatsLeftUnilClean -= 1;
@@ -60,9 +56,18 @@ public class Fireball : MonoBehaviour
         }
     }
 
+    public void OnHalfBeat(int beatNum)
+    {
+        //Animate the fireball.
+        gameObject.GetComponent<SpriteRenderer>().sprite = animFrames[cursor];
+        cursor++;
+        if (cursor >= animFrames.Length) cursor = 0;
+    }
+
     private void OnDestroy()
     {
         AudioManager.OnBeat -= Onbeat;
+        AudioManager.OnHalfBeat -= OnHalfBeat;
     }
 
     public void SetVisualRotation()
