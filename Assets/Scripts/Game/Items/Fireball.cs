@@ -40,7 +40,7 @@ public class Fireball : MonoBehaviour
     {
         float Actualspeed = MoveSpeed / 60;
 
-        transform.Translate(new Vector3(MoveSpeed / 60 * xDirection, MoveSpeed/60 * yDirection, 0), Space.World);
+        transform.Translate(new Vector3(MoveSpeed / 60 * xDirection, MoveSpeed/60 * yDirection, 0));
     }
 
     public void Onbeat(int beatNum)
