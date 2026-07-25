@@ -45,9 +45,13 @@ public class TimedDoor : MonoBehaviour
                 else
                 {
                     //Divide space between events as evenly into 5 stages as possible.
-                    if (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum != 0)
+                    DoorScheduleEntry nextEvent = findNextScheduleEvent(beatNum);
+                    if (nextEvent.beatNum - lastEvent.beatNum != 0)
                     {
-                        anim.SetFloat("Stage", (float)(findNextScheduleEvent(beatNum).beatNum - beatNum) / (findNextScheduleEvent(beatNum).beatNum - lastEvent.beatNum));
+                        if(nextEvent.toState == DoorState.Open)
+                            anim.SetFloat("Stage", (float)(nextEvent.beatNum - beatNum) / (nextEvent.beatNum - lastEvent.beatNum));
+                        else
+                            anim.SetFloat("Stage", 1 - (float)(nextEvent.beatNum - beatNum) / (nextEvent.beatNum - lastEvent.beatNum));
                     }
                 }
             }
