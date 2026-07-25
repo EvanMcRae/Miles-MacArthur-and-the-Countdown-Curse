@@ -2865,7 +2865,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: dbfa2a0b93bbcc9469cf378ccdd5a251, type: 2}
     - target: {fileID: 6052760542675140086, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: _nextScene
-      value: Crystalscape
+      value: CrystalTest
       objectReference: {fileID: 0}
     - target: {fileID: 6676808906091510279, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_LocalPosition.x
