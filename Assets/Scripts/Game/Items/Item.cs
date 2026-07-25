@@ -8,9 +8,12 @@ public class Item : MonoBehaviour
     public bool canBePickedUp = true;
     public new string name; //Example: KEY, RED_CRYSTAL, BOMB
     private float startPos;
-    [SerializeField] private float oscillationAmplitude = 0.1f;
+    [SerializeField] private float oscillationAmplitude = 0.125f;
     private float oscillationAmount;
     private Tween oscillationTween;
+    [SerializeField] private SpriteRenderer visual, shadow;
+    [SerializeField] private Sprite[] shadowSprites;
+    [SerializeField] private new Collider2D collider;
 
     protected virtual void Awake()
     {
@@ -25,9 +28,10 @@ public class Item : MonoBehaviour
         {
             if (!isBeingHeld)
             {
-                Vector2 pos = transform.position;
-                pos.y = startPos + oscillationAmount;
-                transform.position = pos;
+                Vector2 pos = visual.transform.localPosition;
+                pos.y = oscillationAmount;
+                visual.transform.localPosition = pos;
+                shadow.sprite = shadowSprites[Mathf.Clamp(Mathf.FloorToInt(oscillationAmount / oscillationAmplitude * shadowSprites.Length), 0, shadowSprites.Length - 1)];
             }
         });
     }
@@ -58,11 +62,17 @@ public class Item : MonoBehaviour
     /// </summary>
     public virtual void Usefunction(Vector2Int point, int xDirection, int yDirection, Player player = null) { }
 
-    public virtual void ActivateEffectOnPickup(Player player) {}
+    public virtual void ActivateEffectOnPickup(Player player)
+    {
+        visual.transform.localPosition = Vector3.zero;
+        shadow.enabled = false;
+        collider.enabled = false;
+    }
     
     public virtual void ActivateEffectOnPutDown(Player player)
     {
-        startPos = transform.position.y;
+        shadow.enabled = true;
+        collider.enabled = true;
     }
 
     public virtual void OnDestroy()
