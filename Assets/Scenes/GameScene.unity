@@ -327,18 +327,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sandscape design 1
       objectReference: {fileID: 0}
-    - target: {fileID: 6239864015274283365, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7876239591147318307, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8393446534547295283, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
-      propertyPath: m_SortingOrder
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 8775942924144505467, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -443,6 +431,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 496057913642642192, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_text
+      value: '228
+
+'
+      objectReference: {fileID: 0}
     - target: {fileID: 831140537333183379, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -474,6 +468,10 @@ PrefabInstance:
     - target: {fileID: 1088744426399905586, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1304520918734050707, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: totalBeats
+      value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 1396523818014304991, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMax.y
