@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     private Tween oscillationTween;
     [SerializeField] private SpriteRenderer visual, shadow;
     [SerializeField] private Sprite[] shadowSprites;
+    [SerializeField] private Collider2D collider;
 
     protected virtual void Awake()
     {
@@ -65,11 +66,13 @@ public class Item : MonoBehaviour
     {
         visual.transform.localPosition = Vector3.zero;
         shadow.enabled = false;
+        collider.enabled = false;
     }
     
     public virtual void ActivateEffectOnPutDown(Player player)
     {
         shadow.enabled = true;
+        collider.enabled = true;
     }
 
     public virtual void OnDestroy()

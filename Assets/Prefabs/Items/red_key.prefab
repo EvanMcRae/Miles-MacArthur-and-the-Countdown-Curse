@@ -102,7 +102,7 @@ GameObject:
   - component: {fileID: 605622958289346858}
   - component: {fileID: 4158898382509045542}
   - component: {fileID: 7734341139383129963}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: red_key
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.046875, y: 1.09375}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &7734341139383129963
 MonoBehaviour:
@@ -195,6 +195,7 @@ MonoBehaviour:
   - {fileID: -325413108, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -434121957, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
   - {fileID: -765010680, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
+  collider: {fileID: 4158898382509045542}
   keyID: 1
   behavior: 0
   keyholeItsInside: {fileID: 0}
