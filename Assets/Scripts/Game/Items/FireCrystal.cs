@@ -39,6 +39,7 @@ public class FireCrystal : Item
 
     public override void ActivateEffectOnPickup(Player player = null)
     {
+        base.ActivateEffectOnPickup(player);
         light2d.falloffIntensity = pickupFalloff;
         light2d.pointLightOuterRadius = pickupOuterRadius;
         // player.GetComponent<Light2D>().enabled = false;
@@ -46,6 +47,7 @@ public class FireCrystal : Item
 
     public override void ActivateEffectOnPutDown(Player player = null)
     {
+        base.ActivateEffectOnPutDown(player);
         light2d.falloffIntensity = initialFalloff;
         light2d.pointLightOuterRadius = initialOuterRadius;
         // player.GetComponent<Light2D>().enabled = true;
