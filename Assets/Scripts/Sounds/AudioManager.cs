@@ -498,17 +498,17 @@ public class AudioManager : MonoBehaviour
         paused = false;
     }
 
-    public AudioClip FindSound(string soundPath)
+    public SoundPlayable FindSound(string soundPath)
     {
         List<string> path = new(soundPath.Trim().Split("."));
         return FindSound(soundDatabase, path);
     }
 
-    public AudioClip FindSound(SoundNode current, List<string> path)
+    public SoundPlayable FindSound(SoundNode current, List<string> path)
     {
         if (current is SoundPlayable playable)
         {
-            return playable.GetClip();
+            return playable;
         }
         else if (current is SoundCategory category)
         {

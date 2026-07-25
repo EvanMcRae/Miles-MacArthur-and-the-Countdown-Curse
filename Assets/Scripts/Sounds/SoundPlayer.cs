@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SoundPlayer : MonoBehaviour
@@ -42,10 +43,10 @@ public class SoundPlayer : MonoBehaviour
 
     public void PlaySound(SoundPlayable clip, float volume = 1, bool loop = false)
     {
-        PlaySound(clip.GetClip(), volume, loop, clip.IsMusic());
+        PlaySound(clip.GetClip(), volume, loop, clip.IsMusic(), clip.GetPitch());
     }
     
-    public void PlaySound(AudioClip clip, float volume = 1, bool loop = false, bool isMusic = false)
+    public void PlaySound(AudioClip clip, float volume = 1, bool loop = false, bool isMusic = false, float pitch = 1)
     {
         if (clip == null) return;
 
@@ -64,6 +65,8 @@ public class SoundPlayer : MonoBehaviour
                 sources[index].clip = clip;
                 sources[index].loop = loop;
                 sources[index].volume = volume;
+                Debug.Log(pitch);
+                sources[index].pitch = pitch;
                 sources[index].Play();
                 sources[index].outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixer.outputAudioMixerGroup; 
                 return;
@@ -86,7 +89,7 @@ public class SoundPlayer : MonoBehaviour
         EndSound(AudioManager.instance?.FindSound(path));
     }
 
-    public void EndSound(SoundClip clip) // TODO does not support SoundSet
+    public void EndSound(SoundPlayable clip) // TODO does not support SoundSet
     {
         EndSound(clip?.GetClip());
     }
@@ -131,7 +134,7 @@ public class SoundPlayer : MonoBehaviour
         PauseSound(AudioManager.instance?.FindSound(path));
     }
 
-    public void PauseSound(SoundClip clip) // TODO does not support SoundSet
+    public void PauseSound(SoundPlayable clip) // TODO does not support SoundSet
     {
         PauseSound(clip?.GetClip());
     }
@@ -176,7 +179,7 @@ public class SoundPlayer : MonoBehaviour
         UnPauseSound(AudioManager.instance?.FindSound(path));
     }
 
-    public void UnPauseSound(SoundClip clip) // TODO does not support SoundSet
+    public void UnPauseSound(SoundPlayable clip) // TODO does not support SoundSet
     {
         UnPauseSound(clip?.GetClip());
     }

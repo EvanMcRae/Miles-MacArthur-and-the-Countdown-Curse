@@ -7,6 +7,7 @@ public class SoundClip : SoundPlayable
 {
     public AudioClip clip;
     public bool isMusic;
+    public float minPitch = 1, maxPitch = 1;
     public override AudioClip GetClip()
     {
         return clip;
@@ -18,5 +19,10 @@ public class SoundClip : SoundPlayable
     public override bool IsMusic()
     {
         return isMusic;
+    }
+    public override float GetPitch()
+    {
+        if (minPitch == maxPitch) return minPitch;
+        return Random.Range(minPitch, maxPitch);
     }
 }
