@@ -44,6 +44,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     LayerMask waterLayer;
 
+    [SerializeField] private MovementGlyphRenderer movementGlyphRenderer;
+    [SerializeField] private GlyphRenderer pickupGlyphRenderer;
+
     void Start()
     {
         heldItem = null;
@@ -74,6 +77,7 @@ public class Player : MonoBehaviour
     public void HandleMovement()
     {
         Vector2 inputMove = inputSettings.actions["Move"].ReadValue<Vector2>();
+        movementGlyphRenderer.SendInput(inputMove);
 
         Vector2Int currPosition = new(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
         Vector2Int inputMoveDir = new(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
@@ -159,12 +163,32 @@ public class Player : MonoBehaviour
         }
 
         if (movedThisFrame)
+        {
             lastMoveTimer = MOVE_COOLDOWN;
+            CheckForInputPrompts();
+        }
         else
             lastMoveTimer -= Time.deltaTime;
 
-            lastMoveDirInput = inputMoveDir;
+        lastMoveDirInput = inputMoveDir;
         ////print("(" + xDirection + ", " + yDirection + ")");
+    }
+
+    private void CheckForInputPrompts()
+    {
+        if (heldItem == null)
+        {
+            Vector2Int[] probeTiles = new Vector2Int[] {
+                GetPointInFrontOfPlayer(),
+                GetPointLeftOfPlayer(),
+                GetPointRightOfPlayer(),
+                GetPointBehindPlayer()
+            };
+            if (GetItem(probeTiles) != null)
+            {
+                pickupGlyphRenderer.Activate();
+            }
+        }
     }
 
     /// <summary>
@@ -227,6 +251,8 @@ public class Player : MonoBehaviour
             heldItem.ActivateEffectOnPickup(this);
 
             soundPlayer.PlaySound("Game.ItemPickUp");
+
+            pickupGlyphRenderer.Deactivate();
         }
     }
 
@@ -364,5 +390,15 @@ public class Player : MonoBehaviour
                 break;
         }
 
+    }
+
+    public void UnlockDoor()
+    {
+        soundPlayer.PlaySound("Game.UnlockDoor");
+    }
+
+    public void ShootFireball()
+    {
+        soundPlayer.PlaySound("Game.ShootFireball");
     }
 }

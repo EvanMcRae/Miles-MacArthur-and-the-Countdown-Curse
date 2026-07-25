@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SoundSet
   clips:
   - {fileID: 8300000, guid: 7fd7d188d8074504ea3552dfc6bc4732, type: 3}
+  isMusic: 0
+  minPitch: 0.9
+  maxPitch: 1.1

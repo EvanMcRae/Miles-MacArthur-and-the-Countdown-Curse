@@ -277,7 +277,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   isBeingHeld: 0
   canBePickedUp: 1
-  name: 
+  name: BAG OF WINDS
   oscillationAmplitude: 0.125
   visual: {fileID: 5900500131375895904}
   shadow: {fileID: 1946540575213526716}

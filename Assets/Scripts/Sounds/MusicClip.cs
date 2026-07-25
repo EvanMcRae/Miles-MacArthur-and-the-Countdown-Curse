@@ -22,4 +22,5 @@ public class MusicClip : SoundPlayable
     {
         return true;
     }
+    public override float GetPitch() => 1;
 }

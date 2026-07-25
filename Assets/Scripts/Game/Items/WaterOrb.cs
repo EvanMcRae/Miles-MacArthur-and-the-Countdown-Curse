@@ -19,10 +19,15 @@ public class WaterOrb : Item
         base.ActivateEffectOnPickup(player);
         player.canWalkInWater = true;//TODO might want to make these a function so that we can add a visual effect or something
     }
-    
+
     public override void ActivateEffectOnPutDown(Player player)
     {
         base.ActivateEffectOnPutDown(player);
         player.canWalkInWater = false;
+    }
+
+    public override string GetUseText()
+    {
+        return "Walk on water<size=+0.2><voffset=-0.25em><alpha=#00>.<alpha=#FF>";
     }
 }

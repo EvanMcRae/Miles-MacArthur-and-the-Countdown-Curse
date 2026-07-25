@@ -147,55 +147,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_ActionId: 15cef263-9014-4fd5-94d9-4e4a6234a6ef
---- !u!1 &233168687
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 233168688}
-  - component: {fileID: 233168689}
-  m_Layer: 0
-  m_Name: Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &233168688
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233168687}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.2081933, y: -2.1263986, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 993779229}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &233168689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 233168687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Unity.RenderPipelines.Core.Runtime::UnityEngine.Rendering.Volume
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 405f183b93c7344468de8e62be4101bf, type: 2}
 --- !u!114 &363616960
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,11 +203,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.InputActionReference
   m_Asset: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_ActionId: 24908448-c609-4bc3-a128-ea258674378a
---- !u!4 &993779229 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6676808906091510279, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-  m_PrefabInstance: {fileID: 8022349810434687049}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1251411707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -326,6 +272,42 @@ PrefabInstance:
     - target: {fileID: 23992208313481874, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
       propertyPath: m_Name
       value: Sandscape design 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_text
+      value: ' <color=#FFF><sprite="glyph_w" index=0 tint=1>
+
+        <color=#808080><sprite="glyph_a"
+        index=0 tint=1><sprite="glyph_s" index=0 tint=1><sprite="glyph_d" index=0
+        tint=1>'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_fontSize
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_margin.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 0.92
+      objectReference: {fileID: 0}
+    - target: {fileID: 1056149811952056530, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4286611584
       objectReference: {fileID: 0}
     - target: {fileID: 1683434379476606476, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
       propertyPath: m_Size.x
@@ -2499,6 +2481,22 @@ PrefabInstance:
       propertyPath: m_Tiles.Array.data[85].second.m_TileObjectToInstantiateIndex
       value: 65535
       objectReference: {fileID: 0}
+    - target: {fileID: 2560257507425151039, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 2.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560257507425151039, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1.91
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560257507425151039, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1919.011
+      objectReference: {fileID: 0}
+    - target: {fileID: 2560257507425151039, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1080.9653
+      objectReference: {fileID: 0}
     - target: {fileID: 8775942924144505467, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2723,7 +2721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.0027777776
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
@@ -2731,7 +2729,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
+      value: 0.99444443
       objectReference: {fileID: 0}
     - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_MoveAction
@@ -2865,6 +2863,10 @@ PrefabInstance:
       propertyPath: _gameMusic
       value: 
       objectReference: {fileID: 11400000, guid: dbfa2a0b93bbcc9469cf378ccdd5a251, type: 2}
+    - target: {fileID: 6052760542675140086, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: _nextScene
+      value: Crystalscape
+      objectReference: {fileID: 0}
     - target: {fileID: 6676808906091510279, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2995,10 +2997,7 @@ PrefabInstance:
       objectReference: {fileID: 8022349810434687052}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 6676808906091510279, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      insertIndex: 0
-      addedObject: {fileID: 233168688}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3254613561034075412, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       insertIndex: -1

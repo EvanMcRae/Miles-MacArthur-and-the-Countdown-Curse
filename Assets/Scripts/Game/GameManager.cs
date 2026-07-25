@@ -162,5 +162,6 @@ public class GameManager : MonoBehaviour
     void OnDestroy()
     {
         AudioManager.OnBeat = null;
+        AudioManager.OnHalfBeat = null;
     }
 }

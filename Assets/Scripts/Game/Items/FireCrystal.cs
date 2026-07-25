@@ -33,6 +33,7 @@ public class FireCrystal : Item
             fireball.xDirection = xDirection;
             fireball.yDirection = yDireciton;
             fireball.SetVisualRotation();
+            Player.instance.ShootFireball();
         }
 
     }

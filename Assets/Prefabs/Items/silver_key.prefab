@@ -186,7 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Key
   isBeingHeld: 0
   canBePickedUp: 1
-  name: SILVER_KEY
+  name: SILVER KEY
   oscillationAmplitude: 0.125
   visual: {fileID: 5287841522031635409}
   shadow: {fileID: 1063118846346747232}
