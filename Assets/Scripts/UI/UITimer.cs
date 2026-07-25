@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UITimer : MonoBehaviour
 {
@@ -7,6 +8,8 @@ public class UITimer : MonoBehaviour
     //Divide the count to make it look like less time that passes slower
     int counterReduction = 2;
     public TextMeshProUGUI text, shadowText;
+    public Image image;
+    public Sprite[] sprites;
 
     private void Start()
     {
@@ -19,9 +22,10 @@ public class UITimer : MonoBehaviour
     {
         text.text = "" + (totalBeats - beatNum)/counterReduction;
         shadowText.text = text.text;
+        image.sprite = sprites[Mathf.FloorToInt((float)beatNum / totalBeats * sprites.Length)];
 
         // Lose logic
-        if ((totalBeats - beatNum) / counterReduction <= 0) 
+        if ((totalBeats - beatNum) / counterReduction <= 0)
         {
             GameManager.instance.Lose();
         }

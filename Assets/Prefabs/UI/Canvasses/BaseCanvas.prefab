@@ -994,6 +994,16 @@ MonoBehaviour:
   totalBeats: 120
   text: {fileID: 2267976352013346453}
   shadowText: {fileID: 6870718256327197698}
+  image: {fileID: 8538856071621949927}
+  sprites:
+  - {fileID: 6948327744988102790, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
+  - {fileID: -463804591, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
+  - {fileID: 259573645, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
+  - {fileID: 1454590212, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
+  - {fileID: 624253832, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
+  - {fileID: 1004128885, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
+  - {fileID: 1262593262, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
+  - {fileID: -1301019489, guid: 0de36f6bc1ef57e48a8ab0578777b7af, type: 3}
 --- !u!223 &5890894663302102709
 Canvas:
   m_ObjectHideFlags: 0

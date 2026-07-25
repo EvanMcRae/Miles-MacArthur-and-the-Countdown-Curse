@@ -13,7 +13,7 @@ public class Item : MonoBehaviour
     private Tween oscillationTween;
     [SerializeField] private SpriteRenderer visual, shadow;
     [SerializeField] private Sprite[] shadowSprites;
-    [SerializeField] private Collider2D collider;
+    [SerializeField] private new Collider2D collider;
 
     protected virtual void Awake()
     {
@@ -31,7 +31,7 @@ public class Item : MonoBehaviour
                 Vector2 pos = visual.transform.localPosition;
                 pos.y = oscillationAmount;
                 visual.transform.localPosition = pos;
-                shadow.sprite = shadowSprites[Mathf.FloorToInt(oscillationAmount / oscillationAmplitude * shadowSprites.Length)];
+                shadow.sprite = shadowSprites[Mathf.Clamp(Mathf.FloorToInt(oscillationAmount / oscillationAmplitude * shadowSprites.Length), 0, shadowSprites.Length - 1)];
             }
         });
     }
