@@ -215,6 +215,8 @@ public class Player : MonoBehaviour
             heldItem.transform.SetParent(transform, false);
             heldItem.transform.position = Vector2.right * transform.position.x + Vector2.up * (transform.position.y + .25f);
             heldItem.ActivateEffectOnPickup(this);
+
+            soundPlayer.PlaySound("Game.ItemPickUp");
         }
     }
 
@@ -248,6 +250,8 @@ public class Player : MonoBehaviour
                     //Swap item for item on floor.
                     if (itemInFront != null && itemInFront.canBePickedUp) PickUpItem(itemInFront);
                     else heldItem = null;
+
+                    soundPlayer.PlaySound("Game.ItemDrop");
                 }
             }
         }
