@@ -127,6 +127,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3282631454747842382, guid: cce65d17226651140a1ece1d4ce51609, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3574132789237950842, guid: cce65d17226651140a1ece1d4ce51609, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.58327
@@ -176,8 +180,12 @@ PrefabInstance:
       value: Main Camera
       objectReference: {fileID: 0}
     - target: {fileID: 6796407637042982480, guid: cce65d17226651140a1ece1d4ce51609, type: 3}
+      propertyPath: near clip plane
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6796407637042982480, guid: cce65d17226651140a1ece1d4ce51609, type: 3}
       propertyPath: orthographic size
-      value: 6.375
+      value: 5.625
       objectReference: {fileID: 0}
     - target: {fileID: 6796407637042982480, guid: cce65d17226651140a1ece1d4ce51609, type: 3}
       propertyPath: m_BackGroundColor.b
@@ -420,7 +428,7 @@ GameObject:
   - component: {fileID: 1851567718}
   - component: {fileID: 1851567717}
   m_Layer: 5
-  m_Name: Logo (1)
+  m_Name: Logo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -494,8 +502,8 @@ Transform:
   m_GameObject: {fileID: 1851567716}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.875, y: 6.3389463, z: 1}
-  m_LocalScale: {x: 20, y: 9.609, z: 1}
+  m_LocalPosition: {x: 2.625, y: 5.5889463, z: 0}
+  m_LocalScale: {x: 24.46, y: 9.609, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -694,6 +702,10 @@ PrefabInstance:
       propertyPath: soundPlayer
       value: 
       objectReference: {fileID: 932577522}
+    - target: {fileID: 2059370024429612078, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2447199294302064844, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1119,6 +1131,6 @@ SceneRoots:
   - {fileID: 360036835}
   - {fileID: 4316207977954889286}
   - {fileID: 1483032740}
-  - {fileID: 1851567718}
   - {fileID: 1013168446}
   - {fileID: 809262156}
+  - {fileID: 1851567718}
