@@ -44,6 +44,8 @@ public class Player : MonoBehaviour
     [SerializeField]
     LayerMask waterLayer;
 
+    [SerializeField] private MovementGlyphRenderer movementGlyphRenderer;
+
     void Start()
     {
         heldItem = null;
@@ -74,6 +76,7 @@ public class Player : MonoBehaviour
     public void HandleMovement()
     {
         Vector2 inputMove = inputSettings.actions["Move"].ReadValue<Vector2>();
+        movementGlyphRenderer.SendInput(inputMove);
 
         Vector2Int currPosition = new(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
         Vector2Int inputMoveDir = new(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
