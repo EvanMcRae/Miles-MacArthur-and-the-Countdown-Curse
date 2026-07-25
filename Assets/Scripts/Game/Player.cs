@@ -391,4 +391,14 @@ public class Player : MonoBehaviour
         }
 
     }
+
+    public void UnlockDoor()
+    {
+        soundPlayer.PlaySound("Game.UnlockDoor");
+    }
+
+    public void ShootFireball()
+    {
+        soundPlayer.PlaySound("Game.ShootFireball");
+    }
 }

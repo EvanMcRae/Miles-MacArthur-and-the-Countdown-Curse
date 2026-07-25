@@ -27,6 +27,7 @@ public class Bomb : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     [SerializeField] private SoundPlayer soundPlayer;
+    private bool playedFuseSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -51,6 +52,11 @@ public class Bomb : MonoBehaviour
 
     public void Onbeat(int beatNum) 
     {
+        if (!playedFuseSound)
+        {
+            soundPlayer.PlaySound("Game.BombFuse");
+            playedFuseSound = true;
+        }
         if(BeatsLeftUnilExplosion > 0)
         {
             BeatsLeftUnilExplosion -= 1;
