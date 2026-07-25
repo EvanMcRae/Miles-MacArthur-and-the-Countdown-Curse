@@ -6,6 +6,8 @@ public class Particle : MonoBehaviour
     private int BeatsToClean;
     //how many beats left unil this bomb disapears
     private int BeatsLeftUnilClean;
+    [SerializeField] private SoundPlayer soundPlayer;
+    [SerializeField] private SoundClip sound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -13,6 +15,11 @@ public class Particle : MonoBehaviour
         BeatsLeftUnilClean = BeatsToClean;
 
         AudioManager.OnBeat += Onbeat;
+
+        if (soundPlayer != null && sound != null)
+        {
+            soundPlayer.PlaySound(sound);
+        }
     }
 
     public void Onbeat(int beatNum)
