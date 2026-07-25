@@ -8,6 +8,7 @@ public class SoundSet : SoundPlayable
     public List<AudioClip> clips;
     private int lastClip;
     public bool isMusic;
+    public float minPitch = 1, maxPitch = 1;
     public override AudioClip GetClip()
     {
         lastClip = Random.Range(0, clips.Count);
@@ -20,5 +21,10 @@ public class SoundSet : SoundPlayable
     public override bool IsMusic()
     {
         return isMusic;
+    }
+    public override float GetPitch()
+    {
+        if (minPitch == maxPitch) return minPitch;
+        return Random.Range(minPitch, maxPitch);
     }
 }

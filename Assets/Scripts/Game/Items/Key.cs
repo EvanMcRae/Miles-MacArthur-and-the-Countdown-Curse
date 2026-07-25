@@ -35,6 +35,7 @@ public class Key : Item
                     if (hole != null && hole.keyholeID == keyID)
                     {
                         Destroy(hole.gameObject);
+                        player.UnlockDoor();
                         player.heldItem = null;
                         Destroy(gameObject);
                     }

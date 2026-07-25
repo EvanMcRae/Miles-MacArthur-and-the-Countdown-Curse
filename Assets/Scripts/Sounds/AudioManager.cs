@@ -29,9 +29,9 @@ public class AudioManager : MonoBehaviour
     public SoundCategory soundDatabase;
     public MusicCategory musicDatabase;
 
-    private int beatLength, lastTime, absoluteTime, currentBeat;
+    private int beatLength, lastTime, absoluteTime, currentBeat, absoluteHalfTime, currentHalfBeat;
 
-    public static Action<int> OnBeat;
+    public static Action<int> OnBeat, OnHalfBeat;
 
     private float lowPass = 22000.00f;
 
@@ -181,15 +181,27 @@ public class AudioManager : MonoBehaviour
             {
                 delta += currentSong.GetClip().samples;
                 currentBeat = 0;
+                currentHalfBeat = 0;
             }
             absoluteTime += delta;
+            absoluteHalfTime += delta;
+
             lastTime = currentTime;
+
             if ((absoluteTime / beatLength != 0) || currentBeat == 0)
             {
                 if (currentBeat > 0)
                     absoluteTime -= beatLength;
                 currentBeat++;
                 OnBeat?.Invoke(currentBeat);
+            }
+
+            if ((absoluteHalfTime / (beatLength/2) != 0) || currentHalfBeat == 0)
+            {
+                if (currentHalfBeat > 0)
+                    absoluteHalfTime -= beatLength/2;
+                currentHalfBeat++;
+                OnHalfBeat?.Invoke(currentHalfBeat);
             }
         }
     }
@@ -498,17 +510,17 @@ public class AudioManager : MonoBehaviour
         paused = false;
     }
 
-    public AudioClip FindSound(string soundPath)
+    public SoundPlayable FindSound(string soundPath)
     {
         List<string> path = new(soundPath.Trim().Split("."));
         return FindSound(soundDatabase, path);
     }
 
-    public AudioClip FindSound(SoundNode current, List<string> path)
+    public SoundPlayable FindSound(SoundNode current, List<string> path)
     {
         if (current is SoundPlayable playable)
         {
-            return playable.GetClip();
+            return playable;
         }
         else if (current is SoundCategory category)
         {

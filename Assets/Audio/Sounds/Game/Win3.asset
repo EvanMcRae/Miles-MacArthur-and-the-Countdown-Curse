@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a913750643e7984d8ea61409649b0da, type: 3}
   m_Name: Win3
   m_EditorClassIdentifier: Assembly-CSharp::SoundClip
-  clip: {fileID: 8300000, guid: 07d9cb97a8350cb41b14f03e55b51b56, type: 3}
+  clip: {fileID: 8300000, guid: 9ca6ff4896435f44db8bd78a663a6576, type: 3}
   isMusic: 1
+  minPitch: 1
+  maxPitch: 1
