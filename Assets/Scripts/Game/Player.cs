@@ -284,8 +284,14 @@ public class Player : MonoBehaviour
 
     void OnPause(InputValue _)
     {
-        if (PopupPanel.unpausablePanelsOpen > 0) return;
+        if (ScreenTransition.active || PopupPanel.unpausablePanelsOpen > 0) return;
         GameManager.instance.PressPause();
+    }
+
+    void OnReset(InputValue _)
+    {
+        if (ScreenTransition.active || PopupPanel.unpausablePanelsOpen > 0) return;
+        GameManager.instance.PressRetry();
     }
 
     public void Die()
