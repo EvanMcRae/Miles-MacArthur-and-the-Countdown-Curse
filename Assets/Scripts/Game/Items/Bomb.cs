@@ -26,6 +26,8 @@ public class Bomb : MonoBehaviour
     [SerializeField] private Sprite[] sprites;
     private SpriteRenderer spriteRenderer;
 
+    [SerializeField] private SoundPlayer soundPlayer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -71,6 +73,7 @@ public class Bomb : MonoBehaviour
 
     private void Explode()
     {
+        soundPlayer.PlaySound("Game.BombExplosion");
         exploded = true;
         ExplosionHirtbox.SetActive(true);
     }
