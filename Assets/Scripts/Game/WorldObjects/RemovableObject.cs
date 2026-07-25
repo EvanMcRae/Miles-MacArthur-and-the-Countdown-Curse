@@ -13,6 +13,10 @@ public class RemovableObject : MonoBehaviour
     [SerializeField]
     string tagToBeRemovedBy;
 
+    [SerializeField] private SoundPlayer soundPlayer;
+
+    [SerializeField] private SoundClip sound;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,6 +33,7 @@ public class RemovableObject : MonoBehaviour
     {
         if (collision.CompareTag(tagToBeRemovedBy))
         {
+            soundPlayer.PlaySound(sound);
             ChangeCollisionState(false);
         }
     }
