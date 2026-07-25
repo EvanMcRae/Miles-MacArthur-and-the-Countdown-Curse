@@ -45,6 +45,7 @@ public class Player : MonoBehaviour
     LayerMask waterLayer;
 
     [SerializeField] private MovementGlyphRenderer movementGlyphRenderer;
+    [SerializeField] private GlyphRenderer interactGlyphRenderer, pickupGlyphRenderer;
 
     void Start()
     {
@@ -162,12 +163,32 @@ public class Player : MonoBehaviour
         }
 
         if (movedThisFrame)
+        {
             lastMoveTimer = MOVE_COOLDOWN;
+            CheckForInputPrompts();
+        }
         else
             lastMoveTimer -= Time.deltaTime;
 
-            lastMoveDirInput = inputMoveDir;
+        lastMoveDirInput = inputMoveDir;
         ////print("(" + xDirection + ", " + yDirection + ")");
+    }
+
+    private void CheckForInputPrompts()
+    {
+        if (heldItem == null)
+        {
+            Vector2Int[] probeTiles = new Vector2Int[] {
+                GetPointInFrontOfPlayer(),
+                GetPointLeftOfPlayer(),
+                GetPointRightOfPlayer(),
+                GetPointBehindPlayer()
+            };
+            if (GetItem(probeTiles) != null)
+            {
+                pickupGlyphRenderer.Activate();
+            }
+        }
     }
 
     /// <summary>
@@ -230,6 +251,8 @@ public class Player : MonoBehaviour
             heldItem.ActivateEffectOnPickup(this);
 
             soundPlayer.PlaySound("Game.ItemPickUp");
+
+            pickupGlyphRenderer.Deactivate();
         }
     }
 

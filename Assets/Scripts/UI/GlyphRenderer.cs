@@ -26,7 +26,19 @@ public class GlyphRenderer : MonoBehaviour
 
     protected virtual void Render()
     {
-        // string theString =
+        string theString = glyphString.Replace("Q", $"<sprite=\"{(zxc ? "glyph_z" : "glyph_q")}\" index=0 tint=1>");
+        theString = theString.Replace("E", $"<sprite=\"{(zxc ? "glyph_x" : "glyph_e")}\" index=0 tint=1>");
+        text.text = theString;
+    }
+
+    public void Activate()
+    {
+        text.enabled = true;
+    }
+
+    public void Deactivate()
+    {
+        text.enabled = false;
     }
 
     void OnDestroy()
