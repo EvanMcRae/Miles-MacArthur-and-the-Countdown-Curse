@@ -184,9 +184,14 @@ public class Player : MonoBehaviour
                 GetPointRightOfPlayer(),
                 GetPointBehindPlayer()
             };
-            if (GetItem(probeTiles) != null)
+            Item item = GetItem(probeTiles);
+            if (item != null)
             {
                 pickupGlyphRenderer.Activate();
+            }
+            else
+            {
+                pickupGlyphRenderer.Deactivate();
             }
         }
     }
@@ -293,6 +298,8 @@ public class Player : MonoBehaviour
 
             soundPlayer.PlaySound("Game.ItemDrop");
         }
+
+        CheckForInputPrompts();
     }
 
     /// <summary>
