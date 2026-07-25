@@ -65,7 +65,6 @@ public class SoundPlayer : MonoBehaviour
                 sources[index].clip = clip;
                 sources[index].loop = loop;
                 sources[index].volume = volume;
-                Debug.Log(pitch);
                 sources[index].pitch = pitch;
                 sources[index].Play();
                 sources[index].outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixer.outputAudioMixerGroup; 
