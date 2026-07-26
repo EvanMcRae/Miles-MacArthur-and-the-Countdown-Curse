@@ -22,22 +22,22 @@ public class Keyhole : MonoBehaviour
 
     public void HandleMatchingKey()
     {
-        Debug.Log("Handling a matching key :3");
+        // Debug.Log("Handling a matching key :3");
         // Handle particles spawning over each tile when unlocked
         var tiles = GetComponentInChildren<Tilemap>();
-        if (tiles == null) Debug.Log("Tile map? What tile map?");
+        // if (tiles == null) Debug.Log("Tile map? What tile map?");
         var bounds = tiles.cellBounds;
 
         foreach (Vector3Int pos in bounds.allPositionsWithin)
         {
             if (tiles.HasTile(pos))
             {
-                Debug.Log("omfg a tile :O");
+                // Debug.Log("omfg a tile :O");
                 Instantiate(unlockParticles, tiles.CellToWorld(pos), Quaternion.identity);
             }
             else
             {
-                Debug.Log("I don't see no tile here.");
+                // Debug.Log("I don't see no tile here.");
             }
         }
 
@@ -46,7 +46,7 @@ public class Keyhole : MonoBehaviour
         {
             canRemoveKey = false;
             heldKey.canBePickedUp = false;
-            print("Deactivated!");
+            // print("Deactivated!");
         }
         else
         {
