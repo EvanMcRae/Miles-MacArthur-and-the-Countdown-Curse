@@ -12,6 +12,8 @@ public class TorchDoor : MonoBehaviour
     Torch[] Torches;
 
     int torchesLeftToTurnOn;
+    private bool playedSound = false;
+    [SerializeField] private SoundPlayer soundPlayer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -40,6 +42,11 @@ public class TorchDoor : MonoBehaviour
 
         if(torchesLeftToTurnOn <= 0)
         {
+            if (!playedSound)
+            {
+                soundPlayer.PlaySound("Game.UnlockDoor");
+                playedSound = true;
+            }
             ChangeOpenState(true);
         }
     }
