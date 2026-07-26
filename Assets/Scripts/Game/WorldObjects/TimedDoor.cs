@@ -37,17 +37,19 @@ public class TimedDoor : MonoBehaviour
             totalBeats += entry.beatNum;
         }
         
-        int columns = (int) cldr.size.x;
-        int rows = (int) cldr.size.y;
-        for(int i = 0; i < columns; i++)
+        if (particleGameObject != null)
         {
-            for (int j = 0; j < rows; j++)
+            int columns = (int)cldr.size.x;
+            int rows = (int)cldr.size.y;
+            for (int i = 0; i < columns; i++)
             {
-                GameObject particleGO = Instantiate(particleGameObject, transform.position + new Vector3(-(int)(columns/2) + i - .5f * (columns % 2 - 1), -(int)(rows / 2) + j - .5f * (rows % 2 - 1), 0), Quaternion.identity, this.transform);
-                Particle particle = particleGO.GetComponent<Particle>();
-                particle.BeatsToClean = totalBeats;
-                particle.BeatsLeftUnilClean = totalBeats;
-
+                for (int j = 0; j < rows; j++)
+                {
+                    GameObject particleGO = Instantiate(particleGameObject, transform.position + new Vector3(-(int)(columns / 2) + i - .5f * (columns % 2 - 1), -(int)(rows / 2) + j - .5f * (rows % 2 - 1), 0), Quaternion.identity, this.transform);
+                    Particle particle = particleGO.GetComponent<Particle>();
+                    particle.BeatsToClean = totalBeats;
+                    particle.BeatsLeftUnilClean = totalBeats;
+                }
             }
         }
     }
