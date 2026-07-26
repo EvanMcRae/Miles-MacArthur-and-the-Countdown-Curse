@@ -26,7 +26,7 @@ public class FireCrystal : Item
 
     public override void Usefunction(Vector2Int Point, int xDirection, int yDireciton, Player player = null)
     {
-        if (ActiveFireball == null)
+        if (ActiveFireball == null && Player.instance.CheckOpenTile(Player.instance.GetPointInFrontOfPlayer()))
         {
             ActiveFireball = Instantiate(FireballPrefab, new Vector3(Point.x + .5f, Point.y + .5f), Quaternion.identity);
             Fireball fireball = ActiveFireball.GetComponent<Fireball>();
@@ -52,5 +52,10 @@ public class FireCrystal : Item
         light2d.falloffIntensity = initialFalloff;
         light2d.pointLightOuterRadius = initialOuterRadius;
         // player.GetComponent<Light2D>().enabled = true;
+    }
+
+    public override string GetUseText()
+    {
+        return "<size=+0.2><voffset=-0.25em>&<voffset=0em><size=+0> Fireball";
     }
 }
