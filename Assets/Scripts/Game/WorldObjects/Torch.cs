@@ -14,14 +14,13 @@ public class Torch : MonoBehaviour
     [SerializeField]
     string tagToBeLitBy;
 
-    bool TorchLit;
+    [SerializeField] private bool TorchLit;
 
     [SerializeField] private SoundPlayer soundPlayer;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        TorchLit = false;
         ChangeCollisionState(TorchLit);
     }
 
