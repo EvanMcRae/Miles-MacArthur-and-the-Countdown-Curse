@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Keyhole : MonoBehaviour
 {
@@ -17,8 +18,30 @@ public class Keyhole : MonoBehaviour
     public enum MatchBehaviors {DEACTIVATE, DESTROY};
     public MatchBehaviors behaviorOnMatch;
 
+    [SerializeField] private GameObject unlockParticles;
+
     public void HandleMatchingKey()
     {
+        Debug.Log("Handling a matching key :3");
+        // Handle particles spawning over each tile when unlocked
+        var tiles = GetComponentInChildren<Tilemap>();
+        if (tiles == null) Debug.Log("Tile map? What tile map?");
+        var bounds = tiles.cellBounds;
+
+        foreach (Vector3Int pos in bounds.allPositionsWithin)
+        {
+            if (tiles.HasTile(pos))
+            {
+                Debug.Log("omfg a tile :O");
+                Instantiate(unlockParticles, tiles.CellToWorld(pos), Quaternion.identity);
+            }
+            else
+            {
+                Debug.Log("I don't see no tile here.");
+            }
+        }
+
+
         if (behaviorOnMatch == MatchBehaviors.DEACTIVATE)
         {
             canRemoveKey = false;

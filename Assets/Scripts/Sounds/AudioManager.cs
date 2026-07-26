@@ -9,7 +9,7 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
     public AudioMixer musicMixer, sfxMixer;
-    public AudioMixerGroup musicMixerGroup;
+    public AudioMixerGroup musicMixerGroup, sfxMixerGroup;
     public MusicClip currentSong = null;
     public GameArea currentArea;
 

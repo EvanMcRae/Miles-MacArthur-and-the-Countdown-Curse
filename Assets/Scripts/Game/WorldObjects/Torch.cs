@@ -16,6 +16,8 @@ public class Torch : MonoBehaviour
 
     bool TorchLit;
 
+    [SerializeField] private SoundPlayer soundPlayer;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -32,6 +34,7 @@ public class Torch : MonoBehaviour
 
     public void LightTorch()
     {
+        soundPlayer.PlaySound("Game.LightTorch");
         UpdateDoor?.Invoke(TorchLit);
         ChangeCollisionState(true);
     }

@@ -105,6 +105,7 @@ public class Player : MonoBehaviour
                 if (IsWaterTile(currPosition + Vector2Int.up * inputMoveDir.y))
                 {
                     inWater = true;
+                    soundPlayer.PlaySound("Game.Splash");
                 }
                 else
                 {
@@ -138,16 +139,18 @@ public class Player : MonoBehaviour
             if (CheckOpenTile(currPosition + Vector2Int.right * inputMoveDir.x) && (canWalkInWater || !IsWaterTile(currPosition + Vector2Int.right * inputMoveDir.x)))
             {
                 transform.position += Vector3.right * inputMoveDir.x;
-                soundPlayer.PlaySound("Game.Step");
 
                 if(IsWaterTile(currPosition + Vector2Int.right * inputMoveDir.x))
                 {
                     inWater = true;
+                    soundPlayer.PlaySound("Game.Splash");
                 }
                 else
                 {
                     inWater = false;
                 }
+
+                soundPlayer.PlaySound("Game.Step");
             }
             else
             {
@@ -184,9 +187,14 @@ public class Player : MonoBehaviour
                 GetPointRightOfPlayer(),
                 GetPointBehindPlayer()
             };
-            if (GetItem(probeTiles) != null)
+            Item item = GetItem(probeTiles);
+            if (item != null)
             {
                 pickupGlyphRenderer.Activate();
+            }
+            else
+            {
+                pickupGlyphRenderer.Deactivate();
             }
         }
     }
@@ -293,6 +301,8 @@ public class Player : MonoBehaviour
 
             soundPlayer.PlaySound("Game.ItemDrop");
         }
+
+        CheckForInputPrompts();
     }
 
     /// <summary>

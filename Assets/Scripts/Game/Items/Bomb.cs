@@ -73,14 +73,18 @@ public class Bomb : MonoBehaviour
         }
         else if (exploded)
         {
-            Destroy(gameObject);
+            spriteRenderer.enabled = false;
+            if (!soundPlayer.sources[0].isPlaying)
+                Destroy(gameObject);
         }
     }
 
     private void Explode()
     {
+        soundPlayer.EndSound("Game.BombFuse");
         soundPlayer.PlaySound("Game.BombExplosion");
         exploded = true;
+        GetComponent<Collider2D>().enabled = false;
         ExplosionHirtbox.SetActive(true);
     }
 

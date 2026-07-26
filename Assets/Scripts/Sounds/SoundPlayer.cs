@@ -67,7 +67,7 @@ public class SoundPlayer : MonoBehaviour
                 sources[index].volume = volume;
                 sources[index].pitch = pitch;
                 sources[index].Play();
-                sources[index].outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixer.outputAudioMixerGroup; 
+                sources[index].outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixerGroup; 
                 return;
             }
         }
