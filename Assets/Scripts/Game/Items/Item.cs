@@ -13,7 +13,11 @@ public class Item : MonoBehaviour
     private Tween oscillationTween;
     [SerializeField] private SpriteRenderer visual, shadow;
     [SerializeField] private Sprite[] shadowSprites;
-    [SerializeField] private new Collider2D collider;
+#pragma warning disable CS0108 // Member hides inherited member; missing new keyword
+
+    [SerializeField] private Collider2D collider;
+#pragma warning restore CS0108 // Member hides inherited member; missing new keyword
+
     public static bool firstTimePickedUp = false;
 
     protected virtual void Awake()
