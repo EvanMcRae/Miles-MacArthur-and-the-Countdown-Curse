@@ -18,7 +18,8 @@ public class TimedDoor : MonoBehaviour
     public bool isPit = false;
 
     [SerializeField] private SoundPlayer soundPlayer;
-    [SerializeField] private SoundClip close, fill, open;
+    [SerializeField] private SoundClip close, open;
+    [SerializeField] private SoundPlayable fill;
     private Sprite previousStage;
 
     [SerializeField]

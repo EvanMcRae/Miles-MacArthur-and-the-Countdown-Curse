@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 783d8f720fc1cb44d9426eab631c9ddc, type: 3}
+  m_Name: Crystals
+  m_EditorClassIdentifier: Assembly-CSharp::SoundCategory
+  children:
+  - {fileID: 11400000, guid: da074df6225ae4e31b19000d17b5043e, type: 2}
+  - {fileID: 11400000, guid: d182050013ff54c7a9a5f25c6c9d7866, type: 2}
+  - {fileID: 11400000, guid: 88072dc89573d418fb3b51ed4099e235, type: 2}
