@@ -50,6 +50,7 @@ public class Keyhole : MonoBehaviour
         }
         else
         {
+            Player.instance.UnlockDoor();
             Destroy(heldKey.gameObject);
             Destroy(gameObject);
         }
