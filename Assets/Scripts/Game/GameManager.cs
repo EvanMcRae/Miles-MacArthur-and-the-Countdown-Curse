@@ -98,16 +98,18 @@ public class GameManager : MonoBehaviour
         {
             case AudioManager.GameArea.SANDSCAPE:
                 _soundPlayer.PlaySound("Game.Win1");
+                StartCoroutine(WinRoutine());
                 break;
             case AudioManager.GameArea.CRYSTALSCAPE:
                 _soundPlayer.PlaySound("Game.Win2");
+                StartCoroutine(WinRoutine());
                 break;
             case AudioManager.GameArea.GARDENSCAPE:
                 _soundPlayer.PlaySound("Game.Win3");
+                StartCoroutine(FinishGameRoutine());
                 break;
         }
         _textFader.ShowCompletedText();
-        StartCoroutine(WinRoutine());
     }
 
     private IEnumerator LoseRoutine()
@@ -123,6 +125,22 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(3.5f);
         paused = false;
         SceneManager.LoadScene(_nextScene);
+    }
+
+    private IEnumerator FinishGameRoutine()
+    {
+        // TODO: this sucks donkey butt, someone more creative please rewrite this
+        yield return new WaitForSecondsRealtime(2.5f);
+        ScreenTransition.instance.TransitionOut();
+        yield return new WaitForSecondsRealtime(2.5f);
+        _textFader.ShowText("MILES MACARTHUR HAS MADE\nHIS FINAL ESCAPE", 4f);
+        yield return new WaitForSecondsRealtime(5f);
+        _textFader.ShowText("THE COUNTDOWN CURSE IS\nBROKEN FOREVERMORE", 4f);
+        yield return new WaitForSecondsRealtime(5f);
+        _textFader.ShowText("THANKS FOR PLAYING!", 4f);
+        yield return new WaitForSecondsRealtime(5f);
+        paused = false;
+        SceneManager.LoadScene("MainMenu");
     }
 
     private void GoToScene(string scene)
