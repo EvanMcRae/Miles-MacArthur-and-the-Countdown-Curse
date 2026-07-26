@@ -2497,6 +2497,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -1080.9653
       objectReference: {fileID: 0}
+    - target: {fileID: 3851858937286079273, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5566930646816464264, guid: 070e4ff463009fe49a74d864cd0003fa, type: 3}
+    - target: {fileID: 5650968235297911215, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5566930646816464264, guid: 070e4ff463009fe49a74d864cd0003fa, type: 3}
+    - target: {fileID: 5650968235297911215, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
+      propertyPath: m_DrawMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8775942924144505467, guid: 0b69fe682975ce942a85f48f189fcd7d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
