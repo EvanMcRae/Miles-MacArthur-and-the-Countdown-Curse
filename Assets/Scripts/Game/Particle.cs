@@ -32,6 +32,11 @@ public class Particle : MonoBehaviour
         }
     }
 
+    public void DestroySelf()
+    {
+        Destroy(this.gameObject);
+    }
+
     private void OnDestroy()
     {
         AudioManager.OnBeat -= Onbeat;
