@@ -128,7 +128,7 @@ MonoBehaviour:
   BeatsToClean: 100
   BeatsLeftUnilClean: 100
   soundPlayer: {fileID: 3026677071252765736}
-  sound: {fileID: 11400000, guid: 6b1b3541a83ec3e4dbdcf6ea82f6694b, type: 2}
+  sound: {fileID: 0}
 --- !u!1001 &2759603232453354046
 PrefabInstance:
   m_ObjectHideFlags: 0
