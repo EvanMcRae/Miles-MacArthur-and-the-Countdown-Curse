@@ -8,13 +8,17 @@ public class Particle : MonoBehaviour
     public int BeatsLeftUnilClean;
     [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private SoundClip sound;
+    [SerializeField] private bool usesHalfTime = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         BeatsLeftUnilClean = BeatsToClean;
 
-        AudioManager.OnBeat += Onbeat;
+        if (usesHalfTime)
+            AudioManager.OnHalfBeat += Onbeat;
+        else
+            AudioManager.OnBeat += Onbeat;
 
         if (soundPlayer != null && sound != null)
         {
@@ -39,6 +43,9 @@ public class Particle : MonoBehaviour
 
     private void OnDestroy()
     {
-        AudioManager.OnBeat -= Onbeat;
+        if (usesHalfTime)
+            AudioManager.OnHalfBeat -= Onbeat;
+        else
+            AudioManager.OnBeat -= Onbeat;
     }
 }

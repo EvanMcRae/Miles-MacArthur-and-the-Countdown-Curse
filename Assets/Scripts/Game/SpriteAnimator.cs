@@ -17,13 +17,18 @@ public class SpriteAnimator : MonoBehaviour
     int BeatsUnilNextChange;
 
     int currentSprite;
+    [SerializeField] private bool usesHalfTime = false;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         currentSprite = 0;
         BeatsUnilNextChange = BeatsToChangeSprite;
-        AudioManager.OnBeat += ChangeSprite;
+        if (usesHalfTime)
+            AudioManager.OnHalfBeat += ChangeSprite;
+        else
+            AudioManager.OnBeat += ChangeSprite;
     }
 
     private void ChangeSprite(int beatNum)
@@ -46,6 +51,9 @@ public class SpriteAnimator : MonoBehaviour
 
     private void OnDestroy()
     {
-        AudioManager.OnBeat -= ChangeSprite;
+        if (usesHalfTime)
+            AudioManager.OnHalfBeat -= ChangeSprite;
+        else
+            AudioManager.OnBeat -= ChangeSprite;
     }
 }

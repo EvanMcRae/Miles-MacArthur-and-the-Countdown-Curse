@@ -18,7 +18,8 @@ public class TimedDoor : MonoBehaviour
     public bool isPit = false;
 
     [SerializeField] private SoundPlayer soundPlayer;
-    [SerializeField] private SoundClip close, fill, open;
+    [SerializeField] private SoundClip close, open;
+    [SerializeField] private SoundPlayable fill;
     private Sprite previousStage;
 
     [SerializeField]
@@ -37,17 +38,19 @@ public class TimedDoor : MonoBehaviour
             totalBeats += entry.beatNum;
         }
         
-        int columns = (int) cldr.size.x;
-        int rows = (int) cldr.size.y;
-        for(int i = 0; i < columns; i++)
+        if (particleGameObject != null)
         {
-            for (int j = 0; j < rows; j++)
+            int columns = (int)cldr.size.x;
+            int rows = (int)cldr.size.y;
+            for (int i = 0; i < columns; i++)
             {
-                GameObject particleGO = Instantiate(particleGameObject, transform.position + new Vector3(-(int)(columns/2) + i - .5f * (columns % 2 - 1), -(int)(rows / 2) + j - .5f * (rows % 2 - 1), 0), Quaternion.identity, this.transform);
-                Particle particle = particleGO.GetComponent<Particle>();
-                particle.BeatsToClean = totalBeats;
-                particle.BeatsLeftUnilClean = totalBeats;
-
+                for (int j = 0; j < rows; j++)
+                {
+                    GameObject particleGO = Instantiate(particleGameObject, transform.position + new Vector3(-(int)(columns / 2) + i - .5f * (columns % 2 - 1), -(int)(rows / 2) + j - .5f * (rows % 2 - 1), 0), Quaternion.identity, this.transform);
+                    Particle particle = particleGO.GetComponent<Particle>();
+                    particle.BeatsToClean = totalBeats;
+                    particle.BeatsLeftUnilClean = totalBeats;
+                }
             }
         }
     }

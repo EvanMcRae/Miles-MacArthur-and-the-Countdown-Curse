@@ -84,8 +84,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8540896369854744259, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Sprite: {fileID: -5183952789090367287, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -108,11 +108,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
   spriterenderer: {fileID: 7549905149894103861}
   Sprites:
-  - {fileID: 8540896369854744259, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: -1330325498494715136, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: 298433744683331147, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: -2122696134524577869, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
+  - {fileID: -5183952789090367287, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  - {fileID: 2540527635874085077, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  - {fileID: 4878384841027271295, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  - {fileID: 2374220298657996813, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  - {fileID: -802754635961789256, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  - {fileID: -133052120281663795, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  - {fileID: 3038142773203370283, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
+  - {fileID: -5986726322881200032, guid: 717f714f81275bb459bdc9d62f27d24b, type: 3}
   BeatsToChangeSprite: 0
+  usesHalfTime: 1
 --- !u!114 &8957317224514986249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,10 +130,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b8b9d85244a09e449b613f243b3283c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  BeatsToClean: 5
+  BeatsToClean: 8
   BeatsLeftUnilClean: 0
   soundPlayer: {fileID: 3026677071252765736}
   sound: {fileID: 11400000, guid: 6b1b3541a83ec3e4dbdcf6ea82f6694b, type: 2}
+  usesHalfTime: 1
 --- !u!1001 &2759603232453354046
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -104,7 +104,7 @@ public class Fireball : MonoBehaviour
     {
         if (collision.collider is TilemapCollider2D)
         {
-            Instantiate(Particle, transform.position, Quaternion.identity);
+            Instantiate(Particle, transform.position + new Vector3(0.375f * xDirection, 0.375f * yDirection, 0), Quaternion.Euler(0, 0, 180) * transform.rotation);
             Destroy(this.gameObject);
         }
     }
