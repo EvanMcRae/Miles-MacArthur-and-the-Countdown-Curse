@@ -281,6 +281,6 @@ MonoBehaviour:
   usesColors: 0
   usesAlphaTest: 0
   normalColor: {r: 1, g: 1, b: 1, a: 1}
-  selectedColor: {r: 0.5801887, g: 0.9753609, b: 1, a: 1}
-  pressedColor: {r: 0, g: 0.5274172, b: 1, a: 1}
+  selectedColor: {r: 0.41568628, g: 0.7490196, b: 0.7764706, a: 1}
+  pressedColor: {r: 0.53333336, g: 0.49411765, b: 0.79607844, a: 1}
   submit: {fileID: 392368643174621059, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
