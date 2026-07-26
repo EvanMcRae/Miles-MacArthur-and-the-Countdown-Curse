@@ -92295,6 +92295,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: fill
+      value: 
+      objectReference: {fileID: 11400000, guid: d182050013ff54c7a9a5f25c6c9d7866, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: open
+      value: 
+      objectReference: {fileID: 11400000, guid: da074df6225ae4e31b19000d17b5043e, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: close
+      value: 
+      objectReference: {fileID: 11400000, guid: 88072dc89573d418fb3b51ed4099e235, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: particleGameObject
       value: 
       objectReference: {fileID: 0}
@@ -92543,6 +92555,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: fill
+      value: 
+      objectReference: {fileID: 11400000, guid: d182050013ff54c7a9a5f25c6c9d7866, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: open
+      value: 
+      objectReference: {fileID: 11400000, guid: da074df6225ae4e31b19000d17b5043e, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: close
+      value: 
+      objectReference: {fileID: 11400000, guid: 88072dc89573d418fb3b51ed4099e235, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: particleGameObject
       value: 
       objectReference: {fileID: 0}
@@ -92632,6 +92656,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: fill
+      value: 
+      objectReference: {fileID: 11400000, guid: d182050013ff54c7a9a5f25c6c9d7866, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: open
+      value: 
+      objectReference: {fileID: 11400000, guid: da074df6225ae4e31b19000d17b5043e, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: close
+      value: 
+      objectReference: {fileID: 11400000, guid: 88072dc89573d418fb3b51ed4099e235, type: 2}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: particleGameObject
       value: 
@@ -93053,6 +93089,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: fill
+      value: 
+      objectReference: {fileID: 11400000, guid: d182050013ff54c7a9a5f25c6c9d7866, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: open
+      value: 
+      objectReference: {fileID: 11400000, guid: da074df6225ae4e31b19000d17b5043e, type: 2}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: close
+      value: 
+      objectReference: {fileID: 11400000, guid: 88072dc89573d418fb3b51ed4099e235, type: 2}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: particleGameObject
       value: 
