@@ -397,6 +397,7 @@ public class Player : MonoBehaviour
     void OnPause(InputValue _)
     {
         if (ScreenTransition.active || PopupPanel.unpausablePanelsOpen > 0) return;
+        if (GameManager.paused) GameManager.instance.PlayPlaySound();
         GameManager.instance.PressPause();
     }
 

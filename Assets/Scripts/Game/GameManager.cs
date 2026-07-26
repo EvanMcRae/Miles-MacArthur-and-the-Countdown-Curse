@@ -45,6 +45,11 @@ public class GameManager : MonoBehaviour
             EventSystem.current.SetSelectedGameObject(null);
     }
 
+    public void PlayPlaySound()
+    {
+        _soundPlayer.PlaySound("UI.Play");
+    }
+
     public void PressPause()
     {
         if (ScreenTransition.active || quitting) return;
@@ -55,7 +60,6 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            _soundPlayer.PlaySound("UI.Play");
             Unpause();
         }
     }
