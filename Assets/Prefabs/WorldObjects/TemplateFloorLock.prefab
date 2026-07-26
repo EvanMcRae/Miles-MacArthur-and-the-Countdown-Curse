@@ -382,3 +382,4 @@ MonoBehaviour:
   canRemoveKey: 1
   handleMatchImmediately: 1
   behaviorOnMatch: 0
+  unlockParticles: {fileID: 6612554140594170311, guid: 8fc735c2213bd8e449d0c3f1331297b8, type: 3}
