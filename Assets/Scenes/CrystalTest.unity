@@ -484,7 +484,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0
+      value: 0.0027777776
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
@@ -492,47 +492,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3331516334149283980, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_MoveAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_PointAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_CancelAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_SubmitAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_LeftClickAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_RightClickAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_MiddleClickAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_ScrollWheelAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_TrackedDevicePositionAction
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3501932015751078352, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
-      propertyPath: m_TrackedDeviceOrientationAction
-      value: 
+      value: 0.99444443
       objectReference: {fileID: 0}
     - target: {fileID: 3784058268484461214, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMax.y
@@ -620,12 +580,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5525429752432095973, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_text
-      value: SANDSCAPE
+      value: CRYSTALSCAPE
       objectReference: {fileID: 0}
     - target: {fileID: 6052760542675140086, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: _gameMusic
       value: 
-      objectReference: {fileID: 11400000, guid: dbfa2a0b93bbcc9469cf378ccdd5a251, type: 2}
+      objectReference: {fileID: 11400000, guid: 29f42572efed8bd45a576edd37729b69, type: 2}
+    - target: {fileID: 6052760542675140086, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: _nextScene
+      value: Gardenscape
+      objectReference: {fileID: 0}
     - target: {fileID: 6676808906091510279, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -728,6 +692,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8253640817386806330, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
       propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8532197364452037071, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8770067147893345572, guid: 541b0201cec0ef443bb50bfa14d32c4e, type: 3}
