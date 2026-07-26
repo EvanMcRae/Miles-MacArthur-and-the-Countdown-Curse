@@ -78,7 +78,7 @@ public class Player : MonoBehaviour
 
     private IEnumerator KillMovementGlyphs()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(5.0f);
         movementGlyphRenderer.Deactivate();
     }
 

@@ -71,4 +71,12 @@ public class TextFader : MonoBehaviour
         _text.text += " CLEARED";
         FadeIn();
     }
+
+    public void ShowText(string text, float delay = 4f)
+    {
+        enabled = true;
+        _fadeOutDelay = delay;
+        _text.text = text;
+        FadeIn();
+    }
 }

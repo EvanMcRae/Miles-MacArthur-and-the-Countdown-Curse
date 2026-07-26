@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a913750643e7984d8ea61409649b0da, type: 3}
   m_Name: UnlockDoor
   m_EditorClassIdentifier: Assembly-CSharp::SoundClip
-  clip: {fileID: 8300000, guid: 1a29c734f14880b4eada7a1c6fea63ae, type: 3}
+  clip: {fileID: 8300000, guid: 1289906475721304c880bd55bd8c438a, type: 3}
   isMusic: 0
   minPitch: 1
   maxPitch: 1
