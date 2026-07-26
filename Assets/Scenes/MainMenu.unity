@@ -680,6 +680,17 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1438781778002523990, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
+      propertyPath: m_text
+      value: 'Ryan Whitfield
+
+        Scott Serafin
+
+        Jake Pickholtz
+
+        Ky
+        DeSilva'
+      objectReference: {fileID: 0}
     - target: {fileID: 1466961588421326271, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_text
       value: 'Public Pixel Font
