@@ -92234,10 +92234,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 454596341254548475, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -493335905, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
     - target: {fileID: 530363030588531876, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Name
       value: TimerWall (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2128657447133933843, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a57ff7df89228094b9126c64447247ba, type: 2}
     - target: {fileID: 5722782317834404497, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_LocalPosition.x
       value: -63
@@ -92285,6 +92293,10 @@ PrefabInstance:
     - target: {fileID: 7114568079132979125, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Size.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: particleGameObject
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[0].toState
@@ -92470,10 +92482,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 454596341254548475, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -493335905, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
     - target: {fileID: 530363030588531876, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Name
       value: TimerWall (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 2128657447133933843, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a57ff7df89228094b9126c64447247ba, type: 2}
     - target: {fileID: 5722782317834404497, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_LocalPosition.x
       value: -30
@@ -92523,6 +92543,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: particleGameObject
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[0].toState
       value: 0
       objectReference: {fileID: 0}
@@ -92556,10 +92580,18 @@ PrefabInstance:
       propertyPath: m_Size.x
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 454596341254548475, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -493335905, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
     - target: {fileID: 530363030588531876, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Name
       value: TimerWall
       objectReference: {fileID: 0}
+    - target: {fileID: 2128657447133933843, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a57ff7df89228094b9126c64447247ba, type: 2}
     - target: {fileID: 5722782317834404497, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.5
@@ -92599,6 +92631,10 @@ PrefabInstance:
     - target: {fileID: 5722782317834404497, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: particleGameObject
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[0].toState
@@ -92957,10 +92993,18 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 454596341254548475, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -493335905, guid: 08439d3257fd3074aa22cff29f336a16, type: 3}
     - target: {fileID: 530363030588531876, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Name
       value: TimerWall (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2128657447133933843, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 22100000, guid: a57ff7df89228094b9126c64447247ba, type: 2}
     - target: {fileID: 5722782317834404497, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.5
@@ -93008,6 +93052,10 @@ PrefabInstance:
     - target: {fileID: 7114568079132979125, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: m_Size.y
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
+      propertyPath: particleGameObject
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 7746278993430759907, guid: 2e26a358124203a4492e7288fe8a0699, type: 3}
       propertyPath: schedule.Array.data[0].toState
