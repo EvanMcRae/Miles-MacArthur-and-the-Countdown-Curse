@@ -11,4 +11,5 @@ public abstract class SoundPlayable : SoundNode
     public abstract AudioClip GetClip();
     public abstract bool IsMusic();
     public abstract float GetPitch();
+    public abstract bool IsOneShot();
 }

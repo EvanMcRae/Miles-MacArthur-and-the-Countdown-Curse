@@ -51,9 +51,11 @@ public class GameManager : MonoBehaviour
         if (!paused)
         {
             Pause();
+            _soundPlayer.PlaySound("UI.Press");
         }
         else
         {
+            _soundPlayer.PlaySound("UI.Play");
             Unpause();
         }
     }

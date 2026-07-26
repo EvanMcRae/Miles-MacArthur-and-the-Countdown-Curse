@@ -41,14 +41,29 @@ public class SoundPlayer : MonoBehaviour
         PlaySound(AudioManager.instance?.FindSound(path), volume, loop);
     }
 
-    public void PlaySound(SoundPlayable clip, float volume = 1, bool loop = false)
+    public void PlaySound(SoundPlayable clip, float volume = 1, bool loop = false, bool isOneShot = false)
     {
-        PlaySound(clip.GetClip(), volume, loop, clip.IsMusic(), clip.GetPitch());
+        PlaySound(clip.GetClip(), volume, loop, clip.IsMusic(), clip.GetPitch(), clip.IsOneShot());
     }
     
-    public void PlaySound(AudioClip clip, float volume = 1, bool loop = false, bool isMusic = false, float pitch = 1)
+    public void PlaySound(AudioClip clip, float volume = 1, bool loop = false, bool isMusic = false, float pitch = 1, bool isOneShot = false)
     {
         if (clip == null) return;
+
+        if (isOneShot)
+        {
+            for (int index = sources.Length - 1; index >= 0; index--)
+            {
+                if (!sources[index].isPlaying)
+                {
+                    sources[index].pitch = pitch;
+                    sources[index].PlayOneShot(clip, volume);
+                    sources[index].outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixerGroup;
+                    return;
+                }
+            }
+            return;
+        }
 
         foreach (AudioSource source in sources)
         {

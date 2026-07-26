@@ -18,7 +18,9 @@ public class Overlay : MonoBehaviour
     virtual protected void OnEnable()
     {
         _canvas.enabled = true;
+        MenuButton.canMakeSound = false;
         SetSelection();
+        MenuButton.canMakeSound = true;
     }
 
     virtual protected void OnDisable()

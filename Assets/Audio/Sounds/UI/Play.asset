@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a913750643e7984d8ea61409649b0da, type: 3}
-  m_Name: Back
+  m_Name: Play
   m_EditorClassIdentifier: Assembly-CSharp::SoundClip
-  clip: {fileID: 8300000, guid: 52c87329df3d8d141b857030c6e6bce7, type: 3}
+  clip: {fileID: 8300000, guid: eb1f44bb6e3a6400cb7336892bb6e7a2, type: 3}
   isMusic: 0
   isOneShot: 1
   minPitch: 1

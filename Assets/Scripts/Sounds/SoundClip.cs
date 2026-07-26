@@ -6,7 +6,7 @@ using UnityEngine;
 public class SoundClip : SoundPlayable
 {
     public AudioClip clip;
-    public bool isMusic;
+    public bool isMusic, isOneShot;
     public float minPitch = 1, maxPitch = 1;
     public override AudioClip GetClip()
     {
@@ -24,5 +24,9 @@ public class SoundClip : SoundPlayable
     {
         if (minPitch == maxPitch) return minPitch;
         return Random.Range(minPitch, maxPitch);
+    }
+    public override bool IsOneShot()
+    {
+        return isOneShot;
     }
 }

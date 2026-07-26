@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Press
   m_EditorClassIdentifier: Assembly-CSharp::SoundClip
   clip: {fileID: 8300000, guid: 14ecd961fd909a642aa4efae98faf0a7, type: 3}
+  isMusic: 0
+  isOneShot: 1
+  minPitch: 1
+  maxPitch: 1
