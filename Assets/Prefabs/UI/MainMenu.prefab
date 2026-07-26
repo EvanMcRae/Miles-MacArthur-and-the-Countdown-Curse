@@ -911,6 +911,7 @@ MonoBehaviour:
   _playButton: {fileID: 5716781961545381587}
   _creditsButton: {fileID: 4734831616656809120}
   _quitButton: {fileID: 7577439071083642846}
+  _logo: {fileID: 0}
 --- !u!1 &5014956498595949678
 GameObject:
   m_ObjectHideFlags: 0
@@ -2601,6 +2602,10 @@ PrefabInstance:
       propertyPath: m_text
       value: PLAY
       objectReference: {fileID: 0}
+    - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
+      propertyPath: pressSound
+      value: 
+      objectReference: {fileID: 11400000, guid: 1915106997b3044a0bf280e9c7438f63, type: 2}
     - target: {fileID: 5268720092659771682, guid: 0106700750780114ab76e2604af5b106, type: 3}
       propertyPath: usesColors
       value: 1

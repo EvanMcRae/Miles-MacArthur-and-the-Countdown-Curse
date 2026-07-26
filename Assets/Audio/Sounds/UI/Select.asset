@@ -13,3 +13,7 @@ MonoBehaviour:
   m_Name: Select
   m_EditorClassIdentifier: Assembly-CSharp::SoundClip
   clip: {fileID: 8300000, guid: afe1643801818774ea0f5d5810727da7, type: 3}
+  isMusic: 0
+  isOneShot: 1
+  minPitch: 1
+  maxPitch: 1
