@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3187263679924688256}
   - component: {fileID: 7549905149894103861}
-  - component: {fileID: 7233869718352843127}
   - component: {fileID: 8957317224514986249}
   - component: {fileID: 2228341957291841391}
   m_Layer: 0
@@ -95,25 +94,6 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
---- !u!114 &7233869718352843127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6612554140594170311}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dfcb21ada058a9b4d802a9f798a9a0b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
-  spriterenderer: {fileID: 7549905149894103861}
-  Sprites:
-  - {fileID: 8540896369854744259, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: -1330325498494715136, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: 298433744683331147, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: -2122696134524577869, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  BeatsToChangeSprite: 0
 --- !u!114 &8957317224514986249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +107,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   BeatsToClean: 1
+  BeatsLeftUnilClean: 0
   soundPlayer: {fileID: 3026677071252765736}
   sound: {fileID: 0}
 --- !u!95 &2228341957291841391

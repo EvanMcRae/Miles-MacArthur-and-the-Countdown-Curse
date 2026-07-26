@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.54, y: -2.53, z: 0}
-  m_LocalScale: {x: 3, y: 3, z: 3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 3319799896987368765}
@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   BeatsToClean: 5
+  BeatsLeftUnilClean: 0
   soundPlayer: {fileID: 3026677071252765736}
   sound: {fileID: 11400000, guid: 6b1b3541a83ec3e4dbdcf6ea82f6694b, type: 2}
 --- !u!1001 &2759603232453354046
