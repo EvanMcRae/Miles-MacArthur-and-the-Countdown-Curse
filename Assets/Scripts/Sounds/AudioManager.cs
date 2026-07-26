@@ -35,6 +35,8 @@ public class AudioManager : MonoBehaviour
 
     private float lowPass = 22000.00f;
 
+    private AudioSource permaSource;
+
     /// <summary>
     /// List of all different game areas that may have different sets of music
     /// </summary>
@@ -92,6 +94,17 @@ public class AudioManager : MonoBehaviour
             s.spatialBlend = 0;
             s.reverbZoneMix = 0;
         }
+
+        // Hehehaha fun
+        permaSource = gameObject.AddComponent<AudioSource>();
+        permaSource.loop = false;
+        permaSource.playOnAwake = false;
+        permaSource.volume = 1.0f;
+        permaSource.outputAudioMixerGroup = sfxMixerGroup;
+        permaSource.pitch = 1f;
+        permaSource.dopplerLevel = 0;
+        permaSource.spatialBlend = 0;
+        permaSource.reverbZoneMix = 0;
 
         // Singleton pattern
         instance = this;
@@ -588,5 +601,10 @@ public class AudioManager : MonoBehaviour
         }
         
         DOTween.To(() => lowPass, x => lowPass = x, active ? 1815.00f : 22000.00f, 0.5f).SetUpdate(true);
+    }
+
+    public AudioSource GetPermaSource()
+    {
+        return permaSource;
     }
 }

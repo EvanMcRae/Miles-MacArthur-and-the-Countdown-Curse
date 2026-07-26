@@ -52,16 +52,11 @@ public class SoundPlayer : MonoBehaviour
 
         if (isOneShot)
         {
-            for (int index = sources.Length - 1; index >= 0; index--)
-            {
-                if (!sources[index].isPlaying)
-                {
-                    sources[index].pitch = pitch;
-                    sources[index].PlayOneShot(clip, volume);
-                    sources[index].outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixerGroup;
-                    return;
-                }
-            }
+            AudioSource s = AudioManager.instance.GetPermaSource();
+            s.pitch = pitch;
+            s.volume = volume;
+            s.PlayOneShot(clip, volume);
+            s.outputAudioMixerGroup = isMusic ? AudioManager.instance.musicMixerGroup : AudioManager.instance.sfxMixerGroup;
             return;
         }
 
