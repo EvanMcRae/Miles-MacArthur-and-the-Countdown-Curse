@@ -782,13 +782,20 @@ PrefabInstance:
       propertyPath: m_UseSpriteMesh
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4534760411126777711, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
+      propertyPath: _logo
+      value: 
+      objectReference: {fileID: 1851567716}
     - target: {fileID: 4595133974747010147, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_text
       value: 'Chris Doerksen
 
         Steve the Bartender
 
-        Evan McRae'
+        Scott Serafin
+
+        Evan
+        McRae'
       objectReference: {fileID: 0}
     - target: {fileID: 4620010771981149737, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_AnchorMax.y
@@ -821,6 +828,10 @@ PrefabInstance:
     - target: {fileID: 4992535304386107759, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5675963035482909546, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -630
       objectReference: {fileID: 0}
     - target: {fileID: 5896640415398175643, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_IsActive
@@ -1040,7 +1051,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9067782648353604435, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -678.9
+      value: -702
       objectReference: {fileID: 0}
     - target: {fileID: 9087214682539128694, guid: 56ee8b4cf5a823d46b1eb3bbbd9ed022, type: 3}
       propertyPath: soundPlayer

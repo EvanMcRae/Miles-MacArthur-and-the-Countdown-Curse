@@ -11,17 +11,21 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private PopupPanel _settingsPanel, _creditsPanel;
     [SerializeField] private MusicClip _menuMusic;
     [SerializeField] private Button _playButton, _creditsButton, _quitButton;
+    [SerializeField] private GameObject _logo;
 
     void Start()
     {
         GameManager.quitting = false;
-        
+
         // ScreenTransition.instance.postTransitionIn += PlayMenuMusic;
         if (Utils.IsWebPlayer())
         {
             _quitButton.gameObject.SetActive(false);
             Utils.SetNavigation(_playButton, _creditsButton, Utils.Direction.UP);
             Utils.SetNavigation(_creditsButton, _playButton, Utils.Direction.DOWN);
+            Vector3 pos = _logo.transform.position;
+            pos.y = 4.78f;
+            _logo.transform.position = pos;
         }
     }
 
