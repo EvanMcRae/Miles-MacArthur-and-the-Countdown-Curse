@@ -11,7 +11,7 @@ public class ItemGlyphRenderer : GlyphRenderer
 {
     protected override void Render()
     {
-        if (!text.enabled) return;
+        if (!text.enabled || Player.instance.heldItem == null) return;
 
         string theString = glyphString;
         theString = theString.Replace("@", Player.instance.heldItem.name);
