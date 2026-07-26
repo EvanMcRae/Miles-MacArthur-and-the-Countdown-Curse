@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
@@ -46,6 +47,7 @@ public class Player : MonoBehaviour
 
     [SerializeField] private MovementGlyphRenderer movementGlyphRenderer;
     [SerializeField] private GlyphRenderer pickupGlyphRenderer;
+    private bool killedMovementGlyphs = false;
 
     void Start()
     {
@@ -74,10 +76,24 @@ public class Player : MonoBehaviour
         }
     }
 
+    private IEnumerator KillMovementGlyphs()
+    {
+        yield return new WaitForSeconds(2.0f);
+        movementGlyphRenderer.Deactivate();
+    }
+
     public void HandleMovement()
     {
         Vector2 inputMove = inputSettings.actions["Move"].ReadValue<Vector2>();
         movementGlyphRenderer.SendInput(inputMove);
+        if (inputMove.magnitude != 0)
+        {
+            if (!killedMovementGlyphs)
+            {
+                StartCoroutine(KillMovementGlyphs());
+                killedMovementGlyphs = true;
+            }
+        }
 
         Vector2Int currPosition = new(Mathf.FloorToInt(transform.position.x), Mathf.FloorToInt(transform.position.y));
         Vector2Int inputMoveDir = new(Mathf.RoundToInt(inputMove.x), Mathf.RoundToInt(inputMove.y));
