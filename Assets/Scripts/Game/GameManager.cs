@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     public static bool quitting = false;
     [SerializeField] private SoundPlayer _soundPlayer;
     [SerializeField] private string _nextScene;
-    [SerializeField] private TextFader _textFader;
+    [SerializeField] private TextFader _textFader, _imageTextFader;
 
     void Start()
     {
@@ -139,16 +139,16 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(2.5f);
         ScreenTransition.instance.TransitionOut();
         yield return new WaitForSecondsRealtime(2.5f);
-        _textFader.ShowText("MILES MACARTHUR HAS MADE\nHIS FINAL ESCAPE", 4f);
+        _imageTextFader.ShowText(14f);
+        _textFader.ShowText("\n\n\n\n\n\n\n\n\nMILES MACARTHUR HAS MADE\nHIS FINAL ESCAPE", 4f);
         yield return new WaitForSecondsRealtime(5f);
-        _textFader.ShowText("THE COUNTDOWN CURSE IS\nBROKEN FOREVERMORE", 4f);
+        _textFader.ShowText("\n\n\n\n\n\n\n\n\nTHE COUNTDOWN CURSE IS\nBROKEN FOREVERMORE", 4f);
         yield return new WaitForSecondsRealtime(5f);
-        _textFader.ShowText("THANKS FOR PLAYING!", 4f);
+        _textFader.ShowText("\n\n\n\n\n\n\n\n\nTHANKS FOR PLAYING!\n", 4f);
         yield return new WaitForSecondsRealtime(5f);
         paused = false;
         SceneManager.LoadScene("MainMenu");
     }
-
     private void GoToScene(string scene)
     {
         ScreenTransition.instance.TransitionOut(() =>

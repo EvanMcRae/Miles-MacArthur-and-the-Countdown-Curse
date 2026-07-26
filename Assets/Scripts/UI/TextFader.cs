@@ -14,10 +14,12 @@ public class TextFader : MonoBehaviour
     private int _numSteps;
 
     private float _fadeOutDelay;
+    [SerializeField] private bool _showOnStart = true;
 
     private void Awake()
     {
-        _text.enabled = true;
+        if (_showOnStart)
+            _text.enabled = true;
     }
 
     private void Start()
@@ -30,13 +32,14 @@ public class TextFader : MonoBehaviour
             );
         _numSteps = ScreenTransition.instance.NumSteps;
 
-        FadeIn();
+        if (_showOnStart)
+            FadeIn();
     }
 
     private void FadeIn()
     {
         Color c = _text.color;
-        c.a = 1;
+        c.a = 0;
         _text.color = c;
         float fade = 0;
 
@@ -66,6 +69,7 @@ public class TextFader : MonoBehaviour
 
     public void ShowCompletedText()
     {
+        _text.enabled = true;
         enabled = true;
         _fadeOutDelay = 4f;
         _text.text += " CLEARED";
@@ -74,9 +78,13 @@ public class TextFader : MonoBehaviour
 
     public void ShowText(string text, float delay = 4f)
     {
+        _text.enabled = true;
         enabled = true;
         _fadeOutDelay = delay;
         _text.text = text;
         FadeIn();
     }
+
+    public void ShowText(float delay = 4f) => ShowText(_text.text, delay);
+
 }
