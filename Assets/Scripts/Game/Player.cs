@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Tilemaps;
+using UnityEngine.WSA;
 
 public class Player : MonoBehaviour
 {
@@ -62,6 +63,7 @@ public class Player : MonoBehaviour
         if (GameManager.paused || GameManager.quitting || ScreenTransition.active) return;
 
         HandleMovement();
+        CheckIfWallLogged();
         if (inputSettings.actions["PickUpItem"].WasPressedThisFrame() && !inWater)
         {
             if (heldItem == null) PickUpItem();
@@ -346,6 +348,15 @@ public class Player : MonoBehaviour
             ));
     }
 
+    public Vector2Int GetDiagonal(int x, int y)
+    {
+        Vector2Int forwardDirection = new Vector2Int(xDirection, yDirection);
+        return new Vector2Int(
+            Mathf.FloorToInt(transform.position.x + x),
+            Mathf.FloorToInt((transform.position.y + y)
+            ));
+    }
+
     public Vector2Int GetPointRightOfPlayer()
     {
         Vector2Int forwardDirection = new Vector2Int(xDirection, yDirection);
@@ -426,5 +437,25 @@ public class Player : MonoBehaviour
     public void ShootFireball()
     {
         soundPlayer.PlaySound("Game.ShootFireball");
+    }
+
+    /// <summary>
+    /// Checks if all 8 tiles adjacent to the player are collideable,
+    /// if so, end the game (softlock).
+    /// </summary>
+    public void CheckIfWallLogged()
+    {
+        if (!CheckOpenTile(GetPointInFrontOfPlayer()) &&
+            !CheckOpenTile(GetPointBehindPlayer()) &&
+            !CheckOpenTile(GetPointLeftOfPlayer()) &&
+            !CheckOpenTile(GetPointRightOfPlayer()) &&
+            !CheckOpenTile(GetDiagonal(1, 1)) &&
+            !CheckOpenTile(GetDiagonal(-1, -1)) &&
+            !CheckOpenTile(GetDiagonal(-1, 1)) &&
+            !CheckOpenTile(GetDiagonal(1, -1))
+            )
+        {
+            GameManager.instance.Lose();
+        }
     }
 }
