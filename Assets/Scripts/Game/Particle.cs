@@ -3,9 +3,9 @@ using UnityEngine;
 public class Particle : MonoBehaviour
 {
     [SerializeField]
-    private int BeatsToClean;
+    public int BeatsToClean;
     //how many beats left unil this bomb disapears
-    private int BeatsLeftUnilClean;
+    public int BeatsLeftUnilClean;
     [SerializeField] private SoundPlayer soundPlayer;
     [SerializeField] private SoundClip sound;
 

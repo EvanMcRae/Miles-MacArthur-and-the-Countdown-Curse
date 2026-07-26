@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class TimedDoor : MonoBehaviour
 {
     public List<DoorScheduleEntry> schedule = new List<DoorScheduleEntry>();
 
-    public Collider2D cldr;
+    public BoxCollider2D cldr;
 
     ////Probably should be a different measure to not require using all 5 fill sprites?
     //public int TimePerStage = 4;
@@ -21,12 +23,35 @@ public class TimedDoor : MonoBehaviour
     [SerializeField] private SoundClip close, fill, open;
     private Sprite previousStage;
 
+    [SerializeField]
+    GameObject particleGameObject;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         AudioManager.OnBeat += Onbeat;
         anim.SetBool("IsPit", isPit);
         Onbeat(1);
+
+        int totalBeats = 0;
+        foreach (DoorScheduleEntry entry in schedule)
+        {
+            totalBeats += entry.beatNum;
+        }
+        
+        int columns = (int) cldr.size.x;
+        int rows = (int) cldr.size.y;
+        for(int i = 0; i < columns; i++)
+        {
+            for (int j = 0; j < rows; j++)
+            {
+                GameObject particleGO = Instantiate(particleGameObject, transform.position + new Vector3(-(int)(columns/2) + i - .5f * (columns % 2 - 1), -(int)(rows / 2) + j - .5f * (rows % 2 - 1), 0), Quaternion.identity, this.transform);
+                Particle particle = particleGO.GetComponent<Particle>();
+                particle.BeatsToClean = totalBeats;
+                particle.BeatsLeftUnilClean = totalBeats;
+
+            }
+        }
     }
 
     public void Update()
