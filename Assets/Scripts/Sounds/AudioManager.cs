@@ -78,6 +78,7 @@ public class AudioManager : MonoBehaviour
             s.pitch = 1f;
             s.dopplerLevel = 0;
             s.spatialBlend = 0;
+            s.reverbZoneMix = 0;
         }
 
         foreach (AudioSource s in BGM2)
@@ -89,6 +90,7 @@ public class AudioManager : MonoBehaviour
             s.pitch = 1f;
             s.dopplerLevel = 0;
             s.spatialBlend = 0;
+            s.reverbZoneMix = 0;
         }
 
         // Singleton pattern
