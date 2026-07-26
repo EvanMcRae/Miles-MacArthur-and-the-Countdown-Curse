@@ -84,12 +84,12 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 8540896369854744259, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  m_Color: {r: 1, g: 0.7198545, b: 0, a: 1}
+  m_Sprite: {fileID: -6835827975574979915, guid: a652655253427384f89bf8b712250e4b, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.09, y: 0.06}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -108,10 +108,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::SpriteAnimator
   spriterenderer: {fileID: 7549905149894103861}
   Sprites:
-  - {fileID: 8540896369854744259, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: -1330325498494715136, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: 298433744683331147, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
-  - {fileID: -2122696134524577869, guid: 80a1962ba2f5b1046ae312a50fc90a0d, type: 3}
+  - {fileID: -6835827975574979915, guid: a652655253427384f89bf8b712250e4b, type: 3}
+  - {fileID: 2399722515617334781, guid: a652655253427384f89bf8b712250e4b, type: 3}
+  - {fileID: 3814868487750490648, guid: a652655253427384f89bf8b712250e4b, type: 3}
+  - {fileID: 6166514944975571030, guid: a652655253427384f89bf8b712250e4b, type: 3}
+  - {fileID: 8347554849240731486, guid: a652655253427384f89bf8b712250e4b, type: 3}
+  - {fileID: -3187434478580013900, guid: a652655253427384f89bf8b712250e4b, type: 3}
   BeatsToChangeSprite: 0
 --- !u!114 &8957317224514986249
 MonoBehaviour:
