@@ -1,6 +1,8 @@
 # Miles MacArthur and the Countdown Curse
 
 Made for the 2026 GMTK Game Jam (theme: "Count Down").
+- Engine: Unity 6000.4.9f1
+- Development time: 96 hours
 
 Play here: https://evanmcrae.itch.io/miles-macarthur-and-the-countdown-curse
 
