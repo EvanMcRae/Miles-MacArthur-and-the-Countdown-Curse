@@ -1135,7 +1135,7 @@ MonoBehaviour:
   leftNav:
     m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 5529104745118072949}
+    m_SelectOnUp: {fileID: 646889728402565716}
     m_SelectOnDown: {fileID: 3871208964370345948}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
